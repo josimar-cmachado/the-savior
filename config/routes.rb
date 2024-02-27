@@ -15,4 +15,3 @@ Rails.application.routes.draw do
   get ":wedding_id/:couple", to: "weddings#show", as: :wedding_path
 
 end
-
