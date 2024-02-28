@@ -3,6 +3,7 @@ class Wedding < ApplicationRecord
   has_many :gifts, dependent: :destroy
   has_many :orders, through: :gifts, dependent: :destroy
   has_many :guests, dependent: :destroy
+  has_many_attached :photos
 
   validates :welcome_message, presence: true
   validates :address, presence: true

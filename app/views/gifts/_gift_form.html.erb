@@ -1,0 +1,18 @@
+<%= simple_form_for (@gift) do |f| %>
+  <div class="form-inputs scroll-form">
+    <%= f.error_notification %>
+    <% f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors
+    [:base].present? %>
+
+    <%= f.input :title, :label => 'Titulo'%>
+    <%= f.input :category, :label => 'Categoria' %>
+    <%= f.input :value, :label => 'Valor' %>
+    <%= f.input :total_quota, :label => 'Cotas' %>
+  </div>
+
+  <div class="form-actions pt-4">
+    <%= f.submit "Cadastrar", class: "btn btn-outline-warning shadow-sm"%>
+    <%= link_to "Voltar", user_profile_path(current_user), class: "btn btn-outline-warning shadow-sm" %>
+  </div>
+
+<% end %>
