@@ -1,11 +1,18 @@
 class GiftsController < ApplicationController
+  def index
+    @gifts = Gift.all
+  end
+
   def new
     @gift = Gift.new
   end
 
   def create
     @gift = Gift.new(gift_params)
+    @wedding = Wedding.find(params[:wedding_id])
+    @gift.wedding = @wedding
     @gift.save
+
     redirect_to @gift
   end
   def edit
@@ -18,13 +25,8 @@ class GiftsController < ApplicationController
     redirect_to @gift
   end
 
-  def update
-    @gift = Gift.find(params[:id])
-    @gift.update(gift_params)
-    redirect_to @gift
-  end
 
-  def delete
+  def destroy
     @gift = Gift.find(params[:id])
     @gift.destroy
     redirect_to gifts_path
@@ -32,6 +34,6 @@ class GiftsController < ApplicationController
 
   private
     def gift_params
-      params.require(:gift).permit(:title, :category, :value, :total_quota, :wedding_id)
+      params.require(:gift).permit(:title, :category, :value, :total_quota)
     end
 end

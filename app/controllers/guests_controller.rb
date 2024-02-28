@@ -5,6 +5,8 @@ class GuestsController < ApplicationController
 
   def create
     @guest = Guest.new(guest_params)
+    @wedding = Wedding.find(params[:wedding_id])
+    @guest.wedding = @wedding
     @guest.save
     redirect_to @guest
   end
@@ -15,6 +17,6 @@ class GuestsController < ApplicationController
 
   private
     def guest_params
-      params.require(:guest).permit(:full_name, :email, :phone, :confirmed, :wedding_id)
+      params.require(:guest).permit(:full_name, :email, :phone, :confirmed)
     end
 end
