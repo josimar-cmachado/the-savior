@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_24_153524) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_27_235423) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -64,16 +64,17 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_24_153524) do
     t.text "welcome_message"
     t.string "address"
     t.text "wedding_info"
-    t.string "tips"
+    t.text "tips"
     t.date "date"
     t.time "time"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "partner_full_name"
     t.string "partner_email"
     t.string "partner_profile"
     t.string "partner_phone"
+    t.string "partner_first_name"
+    t.string "partner_last_name"
     t.index ["user_id"], name: "index_weddings_on_user_id"
   end
 
