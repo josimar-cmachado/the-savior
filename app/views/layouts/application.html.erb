@@ -23,8 +23,9 @@
 
   <body>
     <%= render "shared/navbar" %>
+    <div class="body-content">
+      <%= yield %>
+    </div>
     <%= render "shared/flashes" %>
-
-    <%= yield %>
   </body>
 </html>

@@ -12,7 +12,7 @@ class Wedding < ApplicationRecord
   validates :time, presence: true
   validates :partner_email, presence: true
   validates :partner_profile, presence: true
-  validates :partner_phone, presence: true
+  validates :partner_phone, presence: true, uniqueness: true, length: { minimum: 10, maximum: 15 }
   validates :partner_first_name, presence: true
   validates :partner_last_name, presence: true
 end

@@ -50,8 +50,8 @@ class WeddingsController < ApplicationController
   def wedding_params
     params.require(:wedding).permit(:welcome_message,
                                     :address, :wedding_info,
-                                    :tips, :date, :time, :partner_full_name,
-                                    :partner_email, :partner_profile,
+                                    :tips, :date, :time, :partner_first_name,
+                                    :partner_last_name, :partner_email, :partner_profile,
                                     :partner_phone)
   end
 end
