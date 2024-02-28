@@ -1,0 +1,19 @@
+<div class="container m-5 ps-5">
+  <h1>Olá, <%= current_user.first_name %></h1>
+</div>
+
+<% if !@user_wedding.empty? %>
+  <div class="container m-5 ps-5">
+    <h2>Seu casamento</h2>
+    <p>Seu casamento foi cadastrado com sucesso. Clique no botão abaixo para visualizar.</p>
+    <%= link_to "Visualizar casamento", wedding_info_path(@user_wedding, @couple), class: "btn btn-outline-primary shadow-sm" %>
+    <%= link_to "Editar casamento", edit_wedding_path(@user_wedding), class: "btn btn-outline-warning shadow-sm" %>
+    <%= link_to "Remover casamento", wedding_path(@user_wedding), data: { turbo_method: :delete, turbo_confirm: "Você tem certeza?" }, class: "btn btn-outline-danger shadow-sm"%>
+  </div>
+<% else %>
+  <div class="container m-5 ps-5">
+    <h2>Seu casamento</h2>
+    <p>Seu casamento ainda não foi cadastrado. Clique no botão abaixo para cadastrar.</p>
+    <%= link_to "Cadastrar casamento", new_wedding_path, class: "btn btn-outline-warning shadow-sm" %>
+  </div>
+<% end %>
