@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
   resources :weddings, except: :show do
     resources :guests, only: %i[new create edit update destroy]
-    resources :gifts, only: %i[new create edit update destroy] do
+    resources :gifts, only: %i[index new create edit update destroy] do
       resources :orders, only: %i[new create]
     end
   end

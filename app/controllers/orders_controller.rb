@@ -5,6 +5,8 @@ class OrdersController < ApplicationController
 
   def create
     @order = Order.new(order_params)
+    @gift = Gift.find(params[:gift_id])
+    @order.gift = @gift
     @order.save
     redirect_to @order
   end
