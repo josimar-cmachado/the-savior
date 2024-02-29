@@ -13,7 +13,7 @@ class GiftsController < ApplicationController
     @gift.wedding = @wedding
     @gift.save
 
-    redirect_to @gift
+    redirect_to user_profile_path(current_user)
   end
   def edit
     @gift = Gift.find(params[:id])
@@ -22,14 +22,14 @@ class GiftsController < ApplicationController
   def update
     @gift = Gift.find(params[:id])
     @gift.update(gift_params)
-    redirect_to @gift
+    redirect_to user_profile_path(current_user)
   end
 
 
   def destroy
     @gift = Gift.find(params[:id])
     @gift.destroy
-    redirect_to gifts_path
+    redirect_to user_profile_path(current_user)
   end
 
   private

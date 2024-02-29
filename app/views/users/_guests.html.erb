@@ -1,0 +1,21 @@
+<% if @wedding_guests.empty? %>
+  <div class="col-sm-4 border-end">
+    <h2>Lista de convidados</h2>
+    <p>Lista de convidados ainda não cadastrada. Clique no botão abaixo para adicionar.</p>
+    <%= link_to "Adicionar lista de convidados", new_wedding_guest_path(@user_wedding), class: "btn btn-outline-success shadow-sm" %>
+  </div>
+<% else %>
+  <div class="col-sm-4">
+    <h2>Lista de convidados</h2>
+    <p>Lista de convidados cadastrada. Clique no botão abaixo para visualizar.</p>
+    <%= link_to "Visualizar", wedding_guest_path(@user_wedding), class: "btn btn-outline-primary shadow-sm" %>
+    <%= link_to "Editar", '#', class: "btn btn-outline-warning shadow-sm" %>
+    <%= link_to "Remover", '#', data: { turbo_method: :delete, turbo_confirm: "Você tem certeza?" }, class: "btn btn-outline-danger shadow-sm" %>
+    <p class="mt-1">Total: <%= @wedding_guests.count %></p>
+    <% @wedding_guests.each do |guest| %>
+      <ul class="mt-4 pt-3 border-top">
+        <li><%= guest.first_name %></li>
+      </ul>
+    <% end %>
+  </div>
+<% end %>
