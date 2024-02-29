@@ -1,35 +1,35 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon" style="height: 60px;">
   <div class="container-fluid">
-    <%= link_to "#", class: "navbar-brand" do %>
-      <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
+    <%= link_to "/", class: "m-0 ms-2" do %>
+      <%= image_tag('Logo_site_oficial.png', class: "vh-4 logo-nav", height: 60) %>
     <% end %>
-
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
+      <ul class="navbar-nav me-auto align-items-center">
         <% if user_signed_in? %>
-          <li class="nav-item active">
-            <%= link_to "Home", "#", class: "nav-link" %>
+          <li class="nav-item active me-2">
+            <p class="navbar-text m-0 text-dark" >Olá, <%= current_user.first_name %> </p>
           </li>
-          <li class="nav-item">
-            <%= link_to "Messages", "#", class: "nav-link" %>
-          </li>
-          <li class="nav-item dropdown">
-          <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar", alt: "dropdown menu" %>
+          <li class="nav-item dropdown position-static d-flex align-items-center ms-1">
+          <a href="#" class="me-2 text-decoration-none" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <% if current_user.photo.key %>
+            <%= cl_image_tag(current_user.photo.key, height: 45, width: 45, crop: :thumb, class: "avatar-small", alt: "dropdown menu", gravity: :face) %>
+          <% else %>
+            <span class="d-flex justify-content-center align-items-center text-warning fs-5 avatar-small" style="background-color:#F4E0BE">
+              <%= current_user.first_name[0].capitalize %>
+            </span>
+          <% end %>
           </a>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Action", "#", class: "dropdown-item" %>
-              <%= link_to "Another action", "#", class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+            <div class="dropdown-menu dropdown-menu-end " aria-labelledby="navbarDropdown">
+              <%= link_to "Dashboard", user_profile_path(current_user), class: "dropdown-item" %>
+              <%= link_to "Sair", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
           </li>
         <% else %>
           <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+            <%= link_to "Entrar", new_user_session_path, class: "nav-link text-warning" %>
           </li>
         <% end %>
       </ul>
