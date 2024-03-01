@@ -1,17 +1,15 @@
-<%= simple_form_for [@wedding, @gift] do |f| %>
+<%= simple_form_for [@wedding, @gift, @order] do |f| %>
   <div class="form-inputs scroll-form">
     <%= f.error_notification %>
     <% f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors
     [:base].present? %>
 
-    <%= f.input :title, :label => 'Titulo'%>
-    <%= f.input :category, :label => 'Categoria' %>
-    <%= f.input :value, :label => 'Valor' %>
-    <%= f.input :total_quota, :label => 'Cotas' %>
+    <%= f.input :full_name, :label => 'Nome completo' %>
+    <%= f.input :message, :label => 'Deixe uma mensagem para os noivos'%>
   </div>
 
   <div class="form-actions pt-4">
-    <%= f.submit "Cadastrar", class: "btn btn-outline-warning shadow-sm"%>
+    <%= f.submit "Finalizar", class: "btn btn-outline-warning shadow-sm"%>
     <%= link_to "Voltar", user_profile_path(current_user), class: "btn btn-outline-warning shadow-sm" %>
   </div>
 

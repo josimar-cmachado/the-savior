@@ -6,4 +6,6 @@ class Gift < ApplicationRecord
   validates :title, presence: true, uniqueness: true
   validates :category, presence: true
   validates :value, presence: true
+
+  has_one_attached :photo
 end
