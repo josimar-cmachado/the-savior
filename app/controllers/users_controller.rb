@@ -13,7 +13,9 @@ class UsersController < ApplicationController
     @guest = Guest.new
 
     # Orders info
-    @wedding_orders = Order.where(wedding: @user_wedding)
+    if @wedding_gifts != []
+      @wedding_orders = @user_wedding.first.gifts.map(&:orders)
+    end
 
     # Wedding info
     @name = "#{current_user.first_name} #{current_user.last_name}"
