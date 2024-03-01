@@ -18,7 +18,7 @@
     <%= f.input :partner_last_name, :label => 'Último nome do parceiro(a)' %>
     <%= f.input :partner_email, :label => 'Email do parceiro(a)' %>
     <%= f.input :partner_phone, :label => 'Telefone do parceiro(a)' %>
-    <%= f.input :photo, as: :file, :label => 'Foto do parceiro(a)' %>
+    <%= f.input :photos, as: :file, :label => 'Fotos', input_html: { multiple: true } %>
   </div>
 
   <div class="form-actions pt-4">

@@ -12,6 +12,9 @@ class UsersController < ApplicationController
     @wedding_guests = Guest.where(wedding: @user_wedding)
     @guest = Guest.new
 
+    # Orders info
+    @wedding_orders = Order.where(wedding: @user_wedding)
+
     # Wedding info
     @name = "#{current_user.first_name} #{current_user.last_name}"
     @initials = "#{current_user.first_name[0]}#{current_user.last_name[0]}"

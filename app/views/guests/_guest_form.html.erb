@@ -1,4 +1,4 @@
-<%= simple_form_for (@guest) do |f| %>
+<%= simple_form_for [@wedding, @guest] do |f| %>
   <div class="form-inputs scroll-form">
     <%= f.error_notification %>
     <% f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors

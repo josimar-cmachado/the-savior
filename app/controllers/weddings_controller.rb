@@ -4,8 +4,9 @@ class WeddingsController < ApplicationController
 
   def show
     @wedding = Wedding.find(params[:wedding_id])
+    @user_wedding = Wedding.where(user: current_user).to_a
     if @wedding
-      render partial: "weddings/custom", locals: { wedding: @wedding }
+      render :show
     else
       redirect_to root_path
     end
@@ -52,6 +53,6 @@ class WeddingsController < ApplicationController
                                     :address, :wedding_info,
                                     :tips, :date, :time, :partner_first_name,
                                     :partner_last_name, :partner_email, :partner_profile,
-                                    :partner_phone)
+                                    :partner_phone, photos: [])
   end
 end
