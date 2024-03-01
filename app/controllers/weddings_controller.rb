@@ -53,6 +53,7 @@ class WeddingsController < ApplicationController
                                     :address, :wedding_info,
                                     :tips, :date, :time, :partner_first_name,
                                     :partner_last_name, :partner_email, :partner_profile,
-                                    :partner_phone, photos: [])
+                                    :partner_phone, :couple_photo, :partner_one_photo,
+                                    :partner_two_photo)
   end
 end

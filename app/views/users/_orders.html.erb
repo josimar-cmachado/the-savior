@@ -1,4 +1,4 @@
-<% if @wedding_orders.empty? %>
+<% if wedding_orders.empty? %>
   <div class="col-sm-4 border-end">
     <h2>Lista de compras</h2>
     <p>Ainda não há nenhuma compra</p>
@@ -7,8 +7,8 @@
   <div class="col-sm-4 border-end">
     <h2>Lista de compras</h2>
     <%= link_to "Visualizar", '#', class: "btn btn-outline-primary shadow-sm" %>
-    <p class="mt-1">Total: <%= @wedding_orders.count %></p>
-    <% @wedding_orders.each do |order| %>
+    <p class="mt-1">Total: <%= wedding_orders.count %></p>
+    <% wedding_orders.each do |order| %>
       <ul class="mt-4 pt-3 border-top">
         <div>
           <p><%= order.message %></p>
