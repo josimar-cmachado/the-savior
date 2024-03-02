@@ -1,7 +1,7 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon" style="height: 60px;">
   <div class="container-fluid">
     <%= link_to "/", class: "m-0 ms-2" do %>
-      <%= image_tag('Logo_site_oficial.png', class: "vh-4 logo-nav", height: 60) %>
+      <%= image_tag('Logo_site_oficial.png', class: "vh-4 logo-nav border-none", height: 60) %>
     <% end %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -17,7 +17,7 @@
           <% if current_user.photo.key %>
             <%= cl_image_tag(current_user.photo.key, height: 45, width: 45, crop: :thumb, class: "avatar-small", alt: "dropdown menu", gravity: :face) %>
           <% else %>
-            <span class="d-flex justify-content-center align-items-center text-warning fs-5 avatar-small" style="background-color:#F4E0BE">
+            <span class="d-flex justify-content-center align-items-center text-warning fs-5 avatar" style="background-color:#F4E0BE">
               <%= current_user.first_name[0].capitalize %>
             </span>
           <% end %>

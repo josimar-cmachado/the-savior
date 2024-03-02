@@ -1,11 +1,12 @@
-<% if wedding_orders.empty? %>
+<% if wedding_orders %>
   <div class="col-sm-4 border-end">
-    <h2>Lista de compras</h2>
+    <h2>Presentes recebidos <i class="fa-regular fa-rectangle-list"></i></h2>
     <p>Ainda não há nenhuma compra</p>
   </div>
 <% else %>
   <div class="col-sm-4 border-end">
-    <h2>Lista de compras</h2>
+    <h2>Presentes recebidos <i class="fa-regular fa-rectangle-list"></i></h2>
+    <p>Veja as mensagens de seus convidados</p>
     <%= link_to "Visualizar", '#', class: "btn btn-outline-primary shadow-sm" %>
     <p class="mt-1">Total: <%= wedding_orders.count %></p>
     <% wedding_orders.each do |order| %>

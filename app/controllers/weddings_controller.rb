@@ -5,6 +5,8 @@ class WeddingsController < ApplicationController
   def show
     @wedding = Wedding.find(params[:wedding_id])
     @user_wedding = Wedding.where(user: current_user).to_a
+    @partner_name = @user_wedding.map { |partner| "#{partner.partner_first_name}" }.first
+    @days_left = (@wedding.date - Date.today).to_i
     if @wedding
       render :show
     else
