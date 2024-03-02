@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= favicon_link_tag %>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,200;0,300;0,400;0,800;1,100;1,700;1,800&family=Protest+Guerrilla&family=Protest+Riot&family=Protest+Strike&family=Roboto+Slab:wght@300;400;600;800&display=swap" rel="stylesheet">
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
@@ -27,5 +28,6 @@
       <%= yield %>
     </div>
     <%= render "shared/flashes" %>
+    <%= render "shared/footer" %>
   </body>
 </html>

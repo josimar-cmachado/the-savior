@@ -11,8 +11,16 @@
 
 .cards img{
   width: auto;
- border-radius: 6px;
+  border-radius: 6px;
 }
+
+.card-body-size {
+  height: 280px;
+}
+.text-wrap {
+  height: 230px;
+}
+
 .container1 {
   padding: 2px 16px;
   margin-top: 20px;
