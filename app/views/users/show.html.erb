@@ -4,16 +4,10 @@
 
 <% if !@user_wedding.empty? %>
   <div class="row m-5 ps-5">
-    <div class="col-sm-4 border-end">
-      <h2>Seu casamento</h2>
-      <p>Seu casamento foi cadastrado com sucesso. Clique no botão abaixo para visualizar.</p>
-      <%= link_to "Visualizar", wedding_info_path(@user_wedding, @couple), class: "btn btn-outline-primary shadow-sm" %>
-      <%= link_to "Editar", edit_wedding_path(@user_wedding), class: "btn btn-outline-warning shadow-sm" %>
-      <%= link_to "Remover", wedding_path(@user_wedding), data: { turbo_method: :delete, turbo_confirm: "Você tem certeza?" }, class: "btn btn-outline-danger shadow-sm"%>
-    </div>
+    <%= render 'wedding' %>
     <%= render 'gifts' %>
     <%= render 'guests' %>
-    <%# render partial: 'orders', locals: { wedding_orders: @wedding_orders } %>
+    <%= render partial: 'orders', locals: { wedding_orders: @wedding_orders } %>
   </div>
 <% else %>
   <div class="m-5 ps-5">

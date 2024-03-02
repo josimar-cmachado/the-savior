@@ -1,0 +1,13 @@
+ <div class="col-sm-4 border-end">
+  <h2>Seu casamento <i class="fa-solid fa-ring" style="color: #ffe485;"></i></h2>
+  <p>Seu casamento foi cadastrado com sucesso. Clique no botão abaixo para visualizar.</p>
+  <%= link_to wedding_info_path(@user_wedding, @couple) do %>
+    <div><i class="fa-regular fa-eye"></i></div>
+  <% end %>
+  <%= link_to edit_wedding_path(@user_wedding) do %>
+    <div><i class="fa-solid fa-pen"></i></div>
+  <% end %>
+  <%= link_to wedding_path(@user_wedding), data: { turbo_method: :delete, turbo_confirm: "Você tem certeza?" } do %>
+    <div><i class="fa-solid fa-xmark" style="color: #ff0000;"></i></div>
+  <% end %>
+</div>
