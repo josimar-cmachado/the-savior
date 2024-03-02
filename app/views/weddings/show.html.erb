@@ -2,21 +2,22 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <h1>Welcome Message</h1>
-      <h4><%= @wedding.welcome_message%></h4>
-      <h2>Informações</h2>
-      <p><%= @wedding.wedding_info %></p>
-      <h2>Data e horário</h2>
-      <p><%= @wedding.date %></p>
-      <p><%= @wedding.time %></p>
-      <h2>Endereço</h2>
-      <p><%= @wedding.address %></p>
-      <h2>Dicas</h2>
-      <p><%= @wedding.tips %></p>
+      <div class="d-flex flex-column align-items-center" data-bs-spy="scroll" data-bs-target="#anchors-nav-wed" data-bs-smooth-scroll="true" class="scrollspy-example" tabindex="0">
+        <div>
+          <h1 class="text-center">Sejam bem-vindos!<br>Aqui começa a história desse grande dia!</h1>
+        </div>
+        <div class="text-center m-5">
+          <%= cl_image_tag @wedding.couple_photo.key, height: 300, width: 400, crop: :fill %>
+        </div>
+        <h5 class="text-center w-50"><%= @wedding.welcome_message%></h4>
+        <%= render "confirmation" %>
+        <%= render "events" %>
+        <%= render "tips" %>
+        <%= render 'messages' %>
+        <%= render 'final_message' %>
+      </div>
     </div>
   </div>
 </div>
 
-<% @wedding.photos.each do |photo| %>
-  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-<% end %>
+<%= render 'footer' %>
