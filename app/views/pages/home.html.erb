@@ -1,42 +1,61 @@
 <%= render 'shared/banner' %>
 
-<div class="container mt-5 bpages">
+<div class="container mt-5">
   <div class="row">
     <div class="col-md-12 text-center">
       <h2>Nosso produto</h2>
       <p> Nós entendemos que cada casamento é único, e é por isso que oferecemos uma plataforma que permite personalização total. Do design do site à lista de presentes e ao gerenciamento de RSVP, nosso objetivo é proporcionar uma experiência que atenda às necessidades específicas de cada casal. Com recursos intuitivos e suporte excepcional, estamos aqui para ajudar a tornar o seu grande dia ainda mais especial </p>
     </div>
   </div>
-  <div class="row justify-content-center">
+  <div class="row d-flex aling-items-center mb-5">
     <div class="col-md-4">
-      <div class="card">
+      <div class="card bg-info">
         <img src="<%= asset_path 'img_casamento_1.jpg' %>" class="card-img-top" alt="Image 1">
-        <div class="card-body">
+        <div class="card-body card-body-size">
+        <div class="text-wrap">
+
           <h5 class="card-title">Lista de Presentes Versátil</h5>
           <p class="card-text">Ofereça aos seus convidados uma variedade de opções de presentes, desde itens tradicionais até experiências únicas. Permita que eles contribuam para sua lua de mel dos sonhos, doem para instituições de caridade ou escolham entre uma seleção cuidadosamente curada de produtos exclusivos.</p>
         </div>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="card">
-        <img src="<%= asset_path 'img_casamento_2.jpg' %>" class="card-img-top" alt="Image 2">
-        <div class="card-body">
-          <h5 class="card-title">Gerenciamento de RSVP Simplificado</h5>
-          <p class="card-text">Facilite o processo de confirmação de presença para seus convidados. Com um sistema de RSVP online intuitivo, eles podem confirmar sua presença, selecionar suas refeições e até mesmo informar sobre restrições alimentares de forma rápida e fácil.</p>
+          <div class="card-footer">
+            Card footer
+          </div>
         </div>
       </div>
     </div>
     <div class="col-md-4">
-      <div class="card">
+      <div class="card bg-info">
+        <img src="<%= asset_path 'img_casamento_2.jpg' %>" class="card-img-top" alt="Image 2">
+        <div class="card-body card-body-size">
+        <div class="text-wrap">
+
+          <h5 class="card-title">Gerenciamento de RSVP Simplificado</h5>
+          <p class="card-text"> Facilite o processo de confirmação de presença para seus convidados. Com um sistema de RSVP online intuitivo, eles podem confirmar sua presença, selecionar suas refeições e até mesmo informar sobre restrições alimentares de forma rápida e fácil.</p>
+        </div>
+          <div class="card-footer">
+            Card footer
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card bg-info">
         <img src="<%= asset_path 'img_casamento_3.jpg' %>" class="card-img-top" alt="Image 3">
-        <div class="card-body">
+        <div class="card-body card-body-size">
+        <div class="text-wrap">
+
           <h5 class="card-title">Gestão de Presentes e Agradecimentos</h5>
           <p class="card-text">Simplifique o processo de agradecimento aos seus convidados. Com ferramentas de gerenciamento de presentes integradas, acompanhe facilmente quem deu o quê e envie agradecimentos personalizados de forma rápida e eficiente</p>
+        </div>
+          <div class="card-footer">
+            Card footer
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-
-<%= render 'shared/cardh' %>
+<div class="container mt-5 d-flex justify-content-center">
+  <%= render 'shared/cardh' %>
+ </div>
