@@ -6,12 +6,13 @@ Rails.application.routes.draw do
   resources :weddings, except: :show do
     resources :guests, only: %i[new create edit update destroy]
     delete "delete_all_guests", to: "guests#delete_all"
-    resources :gifts do
+    resources :gifts, only: %i[new create edit update destroy] do
       resources :orders, only: %i[new create]
     end
     delete "delete_all_gifts", to: "gifts#delete_all"
   end
 
   get ":wedding_id/:couple", to: "weddings#show", as: :wedding_info
+  get ":wedding_id/:couple/presentes", to: "gifts#index", as: :presentes
   get "users/:id/profile", to: "users#show", as: :user_profile
 end
