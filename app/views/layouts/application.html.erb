@@ -28,6 +28,6 @@
       <%= yield %>
     </div>
     <%= render "shared/flashes" %>
-    <%= render "shared/footer" %>
+    <%= render "shared/footer" unless controller_name == 'users' && action_name == 'show' || controller_name == 'weddings' && action_name == 'show' %>
   </body>
 </html>
