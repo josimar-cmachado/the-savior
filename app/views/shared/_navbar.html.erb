@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon" style="height: 60px;">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon" id="navbar" style="height: 70px;">
   <div class="container-fluid">
     <%= link_to "/", class: "m-0 ms-2" do %>
       <%= image_tag('Logo_site_oficial.png', class: "vh-4 logo-nav border-none", height: 60) %>
@@ -28,9 +28,23 @@
             </div>
           </li>
         <% else %>
+
           <li class="nav-item">
-            <%= link_to "Entrar", new_user_session_path, class: "nav-link text-warning" %>
+           <%= link_to "Nossos Produtos", root_path(anchor: "products"), class: "nav-link text-dark" %>
+         </li>
+
+          <li class="nav-item">
+              <%= link_to "Nossos Diferenciais", root_path(anchor: "diferenciais"), class: "nav-link text-dark" %>
           </li>
+
+          <li class="nav-item">
+            <%= link_to "Cadastre-se", new_user_registration_path, class: "nav-link text-dark" %>
+          </li>
+
+          <li class="nav-item">
+            <%= link_to "Login", new_user_session_path, class: "nav-link text-dark" %>
+          </li>
+
         <% end %>
       </ul>
     </div>
