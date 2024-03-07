@@ -1,0 +1,9 @@
+.banner-text {
+  position: absolute;
+  top: 45%;
+  left: 40%;
+  transform: translate(-40%, -60%);
+  font-size: 24px; /* Ajuste conforme necessário */
+  color: white;
+  opacity: floor($number: 5);
+}
