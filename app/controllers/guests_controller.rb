@@ -29,6 +29,19 @@ class GuestsController < ApplicationController
     @wedding = Wedding.find(params[:wedding_id])
   end
 
+  def update
+  @wedding = Wedding.find(params[:wedding_id])
+  @guest = @wedding.guests.find(params[:id])
+    respond_to do |format|
+      if @guest.update(guest_params)
+        format.json { render json: { status: :success, message: "Presença confirmada com sucesso!" } }
+      else
+        format.json { render json: { status: :error, errors: @guest.errors.full_messages } }
+      end
+    end
+  end
+
+
   def destroy
     @guest = Guest.find(params[:id])
     @guest.destroy
@@ -38,6 +51,6 @@ class GuestsController < ApplicationController
   private
 
   def guest_params
-    params.require(:guest).permit(:full_name, :email, :phone, :confirmed)
+    params.require(:guest).permit(:full_name, :email, :phone, :confirmed, :confirmation_message)
   end
 end

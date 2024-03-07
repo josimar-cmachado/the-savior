@@ -1,18 +1,21 @@
-<div class="container m-5 ps-5">
-  <h1>Olá, <%= current_user.first_name %></h1>
+<div class="h-100 vh-75 mt-5">
+  <div class="d-flex bg-white h-100 py-5 shadow-sm" data-controller="toggle">
+    <div class="border m-3 p-2">
+      <div class="flex-grow-1 d-flex flex-column justify-content-between">
+        <div class="border h-25 bg-warning m-3 rounded-4 d-flex justify-content-center align-items-center btn shadow" data-action="click->toggle#fireChoice">
+          <h4 class="fw-bold text-white m-0">Meus dados</h4>
+        </div>
+        <div class="flex-grow-1 border h-25 bg-warning m-3 rounded-4 d-flex justify-content-center align-items-center btn shadow" data-action="click->toggle#fireChoice">
+          <h4 class="fw-bold text-white m-0">Meu casamento</h4>
+        </div>
+        <div class="flex-grow-1 border h-25 bg-warning m-3 rounded-4 d-flex justify-content-center align-items-center btn shadow">
+          <%= link_to 'Retornar', root_path, class: "h4 text-decoration-none fw-bold text-white m-0" %>
+        </div>
+      </div>
+    </div>
+    <div class="flex-grow-1 h-100 p-2">
+      <%= render 'dados_user' %>
+      <%= render 'dados_casamento' %>
+    </div>
+  </div>
 </div>
-
-<% if !@user_wedding.empty? %>
-  <div class="row m-5 ps-5">
-    <%= render 'wedding' %>
-    <%= render 'gifts' %>
-    <%= render 'guests' %>
-    <%= render partial: 'orders', locals: { wedding_orders: @wedding_orders } %>
-  </div>
-<% else %>
-  <div class="m-5 ps-5">
-    <h2>Seu casamento</h2>
-    <p>Seu casamento ainda não foi cadastrado. Clique no botão abaixo para cadastrar.</p>
-    <%= link_to "Cadastrar casamento", new_wedding_path, class: "btn btn-outline-success shadow-sm" %>
-  </div>
-<% end %>

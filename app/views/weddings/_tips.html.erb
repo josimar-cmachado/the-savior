@@ -1,2 +1,6 @@
-<h2 id="dicas" class="mb-4">Dicas</h2>
-<p class="text-center w-75"><%= @wedding.tips %></p>
+<% if @user_wedding_tips != [] %>
+  <% @user_wedding_tips.each do |tip| %>
+  <h2 id="dicas" class="mb-4"><%= tip.title %></h2>
+  <p class="text-center w-75"><%= tip.content %></p>
+  <% end %>
+<% end %>

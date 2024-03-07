@@ -6,14 +6,15 @@
 
     <%= f.input :welcome_message, :label => 'Mensagem de boas-vindas'%>
     <%= f.input :address, :label => 'Endereço do casamento' %>
+    <%# f.input :address, :label => 'Endereço do casamento',
+                input_html: {data: {address_autocomplete_target: "address"}},
+                wrapper_html: {data: {controller: "address-autocomplete",
+                address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}, class: "d-none"} %>
     <%= f.input :date, :label => 'Data do casamento' %>
     <%= f.input :time, :label => 'Horário do casamento' %>
     <%= f.input :wedding_info,
                 :label => 'Informações sobre o casamento',
                 :placeholder => 'Ex: Horário da cerimônia, vestimenta, etc' %>
-    <%= f.input :tips,
-                :label => 'Dicas',
-                :placeholder => 'Ex: Algumas dicas sobre a região'%>
     <%= f.input :partner_first_name, :label => 'Primeiro nome do parceiro(a)' %>
     <%= f.input :partner_last_name, :label => 'Último nome do parceiro(a)' %>
     <%= f.input :partner_profile, :label => 'Noivo ou noiva?' %>

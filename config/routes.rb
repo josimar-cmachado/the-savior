@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       resources :orders, only: %i[new create]
     end
     delete "delete_all_gifts", to: "gifts#delete_all"
+    resources :tips, only: %i[new create edit update destroy]
   end
   get ":wedding_id/:couple", to: "weddings#show", as: :wedding_info
   get ":wedding_id/:couple/presentes", to: "gifts#index", as: :presentes

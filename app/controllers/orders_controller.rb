@@ -10,8 +10,8 @@ class OrdersController < ApplicationController
     @gift = Gift.find(params[:gift_id])
     @order.gift = @gift
     @user_wedding = Wedding.where(user: current_user).to_a
-    @partner_name = @user_wedding.map { |partner| "#{partner.partner_first_name}" }.first
-    @couple = "#{current_user.first_name}&#{@partner_name}"
+    @partner_first_name = @user_wedding.map { |partner| "#{partner.partner_first_name}" }.first
+    @couple = "#{current_user.first_name}&#{@partner_first_name}"
     if @order.save
       flash[:notice] = "Obrigado(a) pela sua contribuição!"
       redirect_to wedding_info_path(@user_wedding, @couple)
