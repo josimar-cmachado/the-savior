@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
-  static targets = ["formGuestElement", "guestForm", "guestEmail", "guestPhone", "errorMessages", "guestEmailError", "guestPhoneError", "successMessages", "confirmationMessages"];
+  static targets = ["formGuestElement", "guestForm", "guestEmail", "guestPhone", "errorMessages", "guestEmailError", "guestPhoneError", "successMessages", "confirmationMessages", "confirmationMessage"];
   static values = { guests: String };
 
   connect() {
@@ -95,6 +95,9 @@ export default class extends Controller {
     const phone = this.guestPhoneTarget.value;
     const selectedValue = this.element.querySelector('input[name="attendance"]:checked').value;
 
+    // Obtém a mensagem digitada pelo convidado
+    const message = this.confirmationMessageTarget.value;
+
     // Verifica se o email e o telefone digitados correspondem aos do convidado encontrado
     if (email !== this.foundGuest.email || phone !== this.foundGuest.phone) {
       this.showError('Email ou telefone incorretos');
@@ -111,14 +114,17 @@ export default class extends Controller {
     // Obter o token CSRF do meta tag
     const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
-    // Realizar a requisição AJAX para atualizar o atributo confirmed do convidado
+    // Realizar a requisição AJAX para atualizar os atributos confirmed e confirmation_message do convidado
     const response = await fetch(url, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
         'X-CSRF-Token': csrfToken // Inclui o token CSRF no cabeçalho da requisição
       },
-      body: JSON.stringify({ confirmed: selectedValue === 'confirm' }),
+      body: JSON.stringify({
+        confirmed: selectedValue === 'confirm',
+        confirmation_message: message
+      }),
     });
 
     if (response.ok) {

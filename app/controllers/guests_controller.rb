@@ -34,10 +34,8 @@ class GuestsController < ApplicationController
   @guest = @wedding.guests.find(params[:id])
     respond_to do |format|
       if @guest.update(guest_params)
-        format.html { redirect_to user_profile_path(current_user), notice: 'Convidado editado com sucesso!' }
         format.json { render json: { status: :success, message: "Presença confirmada com sucesso!" } }
       else
-        format.html { render :edit }
         format.json { render json: { status: :error, errors: @guest.errors.full_messages } }
       end
     end
@@ -53,6 +51,6 @@ class GuestsController < ApplicationController
   private
 
   def guest_params
-    params.require(:guest).permit(:full_name, :email, :phone, :confirmed)
+    params.require(:guest).permit(:full_name, :email, :phone, :confirmed, :confirmation_message)
   end
 end

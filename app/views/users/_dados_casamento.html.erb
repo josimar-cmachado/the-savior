@@ -1,0 +1,181 @@
+<div class="d-none d-flex flex-column m-3 p-2 bg-warning rounded-4 shadow" style="height:60vh" data-toggle-target="togglableElementChoiceCasamento">
+  <div class="flex-grow-1 d-flex justify-content-between">
+    <div class="border h-25 bg-warning m-3 rounded-4 d-flex justify-content-center align-items-center btn shadow" data-action="click->toggle#fireCasamentoInfo">
+      <h4 class="fw-bold text-white m-0">Casamento</h4>
+    </div>
+    <div class="flex-grow-1 border h-25 bg-warning m-3 rounded-4 d-flex justify-content-center align-items-center btn shadow" data-action="click->toggle#firePresentesInfo">
+      <h4 class="fw-bold text-white m-0">Lista de Presentes</h4>
+    </div>
+    <div class="flex-grow-1 border h-25 bg-warning m-3 rounded-4 d-flex justify-content-center align-items-center btn shadow" data-action="click->toggle#fireConvidadosInfo">
+      <h4 class="fw-bold text-white m-0">Lista de Convidados</h4>
+    </div>
+    <div class="flex-grow-1 border h-25 bg-warning m-3 rounded-4 d-flex justify-content-center align-items-center btn shadow" data-action="click->toggle#firePresentesRecebidos">
+      <h4 class="fw-bold text-white m-0">Presentes Recebidos</h4>
+    </div>
+  </div>
+
+  <div class="w-100 h-100 border bg-white rounded-4 p-4" data-toggle-target="togglableElement" data-toggle-element="casamentoInfo">
+    <div class="border h-100 shadow-sm rounded-3 mx-1 mb-2 bg-users d-flex flex-column align-items-center">
+      <% if !@user_wedding.empty? %>
+        <div class="rounded-4 d-flex">
+          <p>Seu casamento foi criado com sucesso! <i class="fa-solid fa-heart" style="color: #ff0026;"></i></p></p>
+        </div>
+        <div class="d-flex">
+          <div class="d-flex">
+            <p>Visualize o seu casamento</p>
+            <%= link_to wedding_info_path(@user_wedding, @couple) do %>
+              <div><i class="fa-regular fa-eye me-2"></i></div>
+            <% end %>
+          </div>
+          <div class="d-flex">
+            <p>Alguma informação faltou ou ficou errada? Sem problemas, clique aqui e edite!</p>
+            <%= link_to edit_wedding_path(@user_wedding) do %>
+              <div><i class="fa-solid fa-pen me-2"></i></div>
+            <% end %>
+          </div>
+          <div class="d-flex">
+            <p>Insatisfeito? Remova o seu casamento e crie um novo!</p>
+            <%= link_to wedding_path(@user_wedding), data: { turbo_method: :delete, turbo_confirm: "Você tem certeza?" } do %>
+              <div><i class="fa-solid fa-xmark" style="color: #ff0000;"></i></div>
+            <% end %>
+          </div>
+        </div>
+        <div class="d-flex flex-column align-items-center w-75">
+          <p>Compartilhe com seus convidados!</p>
+          <%= render 'copy_link' %>
+        </div>
+      <% else %>
+        <div class="m-5 ps-5">
+          <h2>Seu casamento</h2>
+          <p>Seu casamento ainda não foi cadastrado. Clique no botão abaixo para cadastrar.</p>
+          <%= link_to "Cadastrar casamento", new_wedding_path, class: "btn btn-outline-success shadow-sm" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="scroll-card w-100 h-100 border bg-white rounded-4 p-4 d-none" data-toggle-target="togglableElement" data-toggle-element="presentesInfo">
+    <% if @wedding_gifts.empty? %>
+      <div>
+        <h2>Lista de presentes</h2>
+        <p>Lista de presentes ainda não cadastrada. Clique no botão abaixo para adicionar.</p>
+        <%= link_to "Adicionar", new_wedding_gift_path(@user_wedding), class: "btn btn-outline-success shadow-sm" %>
+      </div>
+    <% else %>
+      <div class="d-flex align-items-center ">
+        <p>Quantidade de presentes cadastrados: <%= @wedding_gifts.count %></p>
+        <%= link_to new_wedding_gift_path(@user_wedding) do %>
+          <div><i class="fa-solid fa-plus me-2"></i></div>
+        <% end %>
+        <%= link_to wedding_delete_all_gifts_path(@user_wedding), data: { turbo_method: :delete, turbo_confirm: "Deletar a lista inteira e começar do zero. Você tem certeza?" } do %>
+          <div><i class="fa-solid fa-xmark" style="color: #ff0000;"></i></div>
+        <% end %>
+      </div>
+      <% @wedding_gifts.each do |gift| %>
+      <div class="border shadow-sm rounded-3 mx-1 mb-2 h-25 bg-users d-flex justify-content-between align-items-center">
+        <span class="h-100 flex-grow-1 d-flex justify-content-start align-items-center">
+          <div class="d-flex flex-column justify-content-between me-4">
+            <p class="m-0 p-0"><strong>Título: </strong><%= gift.title %></p>
+            <div class="d-flex me-2">
+              <%= link_to edit_wedding_gift_path(@user_wedding, gift) do %>
+              <div><i class="fa-solid fa-pen me-2"></i></div>
+              <% end %>
+              <%= link_to wedding_gift_path(@user_wedding, gift), data: { turbo_method: :delete, turbo_confirm: "Você tem certeza?" } do %>
+                <div><i class="fa-solid fa-xmark" style="color: #ff0000;"></i></div>
+              <% end %>
+            </div>
+          </div>
+          <span>
+            <li>Valor: <%= gift.value %></li>
+            <li>Quantidade de cotas: <%= gift.total_quota %></li>
+          </span>
+        </span>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="scroll-card w-100 h-100 border bg-white rounded-4 p-4 d-none" data-toggle-target="togglableElement" data-toggle-element="convidadosInfo">
+    <% if @wedding_guests.empty? %>
+      <div class="">
+        <h2>Lista de convidados</h2>
+        <p>Lista de convidados ainda não cadastrada. Clique no botão abaixo para adicionar.</p>
+        <%= link_to "Adicionar lista de convidados", new_wedding_guest_path(@user_wedding), class: "btn btn-outline-success shadow-sm" %>
+      </div>
+    <% else %>
+      <div class="d-flex align-items-center ">
+        <p>Quantidade de convidados cadastrados: <%= @wedding_guests.count %></p>
+        <%= link_to new_wedding_guest_path(@user_wedding) do %>
+          <div><i class="fa-solid fa-plus me-2"></i></div>
+        <% end %>
+        <%= link_to wedding_delete_all_guests_path(wedding_id: @user_wedding.first.id), data: { turbo_method: :delete, turbo_confirm: "Deletar a lista inteira e começar do zero. Você tem certeza?" } do %>
+            <div><i class="fa-solid fa-xmark" style="color: #ff0000;"></i></div>
+        <% end %>
+      </div>
+        <div class="d-flex">
+          <p class="mt-1">Confirmados: <%= @confirmed_guests.count %></p>
+          <p class="mt-1">Não confirmados: <%= @not_attending_guests.count %></p>
+          <p class="mt-1">A confirmar: <%= @unconfirmed_guests.count %></p>
+        </div>
+        <div class="progress">
+          <% if @confirmed_guests.count > 0 %>
+            <div class="progress-bar" role="progressbar" aria-label="Example with label" style="width: <%= @percentage %>%;" aria-valuenow="<%= @percentage %>" aria-valuemin="0" aria-valuemax="100"><%= @percentage %>%</div>
+          <% else %>
+            <div class="progress-bar" role="progressbar" aria-label="Example with label" style="width: 100%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+          <% end %>
+        </div>
+      <% @wedding_guests.each do |guest| %>
+        <div class="border shadow-sm rounded-3 mx-1 mb-2 h-25 bg-users d-flex justify-content-between align-items-center">
+          <span class="h-100 flex-grow-1 d-flex justify-content-start align-items-center">
+            <div class="d-flex flex-column justify-content-between me-4">
+              <p class="m-0 p-0"><strong>Título: </strong><%= guest.full_name %></p>
+              <div class="d-flex me-2">
+                <%= link_to edit_wedding_guest_path(@user_wedding, guest) do %>
+                <div><i class="fa-solid fa-pen me-2"></i></div>
+                <% end %>
+                <%= link_to wedding_guest_path(@user_wedding, guest), data: { turbo_method: :delete, turbo_confirm: "Você tem certeza?" } do %>
+                  <div><i class="fa-solid fa-xmark" style="color: #ff0000;"></i></div>
+                <% end %>
+              </div>
+            </div>
+            <span>
+              <li>Telefone: <%= guest.phone %> </li>
+              <li>Email: <%= guest.email %></li>
+              <% if guest.confirmed == true %>
+                <p>Confirmado</p>
+              <% elsif guest.confirmed == nil %>
+                <p>A confirmar</p>
+              <% elsif guest.confirmed == false %>
+                <p>Não comparecerá</p>
+              <% end %>
+            </span>
+          </span>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="scroll-card w-100 h-100 border bg-white rounded-4 p-5 d-none" data-toggle-target="togglableElement" data-toggle-element="presentesRecebidos">
+    <% if @wedding_orders == nil %>
+      <div class="border-end">
+        <h2>Presentes recebidos <i class="fa-regular fa-rectangle-list"></i></h2>
+        <p>Ainda não há nenhuma compra</p>
+      </div>
+    <% else %>
+      <div class="d-flex justify-content-around ">
+        <p>Quantidade de presentes recebidos: <%= @orders.count %></p>
+        <p>Valor total: R$<%= @total_orders_value %></p>
+      </div>
+      <% @wedding_orders.first.each do |order| %>
+        <div class="border shadow-sm rounded-3 mx-1 mb-2 h-25 bg-users d-flex justify-content-between align-items-center">
+          <span class="h-100 flex-grow-1 d-flex justify-content-start align-items-center">
+            <div class="d-flex flex-column justify-content-between me-4">
+              <p class="m-0 p-0"><strong>Convidado: </strong><%= order.full_name %></p>
+              <p class="m-0 p-0"><strong>Mensagem: </strong><%= order.message %></p>
+            </div>
+          </span>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

@@ -3,11 +3,17 @@
 </span>
 <div class="messages-width border border-1 bg-secondary-subtle rounded-4 shadow p-5">
   <div class="border shadow-sm rounded-3 p-2 text-center">
-    <p>Como é bom ter Amigos e pessoas especiais em nossas vidas! Você administra todas as
-    mensagens que receber pelo seu painel, pode aprovar e se necessário deletá-las! Já pode
-    começar por essas aqui! :-P</p>
-    <strong>Aragorn</strong>
-    <p>11 de Março de 2024</p>
+    <% if @wedding_guests_messages != [] %>
+      <% @guests.each do |guest| %>
+        <% if !guest.confirmation_message.nil? %>
+          <p><%= guest.confirmation_message %></p>
+          <strong><%= guest.full_name %></strong>
+          <p>11 de Março de 2024</p>
+        <% end %>
+      <% end %>
+    <% else %>
+      <p><strong>Ainda não há mensagens!</strong></p>
+    <% end %>
   </div>
   <div class="border shadow-sm">
   </div>

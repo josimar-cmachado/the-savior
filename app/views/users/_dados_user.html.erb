@@ -1,0 +1,71 @@
+<div class="flex-grow-1 d-flex flex-column m-3 p-2 bg-warning rounded-4 shadow" style="height:60vh" data-toggle-target="togglableElementChoiceDados">
+  <div class="flex-grow-1 d-flex justify-content-between">
+    <div class="border h-25 bg-warning m-3 rounded-4 d-flex justify-content-center align-items-center btn shadow" data-action="click->toggle#fireDados">
+      <h4 class="fw-bold text-white m-0">Informações de Login</h4>
+    </div>
+    <div class="flex-grow-1 border h-25 bg-warning m-3 rounded-4 d-flex justify-content-center align-items-center btn shadow" data-action="click->toggle#fireUserInfo">
+      <h4 class="fw-bold text-white m-0">Informações Pessoais</h4>
+    </div>
+    <div class="flex-grow-1 border h-25 bg-warning m-3 rounded-4 d-flex justify-content-center align-items-center btn shadow" data-action="click->toggle#fireAmor">
+      <h4 class="fw-bold text-white m-0">Informações de seu amor</h4>
+    </div>
+  </div>
+  <div class="w-100 h-100 border bg-white rounded-4 p-4" data-toggle-target="togglableElement" data-toggle-element="dados">
+    <div class="border shadow-sm rounded-3 mx-1 mb-2 h-25 bg-users d-flex align-items-center">
+    <i class="fa-solid fa-at m-0 p-0 me-2" style="color: #7e4e3d;"></i>
+    <p class="m-0 p-0"><strong>Email:</strong> <%= current_user.email %></p>
+    </div>
+    <div class="border shadow-sm rounded-3 mx-1 mb-2 h-25 bg-users d-flex align-items-center">
+    <i class="fa-solid fa-lock m-0 p-0 me-2" style="color: #7e4e3d;"></i>
+    <p class="m-0 p-0"><strong>Senha:</strong> **********</p>
+    </div>
+    <div class="border shadow-sm rounded-3 mx-1 mb-2 h-25 bg-users d-flex align-items-center">
+    <i class="fa-solid fa-person fa-lg m-0 p-0 me-2" style="color: #7e4e3d;"></i>
+    <p class="m-0 p-0"><strong>Criado em:</strong> <%= current_user.created_at.strftime("%d/%m/%Y") %> </p>
+    </div>
+    <div class="rounded-3 mt-4 mx-1 w-50">
+      <%= link_to "Editar", edit_user_registration_path, class: "btn btn-outline-warning rounded-3 shadow-sm w-25" %>
+    </div>
+  </div>
+  <div class="scroll-card w-100 h-100 border bg-white rounded-4 p-4 d-none" data-toggle-target="togglableElement" data-toggle-element="userInfo">
+    <div class="border shadow-sm rounded-3 mx-1 mb-2 h-25 bg-users d-flex align-items-center">
+    <i class="fa-solid fa-at m-0 p-0 me-2" style="color: #7e4e3d;"></i>
+    <p class="m-0 p-0"><strong>Nome:</strong> <%= current_user.first_name %> </p>
+    </div>
+    <div class="border shadow-sm rounded-3 mx-1 mb-2 h-25 bg-users d-flex align-items-center">
+    <i class="fa-solid fa-lock m-0 p-0 me-2" style="color: #7e4e3d;"></i>
+    <p class="m-0 p-0"><strong>Sobrenome: </strong> <%= current_user.last_name %> <p>
+    </div>
+    <div class="border shadow-sm rounded-3 mx-1 mb-2 h-25 bg-users d-flex align-items-center">
+    <i class="fa-solid fa-person fa-lg m-0 p-0 me-2" style="color: #7e4e3d;"></i>
+    <p class="m-0 p-0"><strong>Telefone: </strong> <%= current_user.phone %> </p>
+    </div>
+    <div class="rounded-3 mt-4 mx-1 w-50">
+      <%= link_to "Editar", edit_user_registration_path, class: "btn btn-outline-warning rounded-3 shadow-sm w-25" %>
+    </div>
+  </div>
+  <div class="scroll-card w-100 h-100 border bg-white rounded-4 p-4 d-none" data-toggle-target="togglableElement" data-toggle-element="amor">
+    <div class="border shadow-sm rounded-3 mx-1 mb-2 h-25 bg-users d-flex align-items-center">
+    <i class="fa-solid fa-at m-0 p-0 me-2" style="color: #7e4e3d;"></i>
+    <p class="m-0 p-0"><strong>Nome:</strong> <%= @partner_first_name %> </p>
+    </div>
+    <div class="border shadow-sm rounded-3 mx-1 mb-2 h-25 bg-users d-flex align-items-center">
+    <i class="fa-solid fa-lock m-0 p-0 me-2" style="color: #7e4e3d;"></i>
+    <p class="m-0 p-0"><strong>Sobrenome: </strong> <%= @partner_last_name %> <p>
+    </div>
+    <div class="border shadow-sm rounded-3 mx-1 mb-2 h-25 bg-users d-flex align-items-center">
+    <i class="fa-solid fa-person fa-lg m-0 p-0 me-2" style="color: #7e4e3d;"></i>
+    <p class="m-0 p-0"><strong>E-mail: </strong> <%= @partner_email %></p>
+    </div>
+    <div class="border shadow-sm rounded-3 mx-1 mb-2 h-25 bg-users d-flex align-items-center">
+    <i class="fa-solid fa-person fa-lg m-0 p-0 me-2" style="color: #7e4e3d;"></i>
+    <p class="m-0 p-0"><strong>Telefone: </strong> <%= @partner_phone %> </p>
+    </div>
+    <div class="rounded-3 mt-4 mx-1 w-50">
+      <%= link_to "Editar", edit_wedding_path(@user_wedding), class: "btn btn-outline-warning rounded-3 shadow-sm w-25" %>
+    </div>
+  </div>
+  <div class="w-100 h-100 border bg-white rounded-4 p-5 d-none" data-toggle-target="togglableElement" data-toggle-element="cadastro">
+    <%# render "family_members/form", class: "w-100" %>
+  </div>
+</div>

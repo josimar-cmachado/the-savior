@@ -10,3 +10,19 @@
   width: 100% !important;
   box-sizing: unset;
 }
+
+#copy-button {
+  width: 100%;
+}
+
+.info-user-size {
+  height: 80vh !important;
+  width: 100% !important;
+}
+
+// Scroll user profile
+
+.scroll-card {
+  overflow-y: scroll;
+  height: 50vh;
+}
