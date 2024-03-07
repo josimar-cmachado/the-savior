@@ -1,7 +1,8 @@
 class GiftsController < ApplicationController
   def index
-    @gifts = Gift.all
-    
+    @wedding = Wedding.find(params[:wedding_id])
+    @gifts = @wedding.gifts
+
   end
 
   def new
