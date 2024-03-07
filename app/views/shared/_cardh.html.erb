@@ -1,40 +1,48 @@
-<div class="container mt-5 d-flex align-items-center flex-column">
-    <div class="col-md-8">
-      <div class="card bg-info shadow-sm">
-        <h3 class="card-title text-center">Nossos Diferenciais</h3>
-        <div class="row">
-          <div class="col-md-6">
-            <div class="card-body card-body-size">
-              <h5 class="card-title ">Experiência Intuitiva e Amigável para o Usuário</h5>
-              <p class="card-text"> Navegar pelo nosso site é fácil e intuitivo,
-              Desde a criação de um perfil e a exploração de recursos até a interação com
-              outros membros da comunidade, garantimos que cada etapa da jornada do usuário
-              seja suave e agradável, facilitando o processo de planejamento do casamento e
-              proporcionando uma experiência positiva para todos os nossos usuários. </p> <!-- Alterado para "card-text" -->
-            </div>
+
+<div class="container " id="diferenciais">
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <h2>Nossos diferenciais</h2>
+      <p>Descubra nossos diferenciais: atendimento personalizado, criatividade excepcional e atenção aos detalhes. Com uma equipe dedicada e experiente, estamos prontos para superar suas expectativas e tornar seu evento verdadeiramente memorável. Deixe-nos cuidar de cada aspecto, enquanto você aproveita cada momento especial.</p>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card bg-info">
+        <img src="<%= asset_path 'img_card_zero_taxa.jpg' %>" class="card-img-top" alt="zero taxa">
+        <div class="card-body card-body-size">
+          <div class="text-wrap">
+            <h5 class="card-title">Zero Taxa</h5>
+            <p class="card-text"> Nenhuma taxa extra! Economize seu dinheiro para o que realmente importa em seu grande dia. </p>
           </div>
-          <div class="col-md-6">
-            <img src="<%= asset_path 'img_casamento_1.jpg' %>" class="card-img" alt="Imagem 1">
+          <div class="card-footer">
           </div>
         </div>
       </div>
     </div>
-    <div class="col-md-8">
-      <div class="card bg-info">
-        <div class="row flex-row-reverse">
-          <div class="col-md-6">
-            <div class="card-body">
-              <h5 class="card-title">Recursos Inovadores e Tecnologia Avançada</h5>
-              <p class="card-text">Estamos sempre atualizados com as últimas
-              tendências e tecnologias do setor de casamentos. No Casados Noivos,
-              oferecemos recursos inovadores e ferramentas de última geração para
-              auxiliar os casais em seu planejamento de casamento.
-              </p> <!-- Alterado para "card-text" -->
-            </div>
 
+    <div class="col-md-4">
+      <div class="card bg-info">
+        <img src="<%= asset_path 'img_card_org_wedding.jpg' %>" class="card-img-top" alt="passa a passo">
+        <div class="card-body card-body-size">
+          <div class="text-wrap">
+            <h5 class="card-title">passo a passo detalhado de como organizar o seu casamento</h5>
+            <p class="card-text"> Organize seu casamento sem estresse com nosso guia detalhado, passo a passo. Do planejamento à execução, estamos aqui para ajudar. </p>
           </div>
-          <div class="col-md-6">
-            <img src="<%= asset_path 'img_casamento_2.jpg' %>" class="card-img" alt="Imagem 2">
+          <div class="card-footer">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card bg-info">
+        <img src="<%= asset_path 'img_card_facil_intuitivo.jpg' %>" class="card-img-top" alt="interface Moderna e intuitiva">
+        <div class="card-body card-body-size">
+          <div class="text-wrap">
+            <h5 class="card-title">Interface moderna, intuitiva e amigável</h5>
+            <p class="card-text"> Nossa plataforma apresenta uma interface moderna, intuitiva e amigável. Facilite o planejamento do seu casamento com apenas alguns cliques. </p>
+          </div>
+          <div class="card-footer">
           </div>
         </div>
       </div>

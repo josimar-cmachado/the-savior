@@ -9,7 +9,7 @@
 }
 
 .carousel-item img {
-  width: 15%;
+  width: 100%;
   object-fit: cover;
   height: 100%;
 
@@ -18,6 +18,3 @@
   }
 }
 
-.carousel-caption {
-  font-size: 1.2rem; /* Ajuste este valor para o tamanho de texto desejado */
-}
