@@ -5,11 +5,10 @@
     [:base].present? %>
 
     <%= f.input :welcome_message, :label => 'Mensagem de boas-vindas'%>
-    <%= f.input :address, :label => 'Endereço do casamento' %>
-    <%# f.input :address, :label => 'Endereço do casamento',
-                input_html: {data: {address_autocomplete_target: "address"}},
+    <%= f.input :address, :label => 'Endereço do casamento',
+                input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
                 wrapper_html: {data: {controller: "address-autocomplete",
-                address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}, class: "d-none"} %>
+                address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}} %>
     <%= f.input :date, :label => 'Data do casamento' %>
     <%= f.input :time, :label => 'Horário do casamento' %>
     <%= f.input :wedding_info,
