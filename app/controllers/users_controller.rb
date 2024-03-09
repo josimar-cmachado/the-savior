@@ -26,6 +26,9 @@ class UsersController < ApplicationController
       @total_orders_value = @orders.map { |order| Gift.find(order.gift_id).value }.sum
     end
 
+    # Tips info
+    @tips = Tip.where(wedding: @user_wedding)
+
     # Wedding info
     @name = "#{current_user.first_name} #{current_user.last_name}"
     @initials = "#{current_user.first_name[0]}#{current_user.last_name[0]}"

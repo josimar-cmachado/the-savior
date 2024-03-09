@@ -26,11 +26,11 @@
   </head>
 
   <body>
-    <%= render "shared/navbar" unless controller_name == 'weddings' && action_name == 'show' %>
+    <%= render "shared/navbar" unless controller_name == 'weddings' && action_name == 'show' || controller_name == 'gifts' && action_name == 'index' || controller_name == 'orders' && action_name == 'new' %>
     <div class="body-content bpages">
       <%= yield %>
     </div>
     <%= render "shared/flashes" %>
-    <%= render "shared/footer" unless controller_name == 'users' && action_name == 'show' || controller_name == 'weddings' && action_name == 'show' %>
+    <%= render "shared/footer" unless controller_name == 'users' && action_name == 'show' || controller_name == 'weddings' && action_name == 'show' || controller_name == 'gifts' && action_name == 'index' || controller_name == 'orders' && action_name == 'new' %>
   </body>
 </html>

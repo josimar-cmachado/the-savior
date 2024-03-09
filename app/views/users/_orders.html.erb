@@ -1,28 +1,23 @@
-<% if wedding_orders == nil %>
-  <div class="col-sm-3 border-end">
+<% if @user_wedding.empty? %>
+  <h2>Casamento ainda não criado</h2>
+<% elsif @orders == [] %>
+  <div class="border-end">
     <h2>Presentes recebidos <i class="fa-regular fa-rectangle-list"></i></h2>
     <p>Ainda não há nenhuma compra</p>
   </div>
 <% else %>
-  <div class="col-sm-3 border-end">
-    <div class="border rounded-4">
-      <h2>Presentes recebidos <i class="fa-regular fa-rectangle-list"></i></h2>
-    </div>
-    <%= link_to '#' do %>
-      <div><i class="fa-regular fa-eye me-2"></i></div>
-    <% end %>
-    <div class="d-flex">
-      <p class="mt-1">Quantidade de presentes: <%= @orders.count %></p>
-      <p class="mt-1">Valor total: R$<%= @total_orders_value %></p>
-    </div>
-
-    <% wedding_orders.first.each do |order| %>
-      <ul class="mt-4 pt-3 border-top">
-        <div>
-          <p>Convidado: <%= order.full_name %></p>
-          <p>Mensagem: <%= order.message %></p>
-        </div>
-      </ul>
-    <% end %>
+  <div class="d-flex justify-content-around ">
+    <p>Quantidade de presentes recebidos: <%= @orders.count %></p>
+    <p>Valor total: R$<%= @total_orders_value %></p>
   </div>
+  <% @wedding_orders.first.each do |order| %>
+    <div class="border shadow-sm rounded-3 mx-1 mb-2 h-25 bg-users d-flex justify-content-between align-items-center">
+      <span class="h-100 flex-grow-1 d-flex justify-content-start align-items-center">
+        <div class="d-flex flex-column justify-content-between me-4">
+          <p class="m-0 p-0"><strong>Convidado: </strong><%= order.full_name %></p>
+          <p class="m-0 p-0"><strong>Mensagem: </strong><%= order.message %></p>
+        </div>
+      </span>
+    </div>
+  <% end %>
 <% end %>

@@ -8,10 +8,15 @@ class GuestsController < ApplicationController
     @guest = Guest.new(guest_params)
     @wedding = Wedding.find(params[:wedding_id])
     @guest.wedding = @wedding
-    if @guest.save
-      redirect_to user_profile_path(current_user)
-    else
-      render :new
+
+    respond_to do |format|
+      if params[:save_and_create_guest].present? && @guest.save
+        format.html { redirect_to new_wedding_guest_path(@wedding), notice: 'Convidado criado com sucesso.' }
+      elsif params[:save_guest_and_return].present? && @guest.save
+        format.html { redirect_to user_profile_path(current_user), notice: 'Convidado criado com sucesso.' }
+      else
+        format.html { render :new }
+      end
     end
   end
 

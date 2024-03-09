@@ -13,7 +13,9 @@
         <%= render "confirmation" %>
         <%= render "events" %>
         <%= render "tips" %>
-        <%= render 'messages' %>
+        <% if !@wedding_guests_messages.empty? %>
+          <%= render 'messages' %>
+        <% end %>
         <%= render 'final_message' %>
       </div>
     </div>
