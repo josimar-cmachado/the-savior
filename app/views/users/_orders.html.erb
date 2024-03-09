@@ -7,7 +7,7 @@
   </div>
 <% else %>
   <div class="d-flex justify-content-around ">
-    <p>Quantidade de presentes recebidos: <%= @orders.count %></p>
+    <p>Quantidade de presentes recebidos: <%= @orders&.count %></p>
     <p>Valor total: R$<%= @total_orders_value %></p>
   </div>
   <% @wedding_orders.first.each do |order| %>
