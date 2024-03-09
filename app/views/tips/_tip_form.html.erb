@@ -6,12 +6,13 @@
 
     <%= f.input :title, :label => 'Título' %>
     <%= f.input :content, :label => 'Descreva a sua dica maravilhosa'%>
+    <p>Recomendamos criar ao menos uma dica agora, para visualizar em seu website. No entanto, não é obrigatório.</p>
   </div>
 
   <div class="form-actions pt-4">
     <%= f.submit "Salvar e criar nova dica", class: "btn btn-outline-warning shadow-sm", name: "save_and_create_tip" %>
     <%= f.submit "Salvar e voltar", class: "btn btn-outline-warning shadow-sm", name: "save_and_return" %>
-    <%= link_to "Voltar", user_profile_path(current_user), class: "btn btn-outline-warning shadow-sm" %>
+    <%= link_to "Criar depois", user_profile_path(current_user), class: "btn btn-outline-warning shadow-sm" %>
   </div>
 
 <% end %>

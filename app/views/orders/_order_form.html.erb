@@ -18,13 +18,11 @@
               <%= f.input :full_name, :label => 'Nome completo' %>
               <%= f.input :message, :label => 'Deixe uma mensagem para os noivos'%>
             </div>
-
             <div class="form-actions pt-4">
               <%= f.submit "Finalizar", class: "btn btn-outline-warning shadow-sm"%>
-              <%= link_to "Voltar", user_profile_path(current_user), class: "btn btn-outline-warning shadow-sm" %>
+              <%= link_to "Voltar", presentes_path, class: "btn btn-outline-warning shadow-sm" %>
             </div>
           <% end %>
-        </div>
       </div>
     </div>
   </div>

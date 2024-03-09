@@ -7,7 +7,7 @@ class WeddingsController < ApplicationController
     @guests = Guest.where(wedding: @wedding)
     @user_wedding = Wedding.where(user: current_user).to_a
     @user_wedding_tips = Tip.where(wedding: @user_wedding)
-    @wedding_guests_messages = Guest.where(wedding: @wedding).map { |guest| "#{ guest.confirmation_message }" }
+    @wedding_guests_messages = Guest.where(wedding: @wedding).select { |guest| guest.confirmation_message.present? }
     @partner_name = @user_wedding.map { |partner| "#{ partner.partner_first_name }" }.first
     @days_left = (@wedding.date - Date.today).to_i
     @markers = [{

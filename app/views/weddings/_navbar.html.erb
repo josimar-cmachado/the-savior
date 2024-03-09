@@ -8,10 +8,15 @@
   <li class="nav-item">
     <%= link_to "Lista de presentes", presentes_path(@user_wedding), class: "nav-link" %>
   </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#mensagens">Mensagens</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#dicas">Dicas</a>
-  </li>
+  <% if !@wedding_guests_messages.empty? %>
+    <li class="nav-item">
+      <a class="nav-link" href="#mensagens">Mensagens</a>
+    </li>
+  <% end %>
+  <% if !@user_wedding_tips.empty? %>
+    <li class="nav-item">
+      <a class="nav-link" href="#dicas">Dicas</a>
+    </li>
+  <% end %>
+
 </ul>

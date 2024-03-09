@@ -2,7 +2,8 @@ class GiftsController < ApplicationController
   def index
     @wedding = Wedding.find(params[:wedding_id])
     @gifts = @wedding.gifts
-
+    @partner_first_name = @wedding.partner_first_name
+    @couple = "#{current_user.first_name}&#{@partner_first_name}"
   end
 
   def new
