@@ -21,6 +21,9 @@ class UsersController < ApplicationController
     if @wedding_gifts != []
       @wedding_orders = @user_wedding.first.gifts.map(&:orders)
       @orders = Order.where(gift: @wedding_gifts)
+    else
+      @wedding_orders = []
+      @orders = []
     end
     if @orders != nil
       @total_orders_value = @orders.map { |order| Gift.find(order.gift_id).value }.sum
