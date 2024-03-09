@@ -1,16 +1,32 @@
-<%= simple_form_for [@wedding, @gift, @order] do |f| %>
-  <div class="form-inputs scroll-form">
-    <%= f.error_notification %>
-    <% f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors
-    [:base].present? %>
+<div class="container">
+  <div class="row">
+    <div class="col-8">
+      <div class="card">
+        <br>
+        <h4> Meu Carrinho</h4>
+        <h6>Descrição do Produto</h6>
+        <img src="<%= asset_path 'img_presente.jpg' %>" class="card_order-img-top" alt="Image"  style="width: 309px; height: 200px;">
+        <div class="card-body">
+          <h5 class="card_order-title"><%= gift.title%> </h5>
+          <p> Categoria: <%=gift.category %></p>
+          <%= simple_form_for [@wedding, @gift, @order] do |f| %>
+            <div class="form-inputs scroll-form">
+              <%= f.error_notification %>
+              <% f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors
+              [:base].present? %>
 
-    <%= f.input :full_name, :label => 'Nome completo' %>
-    <%= f.input :message, :label => 'Deixe uma mensagem para os noivos'%>
+              <%= f.input :full_name, :label => 'Nome completo' %>
+              <%= f.input :message, :label => 'Deixe uma mensagem para os noivos'%>
+            </div>
+
+            <div class="form-actions pt-4">
+              <%= f.submit "Finalizar", class: "btn btn-outline-warning shadow-sm"%>
+              <%= link_to "Voltar", user_profile_path(current_user), class: "btn btn-outline-warning shadow-sm" %>
+            </div>
+
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="form-actions pt-4">
-    <%= f.submit "Finalizar", class: "btn btn-outline-warning shadow-sm"%>
-    <%= link_to "Voltar", user_profile_path(current_user), class: "btn btn-outline-warning shadow-sm" %>
-  </div>
-
-<% end %>
+</div>
