@@ -7,8 +7,8 @@
         <h6>Descrição do Produto</h6>
         <img src="<%= asset_path 'img_presente.jpg' %>" class="card_order-img-top" alt="Image"  style="width: 309px; height: 200px;">
         <div class="card-body">
-          <h5 class="card_order-title"><%= gift.title%> </h5>
-          <p> Categoria: <%=gift.category %></p>
+          <h5 class="card_order-title"><%= @gift.title%> </h5>
+          <p> Categoria: <%= @gift.category %></p>
           <%= simple_form_for [@wedding, @gift, @order] do |f| %>
             <div class="form-inputs scroll-form">
               <%= f.error_notification %>
