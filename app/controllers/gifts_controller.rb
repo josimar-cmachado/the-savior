@@ -1,9 +1,27 @@
 class GiftsController < ApplicationController
+
   def index
     @wedding = Wedding.find(params[:wedding_id])
-    @gifts = @wedding.gifts
+    @user_wedding = Wedding.where(user: current_user).to_a
+     @gifts = @wedding.gifts
+     case params[:sort_by]
+     when "value_asc"
+       @gifts = @gifts.order(value: :asc)
+     when "value_desc"
+       @gifts = @gifts.order(value: :desc)
+     when "title_asc"
+       @gifts = @gifts.order(title: :asc)
+     when "title_desc"
+       @gifts = @gifts.order(title: :desc)
+     when "category"
+        @gifts = @gifts.order(category: :asc)
+     else
+       @gifts = Gift.all
+     end
     @partner_first_name = @wedding.partner_first_name
     @couple = "#{current_user.first_name}&#{@partner_first_name}"
+    @wedding_guests_messages = Guest.where(wedding: @wedding).select { |guest| guest.confirmation_message.present? }
+    @user_wedding_tips = Tip.where(wedding: @user_wedding)
   end
 
   def new
@@ -47,6 +65,15 @@ class GiftsController < ApplicationController
   end
 
   private
+    def sort_by_title_asc
+      Gift.all.sort_by { |gift| [gift.title] }
+    end
+
+
+    def sort_by_value_asc
+      Gift.all.sort_by { |gift| [gift.value] }
+    end
+
     def gift_params
       params.require(:gift).permit(:title, :category, :value, :total_quota, :photo)
     end
