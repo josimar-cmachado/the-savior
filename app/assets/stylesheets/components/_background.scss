@@ -1,3 +1,88 @@
 .bpages {
-  background-color:#FAFAFA;
+  background-color: #FAFAFA;
+}
+
+.testbwed-red {
+  margin: 0;
+  padding: 0;
+  flex: 1;
+  z-index: 5;
+  position: relative;
+  color: #000;
+}
+
+.testbwed-red .test-red-bg {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-image: url('wedding/pexels-henry-&-co-1939485');
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  opacity: .5;
+  width: 100%;
+  height: 100%;
+}
+
+.test-blur-wed {
+  backdrop-filter: blur(1.5px);
+}
+
+.parallax-wed {
+  position: relative;
+  background-image: url('wedding/pexels-karolina-grabowska-4041393');
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  height: 50vh;
+  width: 99vw;
+}
+
+.buffer-wed {
+  width: 100%;
+  min-height: 15vh;
+}
+
+.not-cont-wed {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.wedding-landing {
+  background-color: #FAFAFA;
+  height: 100vh;
+  width: 100vw;
+}
+
+.user-bg-info-wed {
+  background-color: #f8f9fa;
+}
+
+.user-bg-info-wed-content {
+  background-color: #f4f4f4;
+}
+
+.user-comp-info-wed {
+  background-color: #E6E6FA;
+}
+
+.user-comp-info-progress {
+  background-color: #6f6fab;
+}
+
+.user-comp-info-wed:hover {
+  border-color: #6f6fab;
+  border-width: 3.5px;
+  background-color: #f2f2f2;
+}
+
+.user-comp-text {
+  color: #3a383a;
+}
+
+.user-comp-edit {
+  color: #343a40;
 }

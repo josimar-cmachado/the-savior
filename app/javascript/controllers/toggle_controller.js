@@ -36,12 +36,12 @@ export default class extends Controller {
     this.toggleVisibility("presentesRecebidos");
   }
 
-  fireUserInfo() {
-    this.toggleVisibility("userInfo");
-  }
-
   fireDados() {
     this.toggleVisibility("dados");
+  }
+
+  fireUserInfo() {
+    this.toggleVisibility("userInfo");
   }
 
   fireAmor() {
@@ -71,7 +71,7 @@ export default class extends Controller {
     this.togglableElementChoiceCasamentoTarget.classList.add("d-none");
     this.togglableElementChoiceDadosTarget.classList.remove("d-none");
     this.fireAmor();
-    this.fireDados();
     this.fireUserInfo();
+    this.fireDados();
   }
 }

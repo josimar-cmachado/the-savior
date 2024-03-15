@@ -7,23 +7,25 @@
 <% elsif @user_wedding == [] %>
   <h2>Casamento ainda não foi criado</h2>
 <% else %>
-  <div class="d-flex align-items-center ">
-    <p>Quantidade de presentes cadastrados: <%= @wedding_gifts.count %></p>
-    <%= link_to new_wedding_gift_path(@user_wedding) do %>
-      <div><i class="fa-solid fa-plus me-2"></i></div>
-    <% end %>
-    <%= link_to wedding_delete_all_gifts_path(@user_wedding), data: { turbo_method: :delete, turbo_confirm: "Deletar a lista inteira e começar do zero. Você tem certeza?" } do %>
-      <div><i class="fa-solid fa-xmark" style="color: #ff0000;"></i></div>
-    <% end %>
+  <div class="d-flex justify-content-center">
+    <h4 class="m-0 pb-4 userw-title-text">Quantidade de presentes cadastrados: <%= @wedding_gifts.count %><h4>
+    <span class="d-flex align-items-center ms-5">
+      <%= link_to new_wedding_gift_path(@user_wedding) do %>
+        <div><i class="fa-solid fa-plus text-success me-2"></i></div>
+      <% end %>
+      <%= link_to wedding_delete_all_gifts_path(@user_wedding), data: { turbo_method: :delete, turbo_confirm: "Deletar a lista inteira e começar do zero. Você tem certeza?" } do %>
+        <div><i class="fa-solid fa-xmark" style="color: #ff0000;"></i></div>
+      <% end %>
+    </span>
   </div>
-  <% @wedding_gifts.each do |gift| %>
-  <div class="border shadow-sm rounded-3 mx-1 mb-2 h-25 bg-users d-flex justify-content-between align-items-center">
-    <span class="h-100 flex-grow-1 d-flex justify-content-start align-items-center">
-      <div class="d-flex flex-column justify-content-between me-4">
-        <p class="m-0 p-0"><strong>Título: </strong><%= gift.title %></p>
-        <div class="d-flex me-2">
+  <section class="d-flex flex-wrap" style="gap: .8%">
+    <% @wedding_gifts.each do |gift| %>
+    <div class="border shadow-sm border-card-wed-user p-2 mb-2" style="width: 32.8%">
+      <div class="user-bg-info-wed-content d-flex justify-content-between px-2 py-1 rounded-2">
+        <p class="m-0 userw-title-text">Informações:</p>
+        <div class="d-flex">
           <%= link_to edit_wedding_gift_path(@user_wedding, gift) do %>
-          <div><i class="fa-solid fa-pen me-2"></i></div>
+          <div><i class="fa-solid fa-pen user-comp-edit me-2"></i></div>
           <% end %>
           <%= link_to wedding_gift_path(@user_wedding, gift), data: { turbo_method: :delete, turbo_confirm: "Você tem certeza?" } do %>
             <div><i class="fa-solid fa-xmark" style="color: #ff0000;"></i></div>
@@ -31,10 +33,11 @@
         </div>
       </div>
       <span>
-        <li>Valor: <%= gift.value %></li>
-        <li>Quantidade de cotas: <%= gift.total_quota %></li>
+        <p class="m-0 mt-2 ps-1 userw-title-text"><%= gift.title.capitalize %></p>
+        <p class="m-0 ps-1 userw-title-text"><%= number_to_currency(gift.value, :unit => "R$ ", :separator => ",", :delimiter => ".") %></p>
+        <p class="m-0 ps-1 userw-title-text">Quantidade de cotas: <%= gift.total_quota %></p>
       </span>
-    </span>
     </div>
-  <% end %>
+    <% end %>
+  </section>
 <% end %>

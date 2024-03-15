@@ -20,7 +20,8 @@
                     autofocus: true %>
         <%= f.input :phone,
                     label: "Telefone",
-                    autofocus: true %>
+                    autofocus: true,
+                    input_html: { maxlength: "11" } %>
         <%= f.input :password,
                     label: "Senha",
                     hint: "Deixar em branco caso não deseje mudar",

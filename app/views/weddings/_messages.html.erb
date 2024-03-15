@@ -1,12 +1,16 @@
-<span class="my-4">
-  <h2 id="mensagens">Mensagens para o casal</h2>
+<span class="d-flex justify-content-start">
+  <h2 id="mensagens" class="wed-message-title mb-4">Mural de mensagens</h2>
 </span>
-<div class="messages-width border border-1 bg-secondary-subtle rounded-4 shadow p-5">
-  <div class="border shadow-sm rounded-3 p-2 text-center">
-    <% @wedding_guests_messages.each do |guest| %>
-        <p><%= guest.confirmation_message %></p>
-        <strong><%= guest.full_name %></strong>
-        <p><%= guest.created_at.strftime("%d/%m/%Y") %></p>
-    <% end %>
-  </div>
+<div class="messages-width d-flex flex-wrap justify-content-center border border-1 shadow p-5 h-50">
+  <% @wedding_guests_messages.each do |guest| %>
+    <div class="d-flex flex-column justify-content-between messages-height border-mes-wed p-2 text-center m-1">
+      <span>
+        <p class="fst-italic m-0"><%= guest.confirmation_message.capitalize %></p>
+      </span>
+      <span>
+        <p class="m-0 p-0"><strong><%= guest.full_name.capitalize.gsub(/(\s+\w)/) { |name| name.upcase } %></strong></p>
+        <p class="m-0"><%= guest.created_at.strftime("%d/%m/%Y") %></p>
+      </span>
+    </div>
+  <% end %>
 </div>

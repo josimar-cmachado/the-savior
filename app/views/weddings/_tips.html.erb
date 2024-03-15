@@ -1,6 +1,6 @@
 <% if @user_wedding_tips != [] %>
   <% @user_wedding_tips.each do |tip| %>
-  <h2 id="dicas" class="mb-4"><%= tip.title %></h2>
-  <p class="text-center w-75"><%= tip.content %></p>
+  <h2 id="dicas" class="mb-4 wed-message-title"><%= tip.title %></h2>
+  <p class="text-center w-75 wed-messages-sizing"><%= tip.content %></p>
   <% end %>
 <% end %>

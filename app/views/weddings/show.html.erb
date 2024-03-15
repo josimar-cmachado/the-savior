@@ -1,24 +1,32 @@
-<%= render partial: "navbar"  %>
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <div class="d-flex flex-column align-items-center" data-bs-spy="scroll" data-bs-target="#anchors-nav-wed" data-bs-smooth-scroll="true" class="scrollspy-example" tabindex="0">
-        <div>
-          <h1 class="text-center">Sejam bem-vindos!<br>Aqui começa a história desse grande dia!</h1>
+<section class="testbwed-red">
+  <%= render partial: "navbar" %>
+  <%= render 'banner_wed' %>
+    <section class="buffer-wed"></section>
+    <section class="test-red-bg"></section>
+    <div class="container test-blur-wed">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="d-flex flex-column align-items-center" data-bs-spy="scroll" data-bs-target="#anchors-nav-wed" data-bs-smooth-scroll="true" class="scrollspy-example" tabindex="0">
+            <%= render 'welcome_message' %>
+            <section class="buffer-wed"></section>
+            <section class="parallax-wed"></section>
+            <section class="buffer-wed"></section>
+            <%= render "confirmation" %>
+            <section class="buffer-wed"></section>
+            <%= render "events" %>
+            <section class="buffer-wed"></section>
+            <%= render "tips" %>
+            <section class="buffer-wed"></section>
+            <% if !@wedding_guests_messages.empty? %>
+              <%= render 'messages' %>
+            <% end %>
+            <section class="buffer-wed"></section>
+            <%= render 'final_message' %>
+            <section class="buffer-wed"></section>
+            </div>
         </div>
-        <div class="text-center m-5">
-          <%= cl_image_tag @wedding.couple_photo.key, height: 300, width: 400, crop: :fill %>
-        </div>
-        <h5 class="text-center w-50"><%= @wedding.welcome_message%></h4>
-        <%= render "confirmation" %>
-        <%= render "events" %>
-        <%= render "tips" %>
-        <% if !@wedding_guests_messages.empty? %>
-          <%= render 'messages' %>
-        <% end %>
-        <%= render 'final_message' %>
       </div>
     </div>
-  </div>
-</div>
-<%= render 'footer' %>
+  <%= render 'footer' %>
+  <section class="buffer-wed"></section>
+</section>

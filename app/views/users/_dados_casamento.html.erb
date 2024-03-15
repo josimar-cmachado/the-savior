@@ -1,64 +1,74 @@
-<div class="d-none d-flex flex-column m-3 p-2 bg-warning rounded-4 shadow" style="height:60vh" data-toggle-target="togglableElementChoiceCasamento">
-  <div class="flex-grow-1 d-flex justify-content-between">
-    <div class="border h-25 bg-warning m-3 rounded-4 d-flex justify-content-center align-items-center btn shadow" data-action="click->toggle#fireCasamentoInfo">
-      <h4 class="fw-bold text-white m-0">Casamento</h4>
+<div class="d-none d-flex flex-column m-3 rounded-4 shadow container-user-wedding" data-toggle-target="togglableElementChoiceCasamento">
+  <div class="flex-grow-1 d-flex user-bg-info-wed justify-content-between align-items-center rounded-top-4">
+    <div class="border h-25 user-comp-info-wed m-3 rounded-4 d-flex justify-content-center align-items-center btn shadow p-3 flex-grow-1" data-action="click->toggle#fireCasamentoInfo">
+      <h4 class="fw-bold user-comp-text m-0 userw-title-text">Casamento</h4>
     </div>
-    <div class="flex-grow-1 border h-25 bg-warning m-3 rounded-4 d-flex justify-content-center align-items-center btn shadow" data-action="click->toggle#firePresentesInfo">
-      <h4 class="fw-bold text-white m-0">Lista de Presentes</h4>
+    <div class="flex-grow-1 border h-25 user-comp-info-wed m-3 rounded-4 d-flex justify-content-center align-items-center btn shadow p-3 flex-grow-1" data-action="click->toggle#firePresentesInfo">
+      <h4 class="fw-bold user-comp-text m-0 userw-title-text">Lista de Presentes</h4>
     </div>
-    <div class="flex-grow-1 border h-25 bg-warning m-3 rounded-4 d-flex justify-content-center align-items-center btn shadow" data-action="click->toggle#fireConvidadosInfo">
-      <h4 class="fw-bold text-white m-0">Lista de Convidados</h4>
+    <div class="flex-grow-1 border h-25 user-comp-info-wed m-3 rounded-4 d-flex justify-content-center align-items-center btn shadow p-3 flex-grow-1" data-action="click->toggle#fireConvidadosInfo">
+      <h4 class="fw-bold user-comp-text m-0 userw-title-text">Lista de Convidados</h4>
     </div>
-    <div class="flex-grow-1 border h-25 bg-warning m-3 rounded-4 d-flex justify-content-center align-items-center btn shadow" data-action="click->toggle#firePresentesRecebidos">
-      <h4 class="fw-bold text-white m-0">Presentes Recebidos</h4>
+    <div class="flex-grow-1 border h-25 user-comp-info-wed m-3 rounded-4 d-flex justify-content-center align-items-center btn shadow p-3 flex-grow-1" data-action="click->toggle#firePresentesRecebidos">
+      <h4 class="fw-bold user-comp-text m-0 userw-title-text">Presentes Recebidos</h4>
     </div>
   </div>
 
-  <div class="w-100 h-100 border bg-white rounded-4 p-4" data-toggle-target="togglableElement" data-toggle-element="casamentoInfo">
-    <div class="border h-100 shadow-sm rounded-3 mx-1 mb-2 bg-users d-flex flex-column align-items-center">
+  <div class="w-100 h-100 bg-white rounded-bottom-4 p-4" data-toggle-target="togglableElement" data-toggle-element="casamentoInfo">
+    <div class="h-100 mx-1 mb-2 d-flex flex-column align-items-center">
       <% if !@user_wedding.empty? %>
-        <div class="rounded-4 d-flex">
-          <p>Seu casamento foi criado com sucesso! <i class="fa-solid fa-heart" style="color: #ff0026;"></i></p></p>
-        </div>
-        <div class="d-flex">
-          <div class="d-flex">
-            <p>Visualize o seu casamento</p>
-            <%= link_to wedding_info_path(@user_wedding, @couple) do %>
-              <div><i class="fa-regular fa-eye me-2"></i></div>
-            <% end %>
-          </div>
-          <div class="d-flex">
-            <p>Alguma informação faltou ou ficou errada? Sem problemas, clique aqui e edite!</p>
-            <%= link_to edit_wedding_path(@user_wedding) do %>
-              <div><i class="fa-solid fa-pen me-2"></i></div>
-            <% end %>
-          </div>
-          <% if @tips.empty? %>
-            <div class="d-flex">
-              <p>Crie sua primeira dica!</p>
-              <%= link_to new_wedding_tip_path(@user_wedding) do %>
-                <div><i class="fa-solid fa-plus me-2"></i></div>
-              <% end %>
-            </div>
-          <% else %>
-            <div class="d-flex">
-              <p>Adicionar mais dicas</p>
-              <%= link_to new_wedding_tip_path(@user_wedding) do %>
-                <div><i class="fa-solid fa-plus me-2"></i></div>
-              <% end %>
-            </div>
-          <% end %>
-          <div class="d-flex">
-            <p>Insatisfeito? Remova o seu casamento e crie um novo!</p>
-            <%= link_to wedding_path(@user_wedding), data: { turbo_method: :delete, turbo_confirm: "Você tem certeza?" } do %>
-              <div><i class="fa-solid fa-xmark" style="color: #ff0000;"></i></div>
-            <% end %>
-          </div>
+        <div class="mt-2">
+          <h4 class="userw-title-text">Parabéns, seu casamento foi criado com sucesso! <i class="fa-solid fa-heart" style="color: #ff0026;"></i></h4>
         </div>
         <div class="d-flex flex-column align-items-center w-75">
-          <p>Compartilhe com seus convidados!</p>
+          <p class="userw-title-text">Compartilhe com seus convidados!</p>
           <%= render 'copy_link' %>
         </div>
+        <hr>
+        <section class="d-flex w-75 justify-content-between">
+          <div class="d-flex flex-column">
+            <div class="d-flex">
+              <%= link_to wedding_info_path(@user_wedding, @couple) do %>
+                <div><i class="fa-regular fa-eye me-2" style="color: #6f6fab"></i></div>
+              <% end %>
+              <p class="userw-title-text-s">Visualize o seu casamento</p>
+            </div>
+            <div class="d-flex">
+              <%= link_to edit_wedding_path(@user_wedding) do %>
+                <div><i class="fa-solid fa-pen user-comp-edit me-2"></i></div>
+              <% end %>
+              <p class="userw-title-text-s">Alguma informação faltou ou ficou errada? Clique no ícone e edite!</p>
+            </div>
+            <% if @tips.empty? %>
+              <div class="d-flex">
+                <%= link_to new_wedding_tip_path(@user_wedding) do %>
+                  <div><i class="fa-solid fa-plus text-success me-2"></i></div>
+                <% end %>
+                <p class="userw-title-text-s">Crie sua primeira dica!</p>
+              </div>
+            <% else %>
+              <div class="d-flex">
+                <%= link_to new_wedding_tip_path(@user_wedding) do %>
+                  <div><i class="fa-solid fa-plus text-success me-2"></i></div>
+                <% end %>
+                <p class="userw-title-text-s">Adicionar mais dicas</p>
+              </div>
+            <% end %>
+            <div class="d-flex">
+              <%= link_to wedding_path(@user_wedding), data: { turbo_method: :delete, turbo_confirm: "Você tem certeza?" } do %>
+                <div><i class="fa-solid fa-xmark fa-plus me-2 pe-1" style="color: #ff0000;"></i></div>
+              <% end %>
+              <p class="userw-title-text-s">Insatisfeito? Remova o seu casamento e crie um novo!</p>
+            </div>
+          </div>
+          <span class="vertical-hr-wed"></span>
+          <div>
+            <h5 class="p-0 mb-3 userw-title-text">Panorama Geral:</h5>
+            <p class="p-0 userw-title-text-s">Convidados: <%= @wedding_guests.count %></p>
+            <p class="p-0 userw-title-text-s">Presentes: <%= @wedding_gifts.count %></p>
+            <p class="p-0 userw-title-text-s">Presentes Recebidos: <%= @wedding_orders.count %></p>
+          </div>
+        </section>
       <% else %>
         <div class="m-5 ps-5">
           <h2>Seu casamento</h2>
@@ -69,15 +79,15 @@
     </div>
   </div>
 
-  <div class="scroll-card w-100 h-100 border bg-white rounded-4 p-4 d-none" data-toggle-target="togglableElement" data-toggle-element="presentesInfo">
+  <div class="scroll-card-wed w-100 h-100 bg-white rounded-bottom-4 p-4 d-none" data-toggle-target="togglableElement" data-toggle-element="presentesInfo">
     <%= render "gifts" %>
   </div>
 
-  <div class="scroll-card w-100 h-100 border bg-white rounded-4 p-4 d-none" data-toggle-target="togglableElement" data-toggle-element="convidadosInfo">
+  <div class="scroll-card-wed w-100 h-100 bg-white rounded-bottom-4 p-4 d-none" data-toggle-target="togglableElement" data-toggle-element="convidadosInfo">
     <%= render "guests" %>
   </div>
 
-  <div class="scroll-card w-100 h-100 border bg-white rounded-4 p-5 d-none" data-toggle-target="togglableElement" data-toggle-element="presentesRecebidos">
+  <div class="scroll-card-wed w-100 h-100 bg-white rounded-bottom-4 p-4 d-none" data-toggle-target="togglableElement" data-toggle-element="presentesRecebidos">
     <%= render "orders" %>
   </div>
 </div>

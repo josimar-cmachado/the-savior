@@ -1,5 +1,5 @@
 <% if @wedding_guests.empty? && @user_wedding != [] %>
-  <div class="">
+  <div>
     <h2>Lista de convidados</h2>
     <p>Lista de convidados ainda não cadastrada. Clique no botão abaixo para adicionar.</p>
     <%= link_to "Adicionar lista de convidados", new_wedding_guest_path(@user_wedding), class: "btn btn-outline-success shadow-sm" %>
@@ -7,53 +7,121 @@
 <% elsif @user_wedding.empty? %>
   <h2>Casamento ainda não foi criado</h2>
 <% else %>
-  <div class="d-flex align-items-center ">
-    <p>Quantidade de convidados cadastrados: <%= @wedding_guests.count %></p>
-    <%= link_to new_wedding_guest_path(@user_wedding) do %>
-      <div><i class="fa-solid fa-plus me-2"></i></div>
-    <% end %>
-    <%= link_to wedding_delete_all_guests_path(wedding_id: @user_wedding.first.id), data: { turbo_method: :delete, turbo_confirm: "Deletar a lista inteira e começar do zero. Você tem certeza?" } do %>
+  <div class="d-flex justify-content-center">
+    <h4 class="m-0 pb-4 userw-title-text">Quantidade de convidados cadastrados: <%= @wedding_guests.count %><h4>
+    <span class="d-flex align-items-center ms-5">
+      <%= link_to new_wedding_guest_path(@user_wedding) do %>
+        <div><i class="fa-solid fa-plus me-2 text-success"></i></div>
+      <% end %>
+      <%= link_to wedding_delete_all_guests_path(wedding_id: @user_wedding.first.id), data: { turbo_method: :delete, turbo_confirm: "Deletar a lista inteira e começar do zero. Você tem certeza?" } do %>
         <div><i class="fa-solid fa-xmark" style="color: #ff0000;"></i></div>
-    <% end %>
+      <% end %>
+    </span>
   </div>
-    <div class="d-flex">
-      <p class="mt-1">Confirmados: <%= @confirmed_guests.count %></p>
-      <p class="mt-1">Não confirmados: <%= @not_attending_guests.count %></p>
-      <p class="mt-1">A confirmar: <%= @unconfirmed_guests.count %></p>
-    </div>
-    <div class="progress">
+    <div class="progress mb-4 border-card-wed-user">
       <% if @confirmed_guests.count > 0 %>
-        <div class="progress-bar" role="progressbar" aria-label="Example with label" style="width: <%= @percentage %>%;" aria-valuenow="<%= @percentage %>" aria-valuemin="0" aria-valuemax="100"><%= @percentage %>%</div>
+        <div class="progress-bar user-comp-info-progress" role="progressbar" aria-label="Example with label" style="width: <%= @percentage %>%;" aria-valuenow="<%= @percentage %>" aria-valuemin="0" aria-valuemax="100"><%= @percentage %>%</div>
       <% else %>
         <div class="progress-bar" role="progressbar" aria-label="Example with label" style="width: 100%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
       <% end %>
     </div>
-  <% @wedding_guests.each do |guest| %>
-    <div class="border shadow-sm rounded-3 mx-1 mb-2 h-25 bg-users d-flex justify-content-between align-items-center">
-      <span class="h-100 flex-grow-1 d-flex justify-content-start align-items-center">
-        <div class="d-flex flex-column justify-content-between me-4">
-          <p class="m-0 p-0"><strong>Título: </strong><%= guest.full_name %></p>
-          <div class="d-flex me-2">
-            <%= link_to edit_wedding_guest_path(@user_wedding, guest) do %>
-            <div><i class="fa-solid fa-pen me-2"></i></div>
-            <% end %>
-            <%= link_to wedding_guest_path(@user_wedding, guest), data: { turbo_method: :delete, turbo_confirm: "Você tem certeza?" } do %>
-              <div><i class="fa-solid fa-xmark" style="color: #ff0000;"></i></div>
+  <section class="d-flex flex-wrap justify-content-between">
+    <div class="border shadow-sm border-card-wed-user p-2 mt-1" style="width: 32.8%">
+      <div class="d-flex justify-content-center my-1">
+        <p class="m-0 pb-2 userw-title-text">Convidados confirmados (<%= @confirmed_guests.count %>)</p>
+      </div>
+      <% @confirmed_guests.each do |guest| %>
+        <span class="">
+          <div class="user-bg-info-wed-content d-flex justify-content-between px-2 py-1 rounded-2">
+            <p class="m-0 userw-title-text">Dados:</p>
+            <div class="d-flex">
+              <%= link_to edit_wedding_guest_path(@user_wedding, guest) do %>
+                <div><i class="fa-solid fa-pen user-comp-edit me-2"></i></div>
+              <% end %>
+              <%= link_to wedding_guest_path(@user_wedding, guest), data: { turbo_method: :delete, turbo_confirm: "Você tem certeza?" } do %>
+                <div><i class="fa-solid fa-xmark" style="color: #ff0000;"></i></div>
+              <% end %>
+            </div>
+          </div>
+          <div>
+            <p class="m-0 mt-2 ps-1 userw-title-text-s">Nome: <%= guest.full_name.capitalize %></p>
+            <p class="m-0 ps-1 userw-title-text-s">Telefone: <%=number_to_phone(guest.phone, pattern: /\A(\d{2})(\d{5})(\d{4})\z/, area_code: true) %> </p>
+            <p class="m-0 ps-1 userw-title-text-s">E-mail: <%= guest.email %></p>
+            <% if guest.confirmed == true %>
+              <p class="m-0 ps-1 userw-title-text-s">Status: Confirmado</p>
+            <% elsif guest.confirmed == nil %>
+              <p class="m-0 ps-1 userw-title-text-s">Status: A confirmar</p>
+            <% elsif guest.confirmed == false %>
+              <p class="m-0 ps-1 userw-title-text-s">Status: Não comparecerá</p>
             <% end %>
           </div>
-        </div>
-        <span>
-          <li>Telefone: <%= guest.phone %> </li>
-          <li>Email: <%= guest.email %></li>
-          <% if guest.confirmed == true %>
-            <p>Confirmado</p>
-          <% elsif guest.confirmed == nil %>
-            <p>A confirmar</p>
-          <% elsif guest.confirmed == false %>
-            <p>Não comparecerá</p>
-          <% end %>
+          <hr class="border-1">
         </span>
-      </span>
+      <% end %>
     </div>
-  <% end %>
+    <div class="border shadow-sm border-card-wed-user p-2 mt-1" style="width: 32.8%">
+      <div class="d-flex justify-content-center my-1">
+        <p class="m-0 pb-2 userw-title-text-s">Convidados a confirmar (<%= @unconfirmed_guests.count %>)</p>
+      </div>
+      <% @unconfirmed_guests.each do |guest| %>
+        <span class="">
+          <div class="user-bg-info-wed-content d-flex justify-content-between px-2 py-1 rounded-2">
+            <p class="m-0 userw-title-text">Dados:</p>
+            <div class="d-flex">
+              <%= link_to edit_wedding_guest_path(@user_wedding, guest) do %>
+              <div><i class="fa-solid fa-pen user-comp-edit me-2"></i></div>
+              <% end %>
+              <%= link_to wedding_guest_path(@user_wedding, guest), data: { turbo_method: :delete, turbo_confirm: "Você tem certeza?" } do %>
+                <div><i class="fa-solid fa-xmark" style="color: #ff0000;"></i></div>
+              <% end %>
+            </div></div>
+          <span>
+            <p class="m-0 mt-2 ps-1 userw-title-text-s">Nome: <%= guest.full_name.capitalize %></p>
+            <p class="m-0 ps-1 userw-title-text-s">Telefone: <%= number_to_phone(guest.phone, pattern: /\A(\d{2})(\d{5})(\d{4})\z/, area_code: true) %> </p>
+            <p class="m-0 ps-1 userw-title-text-s">E-mail: <%= guest.email %></p>
+            <% if guest.confirmed == true %>
+              <p class="m-0 ps-1 userw-title-text-s">Status: Confirmado</p>
+            <% elsif guest.confirmed == nil %>
+              <p class="m-0 ps-1 userw-title-text-s">Status: A confirmar</p>
+            <% elsif guest.confirmed == false %>
+              <p class="m-0 ps-1 userw-title-text-s">Status: Não comparecerá</p>
+            <% end %>
+          </span>
+          <hr class="border-1">
+        </span>
+      <% end %>
+    </div>
+    <div class="border shadow-sm border-card-wed-user p-2 mt-1"style="width: 32.8%">
+      <div>
+        <p class="d-flex justify-content-center pb-2 my-1 userw-title-text">Convidados não confirmados (<%= @not_attending_guests.count %>)</p>
+      </div>
+      <% @not_attending_guests.each do |guest| %>
+        <span class="">
+          <div class="user-bg-info-wed-content d-flex justify-content-between px-2 py-1 rounded-2">
+            <p class="m-0 userw-title-text">Dados:</p>
+            <div class="d-flex">
+              <%= link_to edit_wedding_guest_path(@user_wedding, guest) do %>
+              <div><i class="fa-solid fa-pen user-comp-edit me-2"></i></div>
+              <% end %>
+              <%= link_to wedding_guest_path(@user_wedding, guest), data: { turbo_method: :delete, turbo_confirm: "Você tem certeza?" } do %>
+                <div><i class="fa-solid fa-xmark" style="color: #ff0000;"></i></div>
+              <% end %>
+            </div></div>
+          <span>
+            <p class="m-0 mt-2 ps-1 userw-title-text">Nome: <%= guest.full_name.capitalize %></p>
+            <p class="m-0 ps-1 userw-title-text">Telefone: <%= number_to_phone(guest.phone, pattern: /\A(\d{2})(\d{5})(\d{4})\z/, area_code: true) %> </p>
+            <p class="m-0 ps-1 userw-title-text">E-mail: <%= guest.email %></p>
+            <% if guest.confirmed == true %>
+              <p class="m-0 ps-1 userw-title-text">Status: Confirmado</p>
+            <% elsif guest.confirmed == nil %>
+              <p class="m-0 ps-1 userw-title-text">Status: A confirmar</p>
+            <% elsif guest.confirmed == false %>
+              <p class="m-0 ps-1 userw-title-text">Status: Não comparecerá</p>
+            <% end %>
+          </span>
+          <hr class="border-1">
+        </span>
+      <% end %>
+    </div>
+  </section>
 <% end %>
