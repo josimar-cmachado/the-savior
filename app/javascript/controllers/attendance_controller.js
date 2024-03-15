@@ -52,7 +52,7 @@ export default class extends Controller {
   showGuestSelection(filteredGuests) {
     // Cria uma lista HTML de convidados para seleção
     const guestList = document.createElement('ul');
-    guestList.classList.add('guest-list');
+    guestList.classList.add('guest-list', 'd-flex', 'flex-wrap', 'justify-content-center', 'm-0', 'p-0', 'w-100');
 
     // Para cada convidado na lista filtrada, cria um item de lista e adiciona à lista
     filteredGuests.forEach(guest => {

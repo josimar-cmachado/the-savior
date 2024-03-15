@@ -30,11 +30,11 @@
   <div class="scroll-card-wed w-100 h-100 bg-white rounded-bottom-4 p-4 d-none" data-toggle-target="togglableElement" data-toggle-element="userInfo">
     <div class="border shadow-sm rounded-4 mx-1 mb-2 h-25 d-flex align-items-center">
     <i class="fa-solid fa-person fa-lg m-0 p-0 mx-3" style="color: #6f6fab;"></i>
-    <p class="m-0 p-0 userw-title-text"><strong>Nome:</strong> <%= current_user.first_name %> </p>
+    <p class="m-0 p-0 userw-title-text"><strong>Nome:</strong> <%= current_user.first_name.capitalize %> </p>
     </div>
     <div class="border shadow-sm rounded-4 mx-1 mb-2 h-25 d-flex align-items-center">
     <i class="fa-solid fa-person fa-lg m-0 p-0 mx-3" style="color: #6f6fab;"></i>
-    <p class="m-0 p-0 userw-title-text"><strong>Sobrenome: </strong> <%= current_user.last_name %> <p>
+    <p class="m-0 p-0 userw-title-text"><strong>Sobrenome: </strong> <%= current_user.last_name.capitalize %> <p>
     </div>
     <div class="border shadow-sm rounded-4 mx-1 mb-2 h-25 d-flex align-items-center">
     <i class="fa-solid fa-phone m-0 p-0 mx-3" style="color: #6f6fab;"></i>
@@ -48,11 +48,11 @@
     <% if @user_wedding != [] %>
       <div class="border shadow-sm rounded-4 mx-1 mb-2 h-25 d-flex align-items-center">
       <i class="fa-solid fa-person fa-lg m-0 p-0 mx-3" style="color: #6f6fab;"></i>
-      <p class="m-0 p-0 userw-title-text"><strong>Nome:</strong> <%= @partner_first_name %> </p>
+      <p class="m-0 p-0 userw-title-text"><strong>Nome:</strong> <%= @partner_first_name.capitalize %> </p>
       </div>
       <div class="border shadow-sm rounded-4 mx-1 mb-2 h-25 d-flex align-items-center">
       <i class="fa-solid fa-person fa-lg m-0 p-0 mx-3" style="color: #6f6fab;"></i>
-      <p class="m-0 p-0 userw-title-text"><strong>Sobrenome: </strong> <%= @partner_last_name %> <p>
+      <p class="m-0 p-0 userw-title-text"><strong>Sobrenome: </strong> <%= @partner_last_name.capitalize %> <p>
       </div>
       <div class="border shadow-sm rounded-4 mx-1 mb-2 h-25 d-flex align-items-center">
       <i class="fa-solid fa-at m-0 p-0 mx-3" style="color: #6f6fab;"></i>

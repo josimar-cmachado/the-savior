@@ -39,7 +39,7 @@ class UsersController < ApplicationController
     @partner_last_name = @user_wedding.map { |partner| "#{partner.partner_last_name}" }.first
     @partner_email = @user_wedding.map { |partner| "#{partner.partner_email}" }.first
     @partner_phone = @user_wedding.map { |partner| "#{partner.partner_phone}" }.first
-    @partner_initials = @user_wedding.map { |partner| "#{partner.partner_first_name[0]}#{partner.partner_last_name[0]}" }
+    @partner_initials = @user_wedding.map { |partner| "#{partner.partner_first_name[0]}#{ partner.partner_last_name[0]}" }
     @couple = "#{current_user.first_name}&#{@partner_first_name}"
   end
 end

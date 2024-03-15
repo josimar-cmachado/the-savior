@@ -16,11 +16,10 @@
             <%= render "events" %>
             <section class="buffer-wed"></section>
             <%= render "tips" %>
-            <section class="buffer-wed"></section>
             <% if !@wedding_guests_messages.empty? %>
               <%= render 'messages' %>
+              <section class="buffer-wed"></section>
             <% end %>
-            <section class="buffer-wed"></section>
             <%= render 'final_message' %>
             <section class="buffer-wed"></section>
             </div>

@@ -15,7 +15,7 @@
   </div>
 
   <div class="w-100 h-100 bg-white rounded-bottom-4 p-4" data-toggle-target="togglableElement" data-toggle-element="casamentoInfo">
-    <div class="h-100 mx-1 mb-2 d-flex flex-column align-items-center">
+    <div class="h-100 d-flex flex-column align-items-center">
       <% if !@user_wedding.empty? %>
         <div class="mt-2">
           <h4 class="userw-title-text">Parabéns, seu casamento foi criado com sucesso! <i class="fa-solid fa-heart" style="color: #ff0026;"></i></h4>
@@ -70,10 +70,10 @@
           </div>
         </section>
       <% else %>
-        <div class="m-5 ps-5">
-          <h2>Seu casamento</h2>
-          <p>Seu casamento ainda não foi cadastrado. Clique no botão abaixo para cadastrar.</p>
-          <%= link_to "Cadastrar casamento", new_wedding_path, class: "btn btn-outline-success shadow-sm" %>
+        <div class="d-flex flex-column justify-content-center align-items-center w-75 userw-text-margin">
+          <h3 class="userw-text-just userw-title-text mb-5">Ops, parece que o seu casamento ainda não foi criado!</h3>
+          <p class="userw-title-text-s userw-text-just-s mb-5 mt-1"> Não se preocupe, é muito fácil. Você só precisa <span class="text-white px-1" style="background-color: #6f6fab">clicar no botão abaixo</span> e preencher as informações! Vamos lá?</p>
+          <%= link_to "Criar casamento", new_wedding_path, class: "btn btn-outline-warning shadow-sm rounded-3" %>
         </div>
       <% end %>
     </div>
