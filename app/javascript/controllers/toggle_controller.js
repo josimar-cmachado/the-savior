@@ -2,7 +2,7 @@
 import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
-  static targets = ["togglableElement", "togglableElementChoiceCasamento", "togglableElementChoiceDados"];
+  static targets = ["togglableElement", "togglableElementChoiceCasamento", "togglableElementChoiceDados", "btnCasamento", "btnDados"];
 
   connect() {
     if (this.element.dataset.fireCasamentoInfo !== undefined) {
@@ -58,21 +58,20 @@ export default class extends Controller {
     });
   }
 
-  fireChoice() {
-    if (this.togglableElementChoiceCasamentoTarget && this.togglableElementChoiceCasamentoTarget.classList.contains("d-none")) {
-      this.togglableElementChoiceDadosTarget.classList.add("d-none");
-      this.togglableElementChoiceCasamentoTarget.classList.remove("d-none");
-      this.firePresentesRecebidos();
-      this.fireConvidadosInfo();
-      this.firePresentesInfo();
-      this.fireCasamentoInfo();
+  fireChoiceCasamento() {
+    this.togglableElementChoiceDadosTarget.classList.add("d-none");
+    this.togglableElementChoiceCasamentoTarget.classList.remove("d-none");
+    this.firePresentesRecebidos();
+    this.fireConvidadosInfo();
+    this.firePresentesInfo();
+    this.fireCasamentoInfo();
+  }
 
-    } else if (this.togglableElementChoiceDadosTarget && this.togglableElementChoiceDadosTarget.classList.contains("d-none")) {
-      this.togglableElementChoiceCasamentoTarget.classList.add("d-none");
-      this.togglableElementChoiceDadosTarget.classList.remove("d-none");
-      this.fireAmor();
-      this.fireDados();
-      this.fireUserInfo();
-    }
+  fireChoiceDados() {
+    this.togglableElementChoiceCasamentoTarget.classList.add("d-none");
+    this.togglableElementChoiceDadosTarget.classList.remove("d-none");
+    this.fireAmor();
+    this.fireDados();
+    this.fireUserInfo();
   }
 }
