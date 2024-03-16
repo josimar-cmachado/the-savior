@@ -7,7 +7,7 @@
       <div><i class="fa-regular fa-eye me-2"></i></div>
     <% end %>
     <%= link_to edit_wedding_path(@user_wedding) do %>
-      <div><i class="fa-solid fa-pen me-2"></i></div>
+      <div><i class="fa-solid fa-pen user-comp-edit me-2"></i></div>
     <% end %>
     <%= link_to wedding_path(@user_wedding), data: { turbo_method: :delete, turbo_confirm: "Você tem certeza?" } do %>
       <div><i class="fa-solid fa-xmark" style="color: #ff0000;"></i></div>

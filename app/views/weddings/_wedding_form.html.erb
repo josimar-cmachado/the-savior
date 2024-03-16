@@ -5,7 +5,7 @@
     [:base].present? %>
 
     <%= f.input :welcome_message, :label => 'Mensagem de boas-vindas'%>
-    <% f.input :address, :label => 'Endereço do casamento',
+    <%= f.input :address, :label => 'Endereço do casamento',
                 input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
                 wrapper_html: {data: {controller: "address-autocomplete",
                 address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}} %>
@@ -18,7 +18,7 @@
     <%= f.input :partner_last_name, :label => 'Último nome do parceiro(a)' %>
     <%= f.input :partner_profile, :label => 'Noivo ou noiva?', collection: ['Noivo', 'Noiva'] %>
     <%= f.input :partner_email, :label => 'Email do parceiro(a)' %>
-    <%= f.input :partner_phone, :label => 'Telefone do parceiro(a)' %>
+    <%= f.input :partner_phone, :label => 'Telefone do parceiro(a)', input_html: { maxlength: "11" } %>
     <%= f.input :couple_photo, as: :file, :label => 'Foto do casal' %>
     <%= f.input :partner_one_photo, as: :file, :label => 'Sua foto' %>
     <%= f.input :partner_two_photo, as: :file, :label => 'Foto do parceiro(a)' %>

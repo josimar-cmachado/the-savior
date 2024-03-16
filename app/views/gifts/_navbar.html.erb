@@ -5,13 +5,19 @@
   <li class="nav-item">
     <%= link_to "Recepção", wedding_info_path(), class: "nav-link" %>
   </li>
-  <li class="nav-item">
-    <%= link_to "Lista de presentes", presentes_path(), class: "nav-link" %>
-  </li>
-  <li class="nav-item">
-    <%= link_to "Mensagens", wedding_info_path(), class: "nav-link" %>
-  </li>
-  <li class="nav-item">
-    <%= link_to "Dicas", wedding_info_path(), class: "nav-link" %>
-  </li>
+  <% if !@gifts.empty? %>
+    <li class="nav-item">
+      <%= link_to "Lista de presentes", presentes_path(), class: "nav-link" %>
+    </li>
+  <% end %>
+  <% if !@wedding_guests_messages.empty? %>
+    <li class="nav-item">
+      <%= link_to "Mensagens", wedding_info_path(), class: "nav-link" %>
+    </li>
+  <% end %>
+  <% if !@user_wedding_tips.empty? %>
+    <li class="nav-item">
+      <%= link_to "Dicas", wedding_info_path(), class: "nav-link" %>
+    </li>
+  <% end %>
 </ul>

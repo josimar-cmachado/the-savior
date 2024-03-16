@@ -1,23 +1,33 @@
 <% if @user_wedding.empty? %>
-  <h2>Casamento ainda não criado</h2>
+  <section class="h-100 d-flex flex-column align-items-center">
+    <div class="d-flex flex-column justify-content-center align-items-center userw-text-margin w-75">
+      <h3 class="userw-text-just userw-title-text mb-5">Ops, parece que o seu casamento ainda não foi criado!</h3>
+      <p class="userw-title-text-s userw-text-just-s mb-5"> Por conta disso, não há presentes a receber. <span class="text-white px-1" style="background-color: #6f6fab">Volte para a aba do casamento</span> e siga as instruções para criá-lo!</p>
+      <h3 class="userw-text-just userw-title-text mb-4">Nos vemos em breve!</h3>
+    </div>
+  </section>
 <% elsif @orders == [] %>
-  <div class="border-end">
-    <h2>Presentes recebidos <i class="fa-regular fa-rectangle-list"></i></h2>
-    <p>Ainda não há nenhuma compra</p>
-  </div>
+  <section class="h-100 d-flex flex-column align-items-center">
+    <div class="d-flex flex-column justify-content-center align-items-center w-75 userw-text-margin">
+      <h3 class="userw-text-just userw-title-text mb-5">Parece que temos um <span class="text-white px-1" style="background-color: #6f6fab; font-variant:all-small-caps; letter-spacing:3px">CASAMENTO!</h3></span>
+      <p class="userw-title-text-s userw-text-just-s mb-5">Já já vai aparecer um presente por aqui!</p>
+    </div>
+  </section>
 <% else %>
-  <div class="d-flex justify-content-around ">
-    <p>Quantidade de presentes recebidos: <%= @orders&.count %></p>
-    <p>Valor total: R$<%= @total_orders_value %></p>
+  <div class="d-flex flex-column align-items-center ">
+    <h4 class="m-0 pb-2 userw-title-text">Quantidade de presentes recebidos: <%= @orders&.count %></h4>
+    <p class="m-0 pt-2 pb-4 userw-title-text-s">Valor total: <%= number_to_currency(@total_orders_value, :unit => "R$ ", :separator => ",", :delimiter => ".") %></p>
   </div>
   <% @wedding_orders.first.each do |order| %>
-    <div class="border shadow-sm rounded-3 mx-1 mb-2 h-25 bg-users d-flex justify-content-between align-items-center">
+    <div class="border shadow-sm border-card-wed-user p-2 my-2 d-flex align-items-center">
       <span class="h-100 flex-grow-1 d-flex justify-content-start align-items-center">
         <div class="d-flex flex-column justify-content-between me-4">
-          <p class="m-0 p-0"><strong>Convidado: </strong><%= order.full_name %></p>
-          <p class="m-0 p-0"><strong>Mensagem: </strong><%= order.message %></p>
+          <p class="m-0 p-0 userw-title-text-s">Presente: <%= order.gift.title.capitalize %></p>
+          <p class="m-0 p-0 userw-title-text-s">Convidado: <%= order.full_name.capitalize %></p>
+          <p class="m-0 p-0 userw-title-text-s">Mensagem: <%= order.message.capitalize %></p>
         </div>
       </span>
     </div>
+    <span class="horizontal-hr-wed"></span>
   <% end %>
 <% end %>

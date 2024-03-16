@@ -13,4 +13,14 @@ class ApplicationController < ActionController::Base
     # For additional in app/views/devise/registrations/edit.html.erb
     devise_parameter_sanitizer.permit(:account_update, keys: %i[first_name last_name photo phone review])
   end
+
+  protected
+
+  def after_sign_in_path_for(resource)
+    if resource.is_a?(User)
+      user_profile_path(resource)
+    else
+      super
+    end
+  end
 end

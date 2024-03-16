@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
-  static targets = ["formGuestElement", "guestForm", "guestEmail", "guestPhone", "errorMessages", "guestEmailError", "guestPhoneError", "successMessages", "confirmationMessages", "confirmationMessage"];
+  static targets = ["formGuestElement", "guestForm", "guestEmail", "guestPhone", "errorMessages", "guestEmailError", "guestPhoneError", "successMessages", "confirmationMessages", "confirmationMessage", "divSubmit", "input"];
   static values = { guests: String };
 
   connect() {
@@ -38,6 +38,8 @@ export default class extends Controller {
       }
     } else if (filteredGuests.length > 1) {
       // Se houver mais de um convidado encontrado, exiba uma lista para seleção
+      this.inputTarget.classList.add("d-none");
+      this.divSubmitTarget.classList.add("d-none");
       console.log('Vários convidados encontrados:', filteredGuests);
       // Exibe a lista de convidados na tela para seleção
       this.showGuestSelection(filteredGuests);
@@ -50,13 +52,13 @@ export default class extends Controller {
   showGuestSelection(filteredGuests) {
     // Cria uma lista HTML de convidados para seleção
     const guestList = document.createElement('ul');
-    guestList.classList.add('guest-list');
+    guestList.classList.add('guest-list', 'd-flex', 'flex-wrap', 'justify-content-center', 'm-0', 'p-0', 'w-100');
 
     // Para cada convidado na lista filtrada, cria um item de lista e adiciona à lista
     filteredGuests.forEach(guest => {
       const listItem = document.createElement('li');
       listItem.textContent = guest.full_name;
-      listItem.classList.add('guest-item');
+      listItem.classList.add('guest-item', 'btn', 'scroll-card-wed');
       listItem.addEventListener('click', () => this.selectGuest(guest));
       guestList.appendChild(listItem);
     });
@@ -68,6 +70,8 @@ export default class extends Controller {
 
   selectGuest(guest) {
     // Ao selecionar um convidado, atualiza o formulário com os dados do convidado selecionado
+    this.inputTarget.classList.remove("d-none");
+    this.divSubmitTarget.classList.remove("d-none");
     this.foundGuest = guest;
     this.formGuestElementTarget.querySelector('input').value = guest.full_name;
     // Remove a lista de convidados da tela
@@ -83,10 +87,8 @@ export default class extends Controller {
     const selectedValue = event.target.value;
     if (selectedValue === 'confirm') {
       // Lógica para quando o convidado seleciona "Confirmar Presença"
-      // Aqui você pode adicionar qualquer lógica necessária antes de submeter os dados do formulário
     } else if (selectedValue === 'decline') {
       // Lógica para quando o convidado seleciona "Não Irei Comparecer"
-      // Aqui você pode adicionar qualquer lógica necessária antes de submeter os dados do formulário
     }
   }
 

@@ -1,12 +1,11 @@
 <%= simple_form_for [@wedding, @guest] do |f| %>
   <div class="form-inputs scroll-form">
     <%= f.error_notification %>
-    <% f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors
-    [:base].present? %>
+    <% f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-    <%= f.input :full_name, :label => 'Nome completo'%>
+    <%= f.input :full_name, :label => 'Nome completo' %>
     <%= f.input :email, :label => 'E-mail' %>
-    <%= f.input :phone, :label => 'Celular' %>
+    <%= f.input :phone, placeholder: "(XX) XXXXX-XXXX", input_html: { id: "phoneNumberGuest", maxlength: "15" } %>
   </div>
 
   <div class="form-actions pt-4">
@@ -16,3 +15,33 @@
   </div>
 
 <% end %>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const phoneNumberInput = document.getElementById('phoneNumberGuest');
+
+    phoneNumberInput.addEventListener('input', function(event) {
+      let input = event.target.value.replace(/\D/g, ''); // Remove non-digit characters
+      let formattedNumber = formatPhoneNumber(input);
+      event.target.value = formattedNumber;
+    });
+
+    const form = document.querySelector('form');
+    form.addEventListener('submit', function() {
+      const phoneNumberInput = document.getElementById('phoneNumberGuest');
+      phoneNumberInput.value = phoneNumberInput.value.replace(/\D/g, ''); // Remove non-digit characters
+    });
+
+    function formatPhoneNumber(input) {
+      // Adiciona parênteses e traço conforme necessário
+      let formattedNumber = '(' + input.slice(0, 2);
+      if (input.length > 2) {
+        formattedNumber += ') ' + input.slice(2, 7);
+      }
+      if (input.length > 7) {
+        formattedNumber += '-' + input.slice(7, 11);
+      }
+      return formattedNumber;
+    }
+  });
+</script>
