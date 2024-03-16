@@ -7,4 +7,12 @@ class User < ApplicationRecord
   has_one_attached :photo
   has_one :wedding, dependent: :destroy
   has_one :review, dependent: :destroy
+
+  def full_name
+    "#{first_name} #{last_name}"
+  end
+
+  def initials
+    "#{first_name&.chars&.first}#{last_name&.chars&.first}"
+  end
 end

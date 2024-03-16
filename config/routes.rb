@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   resources :weddings, except: :show do
     resources :reviews, only: %i[new create]
     resources :guests, only: %i[new create edit update destroy]
-    delete "delete_all_guests", to: "guests#delete_all"
+    member do
+      delete "delete_all_guests", to: "guests#delete_all"
+    end
     resources :gifts, only: %i[new create edit update destroy] do
       resources :orders, only: %i[create]
     end
