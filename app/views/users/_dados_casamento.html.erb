@@ -1,22 +1,22 @@
 <div class="d-none d-flex flex-column m-3 rounded-4 shadow container-user-wedding" data-toggle-target="togglableElementChoiceCasamento">
   <div class="flex-grow-1 d-flex user-bg-info-wed justify-content-between align-items-center rounded-top-4">
     <div class="border h-25 user-comp-info-wed m-3 rounded-4 d-flex justify-content-center align-items-center btn shadow p-3 flex-grow-1" data-action="click->toggle#fireCasamentoInfo">
-      <h4 class="fw-bold user-comp-text m-0 userw-title-text">Casamento</h4>
+      <h4 class="fw-bold user-comp-text m-0 userw-title-text-b">Casamento</h4>
     </div>
     <div class="flex-grow-1 border h-25 user-comp-info-wed m-3 rounded-4 d-flex justify-content-center align-items-center btn shadow p-3 flex-grow-1" data-action="click->toggle#firePresentesInfo">
-      <h4 class="fw-bold user-comp-text m-0 userw-title-text">Lista de Presentes</h4>
+      <h4 class="fw-bold user-comp-text m-0 userw-title-text-b">Lista de Presentes</h4>
     </div>
     <div class="flex-grow-1 border h-25 user-comp-info-wed m-3 rounded-4 d-flex justify-content-center align-items-center btn shadow p-3 flex-grow-1" data-action="click->toggle#fireConvidadosInfo">
-      <h4 class="fw-bold user-comp-text m-0 userw-title-text">Lista de Convidados</h4>
+      <h4 class="fw-bold user-comp-text m-0 userw-title-text-b">Lista de Convidados</h4>
     </div>
     <div class="flex-grow-1 border h-25 user-comp-info-wed m-3 rounded-4 d-flex justify-content-center align-items-center btn shadow p-3 flex-grow-1" data-action="click->toggle#firePresentesRecebidos">
-      <h4 class="fw-bold user-comp-text m-0 userw-title-text">Presentes Recebidos</h4>
+      <h4 class="fw-bold user-comp-text m-0 userw-title-text-b">Presentes Recebidos</h4>
     </div>
   </div>
 
   <div class="w-100 h-100 bg-white rounded-bottom-4 p-4" data-toggle-target="togglableElement" data-toggle-element="casamentoInfo">
     <div class="h-100 d-flex flex-column align-items-center">
-      <% if !@user_wedding.empty? %>
+      <% if @user_wedding %>
         <div class="mt-2">
           <h4 class="userw-title-text">Parabéns, seu casamento foi criado com sucesso! <i class="fa-solid fa-heart" style="color: #ff0026;"></i></h4>
         </div>
@@ -66,7 +66,7 @@
             <h5 class="p-0 mb-3 userw-title-text">Panorama Geral:</h5>
             <p class="p-0 userw-title-text-s">Convidados: <%= @wedding_guests.count %></p>
             <p class="p-0 userw-title-text-s">Presentes: <%= @wedding_gifts.count %></p>
-            <p class="p-0 userw-title-text-s">Presentes Recebidos: <%= @wedding_orders.count %></p>
+            <p class="p-0 userw-title-text-s">Presentes Recebidos: <%= @orders.count %></p>
           </div>
         </section>
       <% else %>

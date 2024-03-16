@@ -1,4 +1,4 @@
-<% if @user_wedding.empty? %>
+<% if @user_wedding.nil? %>
   <section class="h-100 d-flex flex-column align-items-center">
     <div class="d-flex flex-column justify-content-center align-items-center userw-text-margin w-75">
       <h3 class="userw-text-just userw-title-text mb-5">Ops, parece que o seu casamento ainda não foi criado!</h3>
@@ -6,7 +6,7 @@
       <h3 class="userw-text-just userw-title-text mb-4">Nos vemos em breve!</h3>
     </div>
   </section>
-<% elsif @orders == [] %>
+<% elsif @orders.empty? %>
   <section class="h-100 d-flex flex-column align-items-center">
     <div class="d-flex flex-column justify-content-center align-items-center w-75 userw-text-margin">
       <h3 class="userw-text-just userw-title-text mb-5">Parece que temos um <span class="text-white px-1" style="background-color: #6f6fab; font-variant:all-small-caps; letter-spacing:3px">CASAMENTO!</h3></span>
@@ -16,7 +16,7 @@
 <% else %>
   <div class="d-flex flex-column align-items-center ">
     <h4 class="m-0 pb-2 userw-title-text">Quantidade de presentes recebidos: <%= @orders&.count %></h4>
-    <p class="m-0 pt-2 pb-4 userw-title-text-s">Valor total: <%= number_to_currency(@total_orders_value, :unit => "R$ ", :separator => ",", :delimiter => ".") %></p>
+    <p class="m-0 pt-2 pb-4 userw-title-text-s">Valor total: <%= number_to_currency(@orders.sum(&:value), :unit => "R$ ", :separator => ",", :delimiter => ".") %></p>
   </div>
   <% @orders.each do |order| %>
     <div class="border shadow-sm border-card-wed-user p-2 my-2 d-flex align-items-center">

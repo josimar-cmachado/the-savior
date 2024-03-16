@@ -1,35 +1,44 @@
-.card_order{
-  border-radius: 8px;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+.card_order {
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.5s;
-  background-color: white;
+  background-color: #ffffffd5;
   padding: 20px;
   transition: 5s;
   justify-content: center;
   flex-wrap: wrap;
+  margin-bottom: 1.5em;
 }
 
-.card_order img{
+.card_order img {
   background-image: url(img_balao.jpg);
   border-radius: 5px;
   background-size: cover;
   background-position: center;
 }
 
-.button_gift{
+.card-order-info {
+  min-height: 100px;
+}
+
+.button_gift {
   border-radius: 10%;
 }
-.card_order:hover{
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+
+.card_order:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
-.card_order-title{
+
+.card_order-title {
   margin-top: 5px;
   color: #333;
   font-size: 20px;
   font-weight: 700;
   font-style: italic;
 }
-.card_order-description{
+
+.card_order-description {
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-between;

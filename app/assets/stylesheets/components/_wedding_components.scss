@@ -94,6 +94,11 @@
   letter-spacing: .8px;
 }
 
+.userw-title-text-b {
+  letter-spacing: .8px;
+  font-size: 1.4rem;
+}
+
 .userw-title-text-s {
   letter-spacing: .4px;
 }
@@ -248,17 +253,36 @@
   background-color: #efddc9b6;
 }
 
-.btn-wed-conf {
+
+.bnt-gift {
   border-radius: 6px;
-  background-color: #fbe1c6;
-  color: #393534;
-  letter-spacing: 2px;
+  background-color: #fbe1c6 !important;
+  color: #393534 !important;
+  font-size: .99em;
+  padding-right: 8.5px !important;
+  padding-left: 8.5px !important;
+  letter-spacing: .5px;
   transition: 0.6s;
 }
 
-.btn-wed-conf:hover {
+.bnt-gift:hover{
+  border-radius: 9px;
+  background-color: #fad8b5 !important;
+  transition: 0.6s;
+}
+
+.bnt-wed-conf {
+  border-radius: 6px;
+  background-color: #fbe1c6;
+  color: #393534;
+  letter-spacing: 1px;
+  transition: 0.6s;
+}
+
+.bnt-wed-conf:hover {
   border-radius: 12px;
-  background-color: #efddc9d2;
+  background-color: #fad8b5;
+  letter-spacing: 1.5px;
   color: #393534;
   transition: 0.6s;
 }
