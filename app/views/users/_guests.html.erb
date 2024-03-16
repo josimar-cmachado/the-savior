@@ -38,7 +38,7 @@
       <div class="d-flex justify-content-center my-1">
         <p class="m-0 pb-2 userw-title-text">Convidados confirmados (<%= @grouped_wedding_guests[true]&.count %>)</p>
       </div>
-      <% @grouped_wedding_guests[true].each do |guest| %>
+      <% @grouped_wedding_guests[true]&.each do |guest| %>
         <span class="">
           <div class="user-bg-info-wed-content d-flex justify-content-between px-2 py-1 rounded-2">
             <p class="m-0 userw-title-text">Dados:</p>
@@ -71,7 +71,7 @@
       <div class="d-flex justify-content-center my-1">
         <p class="m-0 pb-2 userw-title-text-s">Convidados a confirmar (<%= @grouped_wedding_guests[nil]&.count %>)</p>
       </div>
-      <% @grouped_wedding_guests[nil].each do |guest| %>
+      <% @grouped_wedding_guests[nil]&.each do |guest| %>
         <span class="">
           <div class="user-bg-info-wed-content d-flex justify-content-between px-2 py-1 rounded-2">
             <p class="m-0 userw-title-text">Dados:</p>
@@ -103,7 +103,7 @@
       <div>
         <p class="d-flex justify-content-center pb-2 my-1 userw-title-text">Convidados não confirmados (<%= @grouped_wedding_guests[false]&.count %>)</p>
       </div>
-      <% @grouped_wedding_guests[false].each do |guest| %>
+      <% @grouped_wedding_guests[false]&.each do |guest| %>
         <span class="">
           <div class="user-bg-info-wed-content d-flex justify-content-between px-2 py-1 rounded-2">
             <p class="m-0 userw-title-text">Dados:</p>
