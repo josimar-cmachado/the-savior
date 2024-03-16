@@ -25,10 +25,8 @@
             <div class="dropdown-menu dropdown-menu-end " aria-labelledby="navbarDropdown">
               <%= link_to "Dashboard", user_profile_path(current_user), class: "dropdown-item" %>
 
-              <% if current_user.wedding.present? %>
+              <% if current_user.wedding.present? && current_user.wedding.reviews.empty? %>
                 <%= link_to "Nos Avalie", new_wedding_review_path(wedding_id: current_user.wedding),  class: "dropdown-item" %>
-              <% else %>
-                <%= link_to "Crie seu casamento", new_wedding_path, class: "dropdown-item" %>
               <% end %>
               <%= link_to "Sair", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
