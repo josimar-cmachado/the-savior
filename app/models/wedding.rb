@@ -13,7 +13,7 @@ class Wedding < ApplicationRecord
   after_validation :geocode, if: :will_save_change_to_address?
 
   validates :welcome_message, presence: true
-  # validates :address, presence: true
+  validates :address, presence: true
   validates :wedding_info, presence: true
   validates :date, presence: true
   validates :time, presence: true
