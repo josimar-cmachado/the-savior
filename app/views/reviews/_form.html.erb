@@ -1,0 +1,16 @@
+<%= simple_form_for [@wedding, @review] do |f| %>
+  <div class="form-inputs">
+    <%= f.error_notification %>
+    <% f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors
+      [:base].present? %>
+
+    <%= f.input :content, :label => 'Conteúdo' %>
+    <%= f.input :rating, :label => 'Avaliação de 1/5'%>
+
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit "Salvar Avaliação", class: "btn btn-primary" %>
+    <%= link_to 'Voltar', root_path, class: "btn btn btn-outline-warning" %>
+  </div>
+<% end %>

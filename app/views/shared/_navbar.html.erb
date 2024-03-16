@@ -17,13 +17,19 @@
           <% if current_user.photo.key %>
             <%= cl_image_tag(current_user.photo.key, height: 45, width: 45, crop: :thumb, class: "avatar-small", alt: "dropdown menu", gravity: :face) %>
           <% else %>
-            <span class="d-flex justify-content-center align-items-center text-warning fs-5 avatar" style="background-color:#F4E0BE">
+            <span class="d-flex justify-content-center align-items-center text-warning fs-5 avatar">
               <%= current_user.first_name[0].capitalize %>
             </span>
           <% end %>
           </a>
             <div class="dropdown-menu dropdown-menu-end " aria-labelledby="navbarDropdown">
               <%= link_to "Dashboard", user_profile_path(current_user), class: "dropdown-item" %>
+
+              <% if current_user.wedding.present? %>
+                <%= link_to "Nos Avalie", new_wedding_review_path(wedding_id: current_user.wedding),  class: "dropdown-item" %>
+              <% else %>
+                <%= link_to "Crie seu casamento", new_wedding_path, class: "dropdown-item" %>
+              <% end %>
               <%= link_to "Sair", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
           </li>

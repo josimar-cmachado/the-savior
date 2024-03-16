@@ -1,5 +1,9 @@
   <img src="<%= asset_path 'img_banner1.jpg' %>" class="d-block w-100" alt="slide 1">
   <div class="banner-text">
     <h2>Organize o casamento dos seus sonhos com a Casa dos Noivos.</h2>
-    <%= link_to "cadastre-se", new_user_registration_path, class: "btn btn-primary" %>
+    <span>
+      <%= link_to "Criar Site Grátis", new_user_registration_path, class: "btn btn-primary" %>
+    </span>
+    <br>
+      <%= link_to "já tem uma conta? Entrar", new_user_session_path, class: "link text-white font-italic small" %>
   </div>

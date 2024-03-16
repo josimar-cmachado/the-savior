@@ -1,27 +1,28 @@
 <%= render 'shared/banner' %>
 
-
 <div class="container mt-5" id="products">
     <div class="row">
-      <div class="col-md-12 text-center">
-          <h2>Nosso produto</h2>
-            <p> Nós entendemos que cada casamento é único, e é por isso que oferecemos uma plataforma que permite personalização total.
+        <div class="col-md-12 text-center pt-2">
+          <h2>Nosso produto </h2>
+          <p> Nós entendemos que cada casamento é único, e é por isso que oferecemos uma plataforma que permite personalização total.
           Do design do site à lista de presentes e ao gerenciamento de RSVP, nosso objetivo é proporcionar uma experiência que
           atenda às necessidades específicas de cada casal. Com recursos intuitivos e suporte excepcional, estamos aqui para
           ajudar a tornar o seu grande dia ainda mais especial </p>
       </div>
     </div>
-  <div id="carouselProduct" class="carousel slide" data-bs-ride="carousel">
+  <div id="carouselProduct" class="carousel slide mt-5" data-bs-ride="carousel">
     <div class="carousel-inner">
-      <div class="carousel-item active" data-bs-interval="10000">
-        <div class="row d-flex aling-items-center mb-5">
+      <div class="carousel-item active" >
+      <%# data-bs-interval="10000" %>
+        <div class="row d-flex aling-items-center mb-5" >
           <%=render 'pages/cards/card1'  %>
           <%=render 'pages/cards/card2'  %>
           <%=render 'pages/cards/card3'  %>
         </div>
       </div>
 
-      <div class="carousel-item" data-bs-interval="20000">
+      <div class="carousel-item" >
+      <%# data-bs-interval="20000" %>
         <div class="row d-flex aling-items-center mb-5">
           <%=render 'pages/cards/card4'  %>
           <%=render 'pages/cards/card5'  %>
@@ -30,20 +31,26 @@
       </div>
     </div>
 
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselProduct" data-bs-slide="prev">
+    <button class="carousel-control-prev" type="button"  data-bs-slide="prev">
+    <%# data-bs-target="#carouselProduct" %>
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Previous</span>
     </button>
 
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselProduct" data-bs-slide="next">
+    <button class="carousel-control-next" type="button"  data-bs-slide="next">
+    <%# data-bs-target="#carouselProduct" %>
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Next</span>
     </button>
   </div>
 </div>
 
-<div class="container mt-5">
+<div class="container mt-5"  >
   <%= render 'shared/cardh' %>
+</div>
+
+<div class="container mt-5">
+  <%= render 'weddings/reviews' %>
 </div>
 
 <a href="#navbar" class="scroll-to-top">
