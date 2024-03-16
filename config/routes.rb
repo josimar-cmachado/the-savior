@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: "pages#home"
   get "up" => "rails/health#show", as: :rails_health_check
   resources :weddings, except: :show do
+    resources :reviews, only: %i[new create]
     resources :guests, only: %i[new create edit update destroy]
     delete "delete_all_guests", to: "guests#delete_all"
     resources :gifts, only: %i[new create edit update destroy] do
