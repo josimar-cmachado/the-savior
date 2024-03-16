@@ -1,9 +1,8 @@
 class GiftsController < ApplicationController
-
   def index
     @wedding = Wedding.find(params[:wedding_id])
     @user_wedding = Wedding.where(user: current_user).to_a
-     @gifts = @wedding.gifts
+     @gifts = Gift.where(wedding: @user_wedding)
      case params[:sort_by]
      when "value_asc"
        @gifts = @gifts.order(value: :asc)
@@ -16,7 +15,7 @@ class GiftsController < ApplicationController
      when "category"
         @gifts = @gifts.order(category: :asc)
      else
-       @gifts = Gift.all
+        @gifts = Gift.where(wedding: @user_wedding)
      end
     @partner_first_name = @wedding.partner_first_name
     @couple = "#{current_user.first_name}&#{@partner_first_name}"

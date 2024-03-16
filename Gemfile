@@ -29,8 +29,6 @@ gem "cloudinary"
 
 gem "pg_search"
 
-gem 'font-awesome-rails'
-
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
 
