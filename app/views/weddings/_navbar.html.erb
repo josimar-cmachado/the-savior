@@ -1,23 +1,23 @@
 <ul id="anchors-nav-wed" class="nav justify-content-center align-items-center nav-wed-size gap-2 anchors-nav-wed-scrollspy" data-controller="navbar-wed" data-navbar-wed-class-value="navwed-height-size">
-  <li class="nav-item">
-    <a class="nav-link active" aria-current="page" href="#presenca">Confirme sua presença</a>
+  <li class="nav-item text-decoration-none">
+    <a class="nav-link active text-decoration-none" aria-current="page" href="#presenca">Confirme sua presença</a>
   </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#recepcao">Recepção</a>
+  <li class="nav-item text-decoration-none">
+    <a class="nav-link text-decoration-none" href="#recepcao">Recepção</a>
   </li>
   <% if !@gifts.empty? %>
-    <li class="nav-item">
-      <%= link_to "Lista de presentes", presentes_path(@user_wedding), class: "nav-link" %>
+    <li class="nav-item text-decoration-none">
+      <%= link_to "Lista de presentes", presentes_path(@user_wedding), class: "nav-link text-decoration-none" %>
     </li>
   <% end %>
   <% if !@wedding_guests_messages.empty? %>
-    <li class="nav-item">
-      <a class="nav-link" href="#mensagens">Mensagens</a>
+    <li class="nav-item text-decoration-none">
+      <a class="nav-link text-decoration-none" href="#mensagens">Mensagens</a>
     </li>
   <% end %>
   <% if !@user_wedding_tips.empty? %>
-    <li class="nav-item">
-      <a class="nav-link" href="#dicas">Dicas</a>
+    <li class="nav-item text-decoration-none">
+      <a class="nav-link text-decoration-none" href="#dicas">Dicas</a>
     </li>
   <% end %>
 </ul>

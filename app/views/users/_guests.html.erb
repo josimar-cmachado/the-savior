@@ -1,4 +1,4 @@
-<% if @wedding_guests.empty? && @user_wedding != [] %>
+<% if @wedding_guests.empty? && @user_wedding %>
   <section class="h-100 d-flex flex-column align-items-center">
     <div class="d-flex flex-column justify-content-center align-items-center w-75 userw-text-margin">
       <h3 class="userw-text-just userw-title-text mb-5">Parece que temos um <span class="text-white px-1" style="background-color: #6f6fab; font-variant:all-small-caps; letter-spacing:3px">CASAMENTO!</h3></span>
@@ -6,7 +6,7 @@
       <%= link_to "Adicionar lista de convidados", new_wedding_guest_path(@user_wedding), class: "btn btn-outline-dark shadow-sm" %>
     </div>
   </section>
-<% elsif @user_wedding.empty? %>
+<% elsif @user_wedding.nil? %>
   <section class="h-100 d-flex flex-column align-items-center">
     <div class="d-flex flex-column justify-content-center align-items-center userw-text-margin w-75">
       <h3 class="userw-text-just userw-title-text mb-5">Ops, parece que o seu casamento ainda não foi criado!</h3>
@@ -16,18 +16,18 @@
   </section>
 <% else %>
   <div class="d-flex justify-content-center">
-    <h4 class="m-0 pb-4 userw-title-text">Quantidade de convidados cadastrados: <%= @wedding_guests.count %><h4>
+    <h4 class="m-0 pb-4 userw-title-text">Quantidade de convidados cadastrados: <%= @wedding_guests&.count %><h4>
     <span class="d-flex align-items-center ms-5">
       <%= link_to new_wedding_guest_path(@user_wedding) do %>
         <div><i class="fa-solid fa-plus me-2 text-success"></i></div>
       <% end %>
-      <%= link_to wedding_delete_all_guests_path(wedding_id: @user_wedding.first.id), data: { turbo_method: :delete, turbo_confirm: "Deletar a lista inteira e começar do zero. Você tem certeza?" } do %>
+      <%= link_to delete_all_guests_wedding_path(@user_wedding), data: { turbo_method: :delete, turbo_confirm: "Deletar a lista inteira e começar do zero. Você tem certeza?" } do %>
         <div><i class="fa-solid fa-xmark" style="color: #ff0000;"></i></div>
       <% end %>
     </span>
   </div>
     <div class="progress mb-4 border-card-wed-user">
-      <% if @confirmed_guests.count > 0 %>
+      <% if @grouped_wedding_guests[true]&.count > 0 %>
         <div class="progress-bar user-comp-info-progress" role="progressbar" aria-label="Example with label" style="width: <%= @percentage %>%;" aria-valuenow="<%= @percentage %>" aria-valuemin="0" aria-valuemax="100"><%= @percentage %>%</div>
       <% else %>
         <div class="progress-bar" role="progressbar" aria-label="Example with label" style="width: 100%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
@@ -36,9 +36,9 @@
   <section class="d-flex flex-wrap justify-content-between">
     <div class="border shadow-sm border-card-wed-user p-2 mt-1" style="width: 32.8%">
       <div class="d-flex justify-content-center my-1">
-        <p class="m-0 pb-2 userw-title-text">Convidados confirmados (<%= @confirmed_guests.count %>)</p>
+        <p class="m-0 pb-2 userw-title-text">Convidados confirmados (<%= @grouped_wedding_guests[true]&.count %>)</p>
       </div>
-      <% @confirmed_guests.each do |guest| %>
+      <% @grouped_wedding_guests[true]&.each do |guest| %>
         <span class="">
           <div class="user-bg-info-wed-content d-flex justify-content-between px-2 py-1 rounded-2">
             <p class="m-0 userw-title-text">Dados:</p>
@@ -69,9 +69,9 @@
     </div>
     <div class="border shadow-sm border-card-wed-user p-2 mt-1" style="width: 32.8%">
       <div class="d-flex justify-content-center my-1">
-        <p class="m-0 pb-2 userw-title-text-s">Convidados a confirmar (<%= @unconfirmed_guests.count %>)</p>
+        <p class="m-0 pb-2 userw-title-text-s">Convidados a confirmar (<%= @grouped_wedding_guests[nil]&.count %>)</p>
       </div>
-      <% @unconfirmed_guests.each do |guest| %>
+      <% @grouped_wedding_guests[nil]&.each do |guest| %>
         <span class="">
           <div class="user-bg-info-wed-content d-flex justify-content-between px-2 py-1 rounded-2">
             <p class="m-0 userw-title-text">Dados:</p>
@@ -101,9 +101,9 @@
     </div>
     <div class="border shadow-sm border-card-wed-user p-2 mt-1"style="width: 32.8%">
       <div>
-        <p class="d-flex justify-content-center pb-2 my-1 userw-title-text">Convidados não confirmados (<%= @not_attending_guests.count %>)</p>
+        <p class="d-flex justify-content-center pb-2 my-1 userw-title-text">Convidados não confirmados (<%= @grouped_wedding_guests[false]&.count %>)</p>
       </div>
-      <% @not_attending_guests.each do |guest| %>
+      <% @grouped_wedding_guests[false]&.each do |guest| %>
         <span class="">
           <div class="user-bg-info-wed-content d-flex justify-content-between px-2 py-1 rounded-2">
             <p class="m-0 userw-title-text">Dados:</p>

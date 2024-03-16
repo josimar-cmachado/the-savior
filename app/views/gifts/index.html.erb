@@ -1,34 +1,40 @@
-<%= render "navbar"%>
-<div class="container">
-  <div class="short-by" style= "width:14em">
-    <form action="<%= presentes_path(@wedding, @couple) %>" method="get">
-        <select name="sort_by" aria-label="select" style= "width:8em">
-          <option value="value_asc">Menor Preço</option>
-          <option value="value_desc">Maior Preço</option>
-          <option value="title_asc">A-Z </option>
-          <option value="title_desc">Z-A</option>
-          <option value="category">Categoria</option>
-        </select>
-        <input type="submit" value="Ordenar" >
-      </form>
-  </div>
+<section class="testbwed-red">
+  <%= render "navbar"%>
+  <section class="test-red-bg"></section>
+  <div class="container">
+    <div class="short-by mt-4" style= "width:17em">
+      <form action="<%= presentes_path(@wedding, @couple) %>" method="get">
+          <select name="sort_by" aria-label="select" style= "width:8.5em">
+            <option value="value_asc">Menor Preço</option>
+            <option value="value_desc">Maior Preço</option>
+            <option value="title_asc">A-Z </option>
+            <option value="title_desc">Z-A</option>
+            <option value="category">Categoria</option>
+          </select>
+          <input type="submit" value="Ordernar" class="bnt-gift" >
+        </form>
+    </div>
 
-  <div class="row ">
-    <% @gifts.each do |gift|  %>
-      <div class="col-3">
-         <img src="<%= asset_path 'img_balao.jpg' %>" class="card_order-img-top" alt="Image" style="width: 100%; height: 300px; border-top-left-radius: 8px; border-top-right-radius: 8px;">
-        <div class="card_order">
-          <div class="card_order-body">
-            <h5 class="card_order-title"><%= gift.title.capitalize%> </h5>
-            <div class="card_order-description">
-              <p> Categoria: <%=gift.category.capitalize%> </p>
-              <p> <%=number_to_currency(gift.value, :unit => "R$ ", :separator => ",", :delimiter => ".")%> </p>
+    <div class="row ">
+      <% @gifts.each do |gift|  %>
+        <div class="col-3">
+          <img src="<%= asset_path 'img_balao.jpg' %>" class="card_order-img-top" alt="Image" style="width: 100%; height: 300px; border-top-left-radius: 8px; border-top-right-radius: 8px;">
+          <div class="card_order">
+            <div class="card_order-body d-flex flex-column justify-content-between">
+              <div class="card-order-info d-flex flex-column justify-content-between">
+                <h5 class="card_order-title m-0"><%= gift.title.capitalize %></h5>
+                <div class="card_order-description">
+                  <p> <%=gift.category.capitalize%> </p>
+                  <p> <%=number_to_currency(gift.value, :unit => "R$ ", :separator => ",", :delimiter => ".")%> </p>
+                </div>
+              </div>
+              <%= link_to "Comprar", buy_gift_path(@wedding.id, @couple, gift.id), class: "btn bnt-wed-conf" %>
             </div>
-            <%= link_to "Comprar", buy_gift_path(@wedding.id, @couple, gift.id), class: "btn btn-light" %>
           </div>
         </div>
-      </div>
-    <%end%>
+      <%end%>
+    </div>
   </div>
-</div>
-<%= render "footer"%>
+  <%= render "footer"%>
+  <section class="buffer-wed"></section>
+</section>

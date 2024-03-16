@@ -1,35 +1,38 @@
-<div class="container-presente">
-  <div class="row">
-    <div class="col-">
-      <div class="card-presente">
-        <div class=" d-flex justify-content-between">
-          <div class="div">
-            <h4> Meu Carrinho</h4>
-            <h6>Descrição do Presente</h6>
-          </div>
-          <div class="d-flex flex-column justify-content-end pt-3">
-            <p>Valor</p>
-          </div>
-        </div>
-        <div class="card_presente-body">
-          <hr class="my-4">
-        <div class="d-flex">
-          <img src="<%= asset_path 'img_balao.jpg' %>" class="card_order-img-top" alt="Image"  style="width: 300px; height: 180px;">
-          <div class="d-flex flex-column justify-content-between">
-            <div class= " ms-2 mt-2">
-              <h5 class="card_presente-title m-0 p-0"><%= @gift.title %></h5>
-              <p> Categoria: <%=@gift.category %></p>
+<section class="testbwed-red">
+  <section class="test-red-bg"></section>
+  <div class="container-presente">
+    <div class="row">
+      <div class="d-flex justify-content-center align-items-center">
+        <div class="card-presente m-0">
+          <div class=" d-flex justify-content-between">
+            <div class="d-flex flex-column justify-content-end pt-3">
+              <h4 class="m-0 p-0 userw-title-text">Carrinho</h4>
             </div>
-            <%= link_to "Remover", presentes_path, class: "btn btn-outline text-decoration-underline", style: "color: red" %>
+            <div class="d-flex flex-column justify-content-end pt-3">
+              <p class="m-0">Valor</p>
+            </div>
           </div>
-          <div class="d-flex flex-grow-1 justify-content-end align-items-center">
-            <p> <%=number_to_currency(@gift.value, :unit => "R$ ", :separator => ",", :delimiter => ".")%></p>
+          <div class="card_presente-body">
+            <hr class="my-3" style="box-shadow: 0px .5px .9px .1px black;">
+            <div class="d-flex">
+              <img src="<%= asset_path 'img_balao.jpg' %>" class="card_order-img-top me-2 border border-3 border-info shadow-sm" alt="Image"  style="width: 12vw; height: 100%; border-radius: 8px;">
+              <div class="d-flex flex-column justify-content-between ms-2">
+                <div class= "mt-2">
+                  <h5 class="card_presente-title m-0 p-0 userw-title-text"><%= @gift.title %></h5>
+                  <p class="userw-title-text"><%= @gift.category %></p>
+                </div>
+                <%= link_to "Remover", presentes_path, class: "text-decoration-underline userw-title-text-s m-0 p-0", style: "color: #f7c89b" %>
+              </div>
+              <div class="d-flex flex-grow-1 justify-content-end align-items-center">
+                <p class="userw-title-text-s"> <%=number_to_currency(@gift.value, :unit => "R$ ", :separator => ",", :delimiter => ".")%></p>
+              </div>
+            </div>
+            <hr class="my-3"  style="box-shadow: 0px .5px .9px .1px black;">
+            <h5 class="m-0 mb-2 p-0 userw-title-text">Deixe sua mensagem</h5>
+            <%= render 'order_form'%>
           </div>
         </div>
-          <hr class="my-4">
-          <p> Deixe sua mensagem de carrinho</p>
-          <%= render 'order_form'%>
       </div>
     </div>
   </div>
-</div>
+</section>

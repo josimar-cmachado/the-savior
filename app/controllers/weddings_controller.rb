@@ -84,7 +84,7 @@ class WeddingsController < ApplicationController
 
   def wedding_params
     params.require(:wedding).permit(:welcome_message,
-                                    :address, :wedding_info,
+                                    :address, :address_number, :address_location, :wedding_info,
                                     :date, :time, :partner_first_name,
                                     :partner_last_name, :partner_email, :partner_profile,
                                     :partner_phone, :couple_photo, :partner_one_photo,

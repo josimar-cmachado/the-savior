@@ -10,14 +10,14 @@
       <ul class="navbar-nav me-auto align-items-center">
         <% if user_signed_in? %>
           <li class="nav-item active me-2">
-            <p class="navbar-text m-0 text-dark" >Olá, <%= current_user.first_name %> </p>
+            <p class="navbar-text m-0" >Olá, <%= current_user.first_name %> </p>
           </li>
           <li class="nav-item dropdown position-static d-flex align-items-center ms-1">
           <a href="#" class="me-2 text-decoration-none" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <% if current_user.photo.key %>
             <%= cl_image_tag(current_user.photo.key, height: 45, width: 45, crop: :thumb, class: "avatar-small", alt: "dropdown menu", gravity: :face) %>
           <% else %>
-            <span class="d-flex justify-content-center align-items-center text-warning fs-5 avatar">
+            <span class="d-flex justify-content-center align-items-center fs-5 avatar text-white bg-warning">
               <%= current_user.first_name[0].capitalize %>
             </span>
           <% end %>

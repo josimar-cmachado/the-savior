@@ -1,4 +1,4 @@
-<% if @wedding_gifts.empty? && @user_wedding != [] %>
+<% if @wedding_gifts.empty? && @user_wedding %>
   <section class="h-100 d-flex flex-column align-items-center">
     <div class="d-flex flex-column justify-content-center align-items-center w-75 userw-text-margin">
       <h3 class="userw-text-just userw-title-text mb-5">Parece que temos um <span class="text-white px-1" style="background-color: #6f6fab; font-variant:all-small-caps; letter-spacing:3px">CASAMENTO!</h3></span>
@@ -6,7 +6,7 @@
       <%= link_to "Adicionar lista de presentes", new_wedding_gift_path(@user_wedding), class: "btn btn-outline-dark shadow-sm" %>
     </div>
   </section>
-<% elsif @user_wedding == [] %>
+<% elsif @user_wedding.nil? %>
   <section class="h-100 d-flex flex-column align-items-center">
     <div class="d-flex flex-column justify-content-center align-items-center w-75 userw-text-margin">
       <h3 class="userw-text-just userw-title-text mb-5">Ops, parece que o seu casamento ainda não foi criado!</h3>
