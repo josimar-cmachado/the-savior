@@ -3,7 +3,7 @@
 <div class="container mt-5" id="products">
     <div class="row">
         <div class="col-md-12 text-center pt-2">
-          <h2>Nosso produto </h2>
+          <h3>Nosso produto </h3>
           <p> Nós entendemos que cada casamento é único, e é por isso que oferecemos uma plataforma que permite personalização total.
           Do design do site à lista de presentes e ao gerenciamento de RSVP, nosso objetivo é proporcionar uma experiência que
           atenda às necessidades específicas de cada casal. Com recursos intuitivos e suporte excepcional, estamos aqui para
@@ -11,9 +11,9 @@
       </div>
     </div>
   <div id="carouselProduct" class="carousel slide mt-5" data-bs-ride="carousel">
+
     <div class="carousel-inner">
-      <div class="carousel-item active" >
-      <%# data-bs-interval="10000" %>
+      <div class="carousel-item active" data-bs-interval="10000" >
         <div class="row d-flex aling-items-center mb-5" >
           <%=render 'pages/cards/card1'  %>
           <%=render 'pages/cards/card2'  %>
@@ -21,8 +21,7 @@
         </div>
       </div>
 
-      <div class="carousel-item" >
-      <%# data-bs-interval="20000" %>
+      <div class="carousel-item" data-bs-interval="20000" >
         <div class="row d-flex aling-items-center mb-5">
           <%=render 'pages/cards/card4'  %>
           <%=render 'pages/cards/card5'  %>
@@ -31,14 +30,12 @@
       </div>
     </div>
 
-    <button class="carousel-control-prev" type="button"  data-bs-slide="prev">
-    <%# data-bs-target="#carouselProduct" %>
+    <button class="carousel-control-prev" data-bs-target="#carouselProduct" type="button"  data-bs-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Previous</span>
     </button>
 
-    <button class="carousel-control-next" type="button"  data-bs-slide="next">
-    <%# data-bs-target="#carouselProduct" %>
+    <button class="carousel-control-next" data-bs-target="#carouselProduct" type="button"  data-bs-slide="next">
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Next</span>
     </button>
@@ -56,3 +53,4 @@
 <a href="#navbar" class="scroll-to-top">
   <i class="fas fa-chevron-up"></i>
 </a>
+

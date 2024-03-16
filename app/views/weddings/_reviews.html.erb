@@ -1,48 +1,69 @@
-<div id="reviewCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
-  <!-- Indicators -->
-  <ol class="carousel-indicators">
-    <% @reviews.each_with_index do |_,index| %>
-      <li data-bs-target="#reviewCarousel" data-bs-slide-to="<%= index %>" class="<%= index.zero? ? 'active' : '' %>"></li>
-    <% end %>
-  </ol>
-
-  <!-- Wrapper for slides -->
-  <div class="carousel-inner">
-    <% @reviews.each_with_index do |review, index| %>
-      <div class="carousel-item <%= index.zero? ? 'active' : '' %>">
-        <div class="card-custom rounded-3 justify-content-start align-items-start mb-12">
-          <div class="card-body-custom  card bg-info w-150">
-            <p class="card-text-custom"><%= review.content %></p>
-            <div class="d-flex align-items-center justify-content-between">
-              <div class="d-flex align-items-center">
-                <% if review.user.photo.key %>
-                  <%= cl_image_tag(review.user.photo.key, height: 45, width: 45, crop: :thumb, class: "avatar-small-custom", alt: "dropdown menu", gravity: :face) %>
-                <% else %>
-                  <span class="d-flex justify-content-center align-items-center text-primary fs-5 avatar-small-custom">
-                    <%= review.user.first_name[0].capitalize %>
-                  </span>
-                <% end %>
-                <p class="card-text-custom m-0 ms-2"><%= review.user.first_name %></p>
-              </div>
-              <div class="d-flex justify-content-between align-items-center">
-                <p class="m-0 me-2">Avaliação: <%= review.rating %>/5</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    <% end %>
+<div class="container mt-10">
+  <div class="row">
+    <div class="col-md-10 mx-auto text-center" id="comentarios">
+      <h3>Quem usou, aprovou e recomenda!</h3>
+      <p>Descubra por que somos amados por noivos e noivas! Explore nossos comentários e avaliações para encontrar elogios emocionantes e palavras de gratidão que refletem nosso compromisso em tornar seu casamento inesquecível. Junte-se a nós nesta jornada emocionante na Casa dos Noivos e compartilhe sua própria experiência!</p>
+    </div>
   </div>
 
-  <!-- Left and right controls -->
-  <button class="carousel-control-prev" type="button"  data-bs-slide="prev">
-  <%# data-bs-target="#reviewCarousel" %>
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Anterior</span>
-  </button>
-  <button class="carousel-control-next" type="button"  data-bs-slide="next">
-  <%# data-bs-target="#reviewCarousel" %>
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Próximo</span>
-  </button>
+
+  <div id="reviewCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <% @reviews.each_slice(3).with_index do |_, index| %>
+        <li data-bs-target="#reviewCarousel" data-bs-slide-to="<%= index %>" class="<%= index.zero? ? 'active' : '' %>"></li>
+      <% end %>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+      <% @reviews.each_slice(3).with_index do |review_group, index| %>
+        <div class="carousel-item <%= index.zero? ? 'active' : '' %>">
+          <div class="row">
+            <% review_group.each do |review| %>
+              <div class="col-md-4">
+                <div class="card-custom rounded-3 justify-content-start align-items-start mb-12">
+                  <div class="card-body-custom card bg-info w-150">
+                    <p class="card-text-custom"><%= review.content %></p>
+                    <div class="d-flex align-items-center justify-content-between">
+                      <div class="d-flex align-items-center">
+                        <% if review.user.photo.key %>
+                          <%= cl_image_tag(review.user.photo.key, height: 45, width: 45, crop: :thumb, class: "avatar-small-custom", alt: "dropdown menu", gravity: :face) %>
+                        <% else %>
+                          <span class="d-flex justify-content-center align-items-center text-primary fs-5 avatar-small-custom">
+                            <%= review.user.first_name[0].capitalize %>
+                          </span>
+                        <% end %>
+                        <p class="card-text-custom m-0 ms-2"><%= review.user.first_name %></p>
+                      </div>
+                      <div class="d-flex justify-content-between align-items-center">
+                        <p class="m-0 me-2">Avaliação:
+                          <% review.rating.times do %>
+                            <i class="fas fa-star gold-star"></i>
+                          <% end %>
+                          <% (5 - review.rating).times do %>
+                            <i class="far fa-star gold-star"></i>
+                          <% end %>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+    <!-- Left and right controls -->
+    <button class="carousel-control-prev" data-bs-target="#reviewCarousel" type="button"  data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Anterior</span>
+    </button>
+    <button class="carousel-control-next" data-bs-target="#reviewCarousel" type="button"  data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Próximo</span>
+    </button>
+  </div>
 </div>

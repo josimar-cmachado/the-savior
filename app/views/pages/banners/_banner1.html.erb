@@ -1,9 +1,16 @@
   <img src="<%= asset_path 'img_banner1.jpg' %>" class="d-block w-100" alt="slide 1">
   <div class="banner-text">
-    <h2>Organize o casamento dos seus sonhos com a Casa dos Noivos.</h2>
+    <h3>Bem-vindo à Casa dos Noivos: O Destino dos Casais Felizes</h3>
+    <p> Entre em um mundo de inspiração e descobertas, onde cada
+    detalhe do seu casamento é cuidadosamente planejado e celebrado.
+    Explore nossos recursos premium, leia os comentários emocionantes
+    de casais felizes e comece a construir o casamento dos seus sonhos conosco! </p>
+
+    <% if !current_user %>
     <span>
       <%= link_to "Criar Site Grátis", new_user_registration_path, class: "btn btn-primary" %>
     </span>
     <br>
       <%= link_to "já tem uma conta? Entrar", new_user_session_path, class: "link text-white font-italic small" %>
+    <% end %>
   </div>

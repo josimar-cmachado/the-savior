@@ -47,9 +47,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_09_174911) do
     t.string "category"
     t.integer "value"
     t.integer "total_quota"
-    t.bigint "wedding_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "wedding_id", null: false
     t.index ["wedding_id"], name: "index_gifts_on_wedding_id"
   end
 
