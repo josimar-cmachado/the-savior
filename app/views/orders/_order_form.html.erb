@@ -1,49 +1,15 @@
-<div class="container-presente">
-  <div class="row">
-    <div class="col-">
-      <div class="card-presente">
-        <div class=" d-flex justify-content-between">
-          <div class="div">
-            <h4> Meu Carrinho</h4>
-            <h6>Descrição do Presente</h6>
-          </div>
-          <div class="d-flex flex-column justify-content-end pt-3">
-            <p>Valor</p>
-          </div>
-        </div>
-        <div class="card_presente-body">
-          <hr class="my-4">
-        <div class="d-flex">
-          <img src="<%= asset_path 'img_balao.jpg' %>" class="card_order-img-top" alt="Image"  style="width: 300px; height: 180px;">
-          <div class="d-flex flex-column justify-content-between">
-            <div class= " ms-2 mt-2">
-              <h5 class="card_presente-title m-0 p-0"><%= @gift.title %></h5>
-              <p> Categoria: <%=@gift.category %></p>
-            </div>
-            <%= link_to "Remover", presentes_path, class: "btn btn-outline text-decoration-underline", style: "color: red" %>
-          </div>
-          <div class="d-flex flex-grow-1 justify-content-end align-items-center">
-            <p> <%=number_to_currency(@gift.value, :unit => "R$ ", :separator => ",", :delimiter => ".")%></p>
-          </div>
-        </div>
-          <hr class="my-4">
-          <p> Deixe sua mensagen de carrinho</p>
-          <%= simple_form_for [@wedding, @gift, @order] do |f| %>
-            <div class="form-inputs scroll-form">
-              <%= f.error_notification %>
-              <% f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors
-              [:base].present? %>
+<%= simple_form_for [@wedding, @gift, @order] do |f| %>
+  <div class="form-inputs scroll-form">
+    <%= f.error_notification %>
+    <% f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors
+    [:base].present? %>
 
-              <%= f.input :full_name, :label => 'Insira seu nome' %>
-              <%= f.input :message, :label => 'Escreva sua mensagem'%>
-            </div>
-            <div class=" d-flex justify-content-center form-actions pt-4">
-              <%= f.submit "Finalizar", class: "btn btn-warning shadow-sm rounded-4 me-4 px-5"%>
-              <%= link_to "Voltar", presentes_path, class: "btn btn-warning rounded-4 px-5" %>
-
-            </div>
-          <% end %>
-      </div>
-    </div>
+    <%= f.input :full_name, :label => 'Insira seu nome' %>
+    <%= f.input :message, :label => 'Escreva sua mensagem'%>
   </div>
-</div>
+  <div class=" d-flex justify-content-center form-actions pt-4">
+    <%= f.submit "Finalizar", class: "btn btn-warning shadow-sm rounded-4 me-4 px-5"%>
+    <%= link_to "Voltar", presentes_path, class: "btn btn-warning rounded-4 px-5" %>
+
+  </div>
+<% end %>
