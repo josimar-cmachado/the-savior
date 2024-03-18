@@ -103,6 +103,10 @@
   letter-spacing: .4px;
 }
 
+.userw-text-g {
+  letter-spacing: 1.4px;
+}
+
 .userw-text-just {
   text-align: justify !important;
 }
@@ -114,6 +118,10 @@
 
 .userw-text-margin {
   margin-top: 4.5%;
+}
+
+.userw-text-line-h {
+  line-height: 1.6;
 }
 
 .wed-messages-sizing {
@@ -265,7 +273,7 @@
   transition: 0.6s;
 }
 
-.bnt-gift:hover{
+.bnt-gift:hover {
   border-radius: 9px;
   background-color: #fad8b5 !important;
   transition: 0.6s;
@@ -290,4 +298,38 @@
 .radio-wed {
   border-color: white !important;
   background-color: #fbe1c6 !important;
+}
+
+.user-comp-info-progress {
+  background-color: #6f6fab;
+}
+
+.user-comp-info-wed:hover {
+  border-color: #6f6fab;
+  border-width: 3.5px;
+  background-color: #f2f2f2;
+}
+
+.user-comp-text {
+  color: #3a383a;
+}
+
+.user-comp-edit {
+  color: #343a40;
+}
+
+.buffer-wed {
+  width: 100%;
+  min-height: 15vh;
+}
+
+.buffer-cds {
+  width: 100%;
+  min-height: 4vh;
+}
+
+.border-bottom-purp {
+  border-bottom: 1.1px solid #6F6FAB !important;
+  margin-left: 8px;
+  margin-right: 8px;
 }

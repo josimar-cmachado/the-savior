@@ -8,10 +8,10 @@
     <%= f.input :phone, placeholder: "(XX) XXXXX-XXXX", input_html: { id: "phoneNumberGuest", maxlength: "15" } %>
   </div>
 
-  <div class="form-actions pt-4">
-    <%= f.submit "Salvar e criar novo convidado", class: "btn btn-outline-warning shadow-sm", name: "save_and_create_guest" %>
-    <%= f.submit "Salvar e voltar", class: "btn btn-outline-warning shadow-sm", name: "save_guest_and_return" %>
-    <%= link_to "Voltar", user_profile_path(current_user), class: "btn btn-outline-warning shadow-sm" %>
+  <div class="form-actions pt-4 d-flex">
+    <%= f.submit "Salvar e criar novo", class: "flex-grow-1 w-100 btn btn-outline-warning shadow-sm me-3", name: "save_and_create_guest" %>
+    <%= f.submit "Salvar e voltar", class: "flex-grow-1 w-100 btn btn-outline-warning shadow-sm me-3", name: "save_guest_and_return" %>
+    <%= link_to "Voltar", user_profile_path(current_user), class: "flex-grow-1 w-100 btn btn-outline-warning shadow-sm" %>
   </div>
 
 <% end %>

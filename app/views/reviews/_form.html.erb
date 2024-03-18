@@ -5,12 +5,12 @@
       [:base].present? %>
 
     <%= f.input :content, :label => 'Conteúdo' %>
-    <%= f.input :rating, :label => 'Avaliação de 1/5'%>
+    <%= f.input :rating, :label => 'Avaliação de 1/5', input_html: { maxlength: "245" }%>
 
   </div>
 
-  <div class="form-actions">
-    <%= f.submit "Salvar Avaliação", class: "btn btn-primary" %>
-    <%= link_to 'Voltar', root_path, class: "btn btn btn-outline-warning" %>
+  <div class="form-actions d-flex pt-4">
+    <%= f.submit "Salvar Avaliação", class: "flex-grow-1 w-100 btn btn-outline-warning shadow-sm me-3" %>
+    <%= link_to 'Voltar', root_path, class: "flex-grow-1 w-100 btn btn-outline-warning shadow-sm" %>
   </div>
 <% end %>

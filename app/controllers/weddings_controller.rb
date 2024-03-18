@@ -56,7 +56,7 @@ class WeddingsController < ApplicationController
     if @wedding.save
       redirect_to new_wedding_tip_path(@wedding)
     else
-      render :new , status: :unprocessable_entity, flash: { error: "Please fill in all the fields" }
+      render :new, status: :unprocessable_entity, flash: { error: "Please fill in all the fields" }
     end
   end
 
