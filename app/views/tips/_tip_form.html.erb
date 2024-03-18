@@ -5,14 +5,14 @@
     [:base].present? %>
 
     <%= f.input :title, :label => 'Título' %>
-    <%= f.input :content, :label => 'Descreva a sua dica maravilhosa', placeholder: "Por exemplo, maquiadoras, como se deslocar até o local do casamento, eventos pela cidade" %>
-    <small class="text-secondary">* Para fins de visualização em seu website, recomendamos criar uma dica agora. No entanto, não é obrigatório, pois uma vez criada, não poderá ser excluída ou editada.</small class="text-secondary">
+    <%= f.input :content, :label => 'Descreva a sua dica maravilhosa', placeholder: "Por exemplo, maquiadoras, como se deslocar até o local do casamento, eventos pela cidade, etc" %>
+    <small class="text-secondary  userw-text-just">* Para fins de visualização em seu website, recomendamos criar uma dica agora. No entanto, não é obrigatório, pois uma vez criada, não poderá ser excluída ou editada.</small>
   </div>
 
-  <div class="form-actions pt-4">
-    <%= f.submit "Salvar e criar nova dica", class: "btn btn-outline-warning shadow-sm", name: "save_and_create_tip" %>
-    <%= f.submit "Salvar e finalizar", class: "btn btn-outline-warning shadow-sm", name: "save_and_return" %>
-    <%= link_to "Criar depois", user_profile_path(current_user), class: "btn btn-outline-warning shadow-sm" %>
+  <div class="form-actions pt-4 mb-1 d-flex">
+    <%= f.submit "Salvar e criar nova", class: "flex-grow-1 w-100 btn btn-outline-warning shadow-sm me-3", name: "save_and_create_tip" %>
+    <%= f.submit "Salvar e finalizar", class: "flex-grow-1 w-100 btn btn-outline-warning shadow-sm me-3", name: "save_and_return" %>
+    <%= link_to "Depois", user_profile_path(current_user), class: "flex-grow-1 w-100 btn btn-outline-warning shadow-sm" %>
   </div>
 
 <% end %>

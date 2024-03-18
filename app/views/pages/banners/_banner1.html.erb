@@ -1,16 +1,16 @@
-  <img src="<%= asset_path 'img_banner1.jpg' %>" class="d-block w-100" alt="slide 1">
-  <div class="banner-text">
-    <h3>Bem-vindo à Casa dos Noivos: O Destino dos Casais Felizes</h3>
-    <p> Entre em um mundo de inspiração e descobertas, onde cada
-    detalhe do seu casamento é cuidadosamente planejado e celebrado.
-    Explore nossos recursos premium, leia os comentários emocionantes
-    de casais felizes e comece a construir o casamento dos seus sonhos conosco! </p>
 
-    <% if !current_user %>
-    <span>
-      <%= link_to "Criar Site Grátis", new_user_registration_path, class: "btn btn-warning" %>
-    </span>
-    <br>
-      <%= link_to "Já tem uma conta? Entrar", new_user_session_path, class: "link text-white font-italic small" %>
-    <% end %>
-  </div>
+<img src="<%= asset_path 'img_banner1.jpg' %>" class="d-block" alt="slide 1" style="height:73vh">
+<div class="banner-text ms-5 mt-5 ps-3">
+  <h3 class="banner-text-title">Bem-vindo à Casa dos Noivos: <span class="mb-0 p-0" style="background-color: #6f6fabab;">O Destino dos Casais Felizes</span></h3>
+  <p class="banner-text-phrase"> Entre em um mundo de inspiração e descobertas, onde cada
+  detalhe do seu casamento é cuidadosamente planejado e celebrado.
+  Explore nossos recursos premium, leia os comentários emocionantes
+  de casais felizes e comece a construir o casamento dos seus sonhos conosco! </p>
+  <% if !current_user %>
+  <span>
+    <%= link_to "Criar Site Grátis", new_user_registration_path, class: "btn btn-warning mb-2" %>
+  </span>
+  <br>
+    <%= link_to "Já tem uma conta? Entrar", new_user_session_path, class: "link text-white font-italic small text-decoration-none" %>
+  <% end %>
+</div>

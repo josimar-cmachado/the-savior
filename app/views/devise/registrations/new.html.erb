@@ -1,6 +1,6 @@
 <div class="row justify-content-center my-4">
-  <div class="col-md-4">
-    <h2>Registrar</h2>
+  <div class="col-md-4 bg-white p-5 mt-5 rounded-4 shadow">
+    <h2 class="text-center mb-4 userw-title-text">Cadastrar</h2>
 
     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= f.error_notification %>
@@ -39,13 +39,13 @@
                     as: :file %>
       </div>
 
-      <div class="form-actions">
+      <div class="form-actions d-flex">
         <%= f.button :submit,
-                    "Finalizar cadastro",
-                    class: 'btn btn-outline-primary mb-1 rounded-3 shadow-sm' %>
+                    "Confirmar cadastro",
+                    class: 'btn btn-outline-warning mb-1 rounded-3 shadow-sm flex-grow-1 btn btn-outline-warning my-2 mb-4 me-3 w-100' %>
+        <%= render "devise/shared/links" %>
       </div>
     <% end %>
 
-    <%= render "devise/shared/links" %>
   </div>
 </div>

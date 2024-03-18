@@ -1,6 +1,6 @@
 <div class="row justify-content-center my-4">
-  <div class="col-md-4">
-    <h2>Editar conta</h2>
+  <div class="col-md-4 bg-white p-5 mt-5 rounded-4 shadow">
+    <h2 class="text-center mb-4 userw-title-text">Editar conta</h2>
 
     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <%= f.error_notification %>
@@ -41,15 +41,16 @@
                     input_html: { autocomplete: "current-password" } %>
       </div>
 
-      <div class="form-actions">
-        <%= f.button :submit, "Atualizar dados", class: "btn btn-primary my-2" %>
+      <div class="form-actions d-flex my-2">
+        <%= f.button :submit, "Atualizar dados", class: "flex-grow-1 btn btn-outline-warning my-2 mb-4 me-3 w-100" %>
+        <%= link_to "Voltar", :back, class: "flex-grow-1 btn btn-outline-warning my-2 mb-4 w-100" %>
       </div>
     <% end %>
-
-    <h3>Remover conta</h3>
-
-    <div>Insatisfeito? Cancele a qualquer momento. <%= button_to "Cancelar a minha conta", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete, class: "btn btn-outline-danger shadow-sm border-3 rounded-4" %></div>
-
-    <%= link_to "Voltar", :back %>
+    <section class="border-bottom-purp mb-3"></section>
+    <div class="mt-2">
+      <h3 class="userw-title-text">Remover conta</h3>
+      <p class="userw-title-text-s">Insatisfeito? Cancele a qualquer momento. </p>
+      <%= button_to "Cancelar a minha conta", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete, class: "btn btn-warning shadow-sm border-3 rounded-4 mb-3" %>
+    </div>
   </div>
 </div>

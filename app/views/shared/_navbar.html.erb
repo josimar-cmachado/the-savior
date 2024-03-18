@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon" id="navbar" style="height: 70px;">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon shadow-sm" id="navbar" style="height: 70px;">
   <div class="container-fluid">
     <%= link_to "/", class: "m-0 ms-2" do %>
       <%= image_tag('Logo_site_oficial.png', class: "vh-4 logo-nav border-none", height: 60) %>
@@ -13,42 +13,39 @@
             <p class="navbar-text m-0" >Olá, <%= current_user.first_name %> </p>
           </li>
           <li class="nav-item dropdown position-static d-flex align-items-center ms-1">
-          <a href="#" class="me-2 text-decoration-none" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <% if current_user.photo.key %>
-            <%= cl_image_tag(current_user.photo.key, height: 45, width: 45, crop: :thumb, class: "avatar-small", alt: "dropdown menu", gravity: :face) %>
-          <% else %>
-            <span class="d-flex justify-content-center align-items-center fs-5 avatar text-white bg-warning">
-              <%= current_user.first_name[0].capitalize %>
-            </span>
-          <% end %>
-          </a>
-            <div class="dropdown-menu dropdown-menu-end " aria-labelledby="navbarDropdown">
+            <a href="#" class="me-2 text-decoration-none" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <% if current_user.photo.key %>
+                <%= cl_image_tag(current_user.photo.key, height: 45, width: 45, crop: :thumb, class: "avatar-small", alt: "dropdown menu", gravity: :face) %>
+              <% else %>
+                <span class="d-flex justify-content-center align-items-center fs-5 avatar text-white bg-warning">
+                  <%= current_user.first_name[0].capitalize %>
+                </span>
+              <% end %>
+            </a>
+            <div class="dropdown-menu dropdown-menu-end bg-white mx-3" style="border-radius:10px" aria-labelledby="navbarDropdown">
+              <%# <section class="buffer-cds" style="background-color:#6F6FAB"></section> %>
               <%= link_to "Dashboard", user_profile_path(current_user), class: "dropdown-item" %>
-
+              <section class="border-bottom-purp"></section>
               <% if current_user.wedding.present? && current_user.wedding.reviews.empty? %>
                 <%= link_to "Nos Avalie", new_wedding_review_path(wedding_id: current_user.wedding),  class: "dropdown-item" %>
+                <section class="border-bottom-purp"></section>
               <% end %>
               <%= link_to "Sair", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
           </li>
         <% else %>
-
           <li class="nav-item">
-           <%= link_to "Nossos Produtos", root_path(anchor: "products"), class: "nav-link text-dark" %>
+           <%= link_to "Nosso Produto", root_path(anchor: "products"), class: "nav-link text-dark" %>
          </li>
-
           <li class="nav-item">
               <%= link_to "Nossos Diferenciais", root_path(anchor: "diferenciais"), class: "nav-link text-dark" %>
           </li>
-
           <li class="nav-item">
             <%= link_to "Cadastre-se", new_user_registration_path, class: "nav-link text-dark" %>
           </li>
-
           <li class="nav-item">
             <%= link_to "Login", new_user_session_path, class: "nav-link text-dark" %>
           </li>
-
         <% end %>
       </ul>
     </div>

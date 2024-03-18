@@ -3,8 +3,19 @@
   top: 45%;
   left: 40%;
   transform: translate(-40%, -60%);
-  font-size: 24px; /* Ajuste conforme necessário */
-  color: white;
-  opacity: floor($number: 5);
   text-align: center !important;
+}
+
+.banner-text-title {
+  font-size: 1.9em !important;
+  color: white !important;
+  letter-spacing: .8px;
+}
+
+.banner-text-phrase {
+  font-size: 1.19em !important;
+  line-height: 1.48em !important;
+  color: white !important;
+  text-align: justify !important;
+  letter-spacing: .4px;
 }

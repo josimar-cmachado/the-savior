@@ -11,9 +11,9 @@
     <%= f.input :photo, as: :file, :label => 'Foto do presente' %>
   </div>
 
-  <div class="form-actions pt-4">
-    <%= f.submit "Cadastrar", class: "btn btn-outline-warning shadow-sm"%>
-    <%= link_to "Voltar", user_profile_path(current_user), class: "btn btn-outline-warning shadow-sm" %>
+  <div class="form-actions pt-4 mb-1 d-flex">
+    <%= f.submit "Cadastrar", class: "flex-grow-1 w-100 btn btn-outline-warning shadow-sm me-3"%>
+    <%= link_to "Voltar", user_profile_path(current_user), class: "flex-grow-1 w-100 btn btn-outline-warning shadow-sm" %>
   </div>
 
 <% end %>

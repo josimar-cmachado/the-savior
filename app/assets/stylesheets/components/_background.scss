@@ -41,24 +41,13 @@
   width: 99vw;
 }
 
-.buffer-wed {
-  width: 100%;
-  min-height: 15vh;
-}
-
-.not-cont-wed {
-  margin: 0 !important;
-  padding: 0 !important;
-}
-
-.wedding-landing {
-  background-color: #FAFAFA;
-  height: 100vh;
-  width: 100vw;
-}
-
 .user-bg-info-wed {
   background-color: #f8f9fa;
+}
+
+.user-bg-info-wed-radius {
+  background-color: #f8f9fa;
+  border-radius: 10px;
 }
 
 .user-bg-info-wed-content {
@@ -67,22 +56,4 @@
 
 .user-comp-info-wed {
   background-color: #E6E6FA;
-}
-
-.user-comp-info-progress {
-  background-color: #6f6fab;
-}
-
-.user-comp-info-wed:hover {
-  border-color: #6f6fab;
-  border-width: 3.5px;
-  background-color: #f2f2f2;
-}
-
-.user-comp-text {
-  color: #3a383a;
-}
-
-.user-comp-edit {
-  color: #343a40;
 }

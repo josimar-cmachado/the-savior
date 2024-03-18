@@ -22,13 +22,13 @@
     <%= f.input :partner_email, :label => 'Email do parceiro(a)' %>
     <%= f.input :partner_phone, :label => 'Telefone do parceiro(a)', input_html: { maxlength: "11" } %>
     <%= f.input :couple_photo, as: :file, :label => 'Foto do casal' %>
-    <%= f.input :partner_one_photo, as: :file, :label => 'Sua foto' %>
-    <%= f.input :partner_two_photo, as: :file, :label => 'Foto do parceiro(a)' %>
+    <%# f.input :partner_one_photo, as: :file, :label => 'Sua foto' %>
+    <%# f.input :partner_two_photo, as: :file, :label => 'Foto do parceiro(a)' %>
   </div>
 
-  <div class="form-actions pt-4">
-    <%= f.submit "Cadastrar", class: "btn btn-outline-warning shadow-sm"%>
-    <%= link_to "Voltar", user_profile_path(current_user), class: "btn btn-outline-warning shadow-sm" %>
+  <div class="form-actions pt-4 mb-1 d-flex">
+    <%= f.submit "Confirmar", class: "flex-grow-1 w-100 btn btn-outline-warning shadow-sm me-3"%>
+    <%= link_to "Voltar", user_profile_path(current_user), class: "flex-grow-1 w-100 btn btn-outline-warning shadow-sm" %>
   </div>
 
 <% end %>

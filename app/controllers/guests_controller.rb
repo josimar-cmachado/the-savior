@@ -21,11 +21,9 @@ class GuestsController < ApplicationController
   end
 
   def delete_all
-    @wedding = Wedding.find(params[:wedding_id])
+    @wedding = Wedding.find(params[:id])
     @guests = Guest.where(wedding: @wedding)
-    @guests.each do |guest|
-      guest.destroy
-    end
+    @guests.each(&:destroy)
     redirect_to user_profile_path(current_user)
   end
 
@@ -45,7 +43,6 @@ class GuestsController < ApplicationController
       end
     end
   end
-
 
   def destroy
     @guest = Guest.find(params[:id])
