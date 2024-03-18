@@ -23,7 +23,7 @@
                     <div class="d-flex align-items-center justify-content-between">
                       <div class="d-flex align-items-center">
                         <% if review.user.photo.key %>
-                          <%= cl_image_tag(review.user.photo.key, height: 45, width: 45, crop: :thumb, class: "avatar shadow-sm", alt: "dropdown menu", gravity: :face) %>
+                          <%= cl_image_tag(review.user.photo.key, crop: :thumb, class: "avatar shadow-sm", alt: "dropdown menu", gravity: :face) %>
                         <% else %>
                           <span class="d-flex justify-content-center align-items-center fs-5 avatar text-white bg-warning shadow-sm">
                             <%= review.user.first_name[0].capitalize %>
