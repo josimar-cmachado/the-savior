@@ -1,6 +1,6 @@
 class Gift < ApplicationRecord
   belongs_to :wedding
-  has_many :orders
+  has_many :orders, dependent: :destroy
   has_one_attached :photo
 
   validates :total_quota, presence: true

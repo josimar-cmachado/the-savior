@@ -2,9 +2,12 @@ require "open-uri"
 User.destroy_all
 Wedding.destroy_all
 Gift.destroy_all
-user= User.new(email: "riccieri@yahoo.com", password: "123456", first_name: "Riccieri", last_name: "Bosa", phone: "21999999999")
+couple_photo = URI.open("https://res.cloudinary.com/dqswoqgtn/image/upload/Gifs_photos/imag_foto_casal_bvhsar.jpg")
+user_photo = URI.open("https://res.cloudinary.com/dqswoqgtn/image/upload/Gifs_photos/img_user.jpg")
+user= User.new(email: "riccieri@yahoo.com", password: "123456", first_name: "Pedro", last_name: "Guimaraes", phone: "21999999999")
+user.photo.attach(io: user_photo, filename: "", content_type: "image/png")
 user.save!
-wedding= Wedding.new(welcome_message: "Bem-vindos ao nosso site de casamento! Aqui vocês encontrarão todas as informações sobre o nosso grande dia. Estamos muito felizes em compartilhar esse momento com vocês. Agradecemos por todo o carinho e apoio que temos recebido. Contamos com a presença de todos vocês para celebrar conosco. Beijos, Maria e João",
+wedding = Wedding.new(welcome_message: "Bem-vindos ao nosso site de casamento! Aqui vocês encontrarão todas as informações sobre o nosso grande dia. Estamos muito felizes em compartilhar esse momento com vocês. Agradecemos por todo o carinho e apoio que temos recebido. Contamos com a presença de todos vocês para celebrar conosco. Beijos, Maria e Pedro",
 date: "Wed, 14 Aug 2024",
 address: "Rio de Janeiro",
 wedding_info: "A cerimônia será realizada na Igreja Nossa Senhora da Paz, no Leblon, às 16h. A festa será no Copacabana Palace, às 20h.",
@@ -13,9 +16,9 @@ time: "Wed, 14 Aug 2024 02:09:00.000000000 UTC +00:00",
 partner_email: "rr@gmail.com",
 partner_profile: "noiva",
 partner_first_name: "Maria",
-partner_last_name: "Bosa",
+partner_last_name: "Cristina",
 partner_phone: "21999999988")
-# couple_photo.attach)
+wedding.couple_photo.attach(io: couple_photo, filename: "", content_type: "image/png")
 wedding.save!
 
 
@@ -32,7 +35,6 @@ gift_file10 = URI.open("https://res.cloudinary.com/dqswoqgtn/image/upload/Gifs_p
 gift_file11 = URI.open("https://res.cloudinary.com/dqswoqgtn/image/upload/Gifs_photos/safari_u0klfe.jpg")
 gift_file12 = URI.open("https://res.cloudinary.com/dqswoqgtn/image/upload/Gifs_photos/presentes_x8c9kp.jpg")
 gift_file13 = URI.open("https://res.cloudinary.com/dqswoqgtn/image/upload/Gifs_photos/praia_paradisiaca_pslfxo.jpg")
-
 
 gift1= Gift.new(title: "Jantar Romântico", category: "Jantar", value: 1000, total_quota: 10, wedding_id:Wedding.last.id)
 gift1.photo.attach(io: gift_file1, filename: "", content_type: "image/png")
