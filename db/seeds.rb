@@ -1,5 +1,9 @@
 require "open-uri"
 
+puts "Creating seeds"
+sleep 1
+puts "Setting everything ready"
+sleep 1
 # Destroy all records, before seed creation
 User.destroy_all
 Wedding.destroy_all
@@ -12,7 +16,7 @@ couple_photo2 = URI.open("https://res.cloudinary.com/dqswoqgtn/image/upload/Gifs
 couple_photo3 = URI.open("https://res.cloudinary.com/dqswoqgtn/image/upload/Gifs_photos/imag_foto_casal_bvhsar.jpg")
 user_photo = URI.open("https://res.cloudinary.com/dqswoqgtn/image/upload/Gifs_photos/img_user.jpg")
 user = User.new(
-  email: "luiz@yahoo.com",
+  email: "luiz@yahoo.com.br",
   password: "123456",
   first_name: "Luiz",
   last_name: "Andrade",
@@ -21,7 +25,7 @@ user = User.new(
 user.photo.attach(io: user_photo, filename: "", content_type: "image/png")
 user.save!
 user2 = User.new(
-  email: "riccieri@yahoo.com",
+  email: "riccieri@yahoo.com.br",
   password: "123456",
   first_name: "Riccieri",
   last_name: "Bosa",
@@ -29,7 +33,7 @@ user2 = User.new(
 )
 user2.save!
 user3 = User.new(
-  email: "josimar@yahoo.com",
+  email: "josimar@yahoo.com.br",
   password: "123456",
   first_name: "Josimar",
   last_name: "Machado",
@@ -140,51 +144,61 @@ gift_file13 = URI.open("https://res.cloudinary.com/dqswoqgtn/image/upload/Gifs_p
 gift1 = Gift.new(title: "Jantar Romântico", category: "Jantar", value: 450, total_quota: 10, wedding_id: wedding.id)
 gift1.photo.attach(io: gift_file1, filename: "", content_type: "image/png")
 gift1.save!
-gift2 = Gift.new(title: "Jantar Copacabana Palace", category: "Jantar", value: 800, total_quota: 10, wedding_id: wedding.id)
+gift2 = Gift.new(title: "Jantar no Copacabana Palace", category: "Jantar", value: 800, total_quota: 10, wedding_id: wedding.id)
 gift2.photo.attach(io: gift_file2, filename: "", content_type: "image/png")
 gift2.save!
-gift3 = Gift.new(title: "Jantar Paris City Vision ", category: "Jantar", value: 1000, total_quota: 10, wedding_id: wedding.id)
+gift3 = Gift.new(title: "Jantar em Paris", category: "Jantar", value: 1000, total_quota: 10, wedding_id: wedding.id)
 gift3.photo.attach(io: gift_file3, filename: "", content_type: "image/png")
 gift3.save!
-gift4 = Gift.new(title: "Passeio de Balão", category: "Passeio", value: 5000, total_quota: 10, wedding_id: wedding.id)
+gift4 = Gift.new(title: "Passeio de Balão", category: "Passeio", value: 750, total_quota: 10, wedding_id: wedding.id)
 gift4.photo.attach(io: gift_file4, filename: "", content_type: "image/png")
 gift4.save!
-gift5 = Gift.new(title: "Mergulho com Golfinhos", category: "Passeio", value: 6000, total_quota: 10, wedding_id: wedding.id)
+gift5 = Gift.new(title: "Mergulho com Golfinhos", category: "Passeio", value: 1200, total_quota: 10, wedding_id: wedding.id)
 gift5.photo.attach(io: gift_file5, filename: "", content_type: "image/png")
 gift5.save!
-gift6 = Gift.new(title: "Passeio de Aventura", category: "Passeio", value: 7000, total_quota: 10, wedding_id: wedding.id)
+gift6 = Gift.new(title: "Passagem de lua de mel", category: "Viagem", value: 7000, total_quota: 10, wedding_id: wedding.id)
 gift6.photo.attach(io: gift_file6, filename: "", content_type: "image/png")
 gift6.save!
-gift7 = Gift.new(title: "Viagem ao coliseu", category: "Passeio", value: 8000, total_quota: 10, wedding_id: wedding.id)
+gift7 = Gift.new(title: "Passeio ao Coliseu", category: "Passeio", value: 1500, total_quota: 10, wedding_id: wedding.id)
 gift7.photo.attach(io: gift_file7, filename: "", content_type: "image/png")
 gift7.save!
-gift8 = Gift.new(title: "Aluguel de carro", category: "viagem", value: 4000, total_quota: 10, wedding_id: wedding.id)
+gift8 = Gift.new(title: "Aluguel de carro", category: "Viagem", value: 2500, total_quota: 10, wedding_id: wedding.id)
 gift8.photo.attach(io: gift_file8, filename: "", content_type: "image/png")
 gift8.save!
-gift9 = Gift.new(title: "Viagem maldivas", category: "Viagem", value: 9000, total_quota: 10, wedding_id: wedding.id)
+gift9 = Gift.new(title: "Hospedagem em maldivas", category: "Viagem", value: 8500, total_quota: 10, wedding_id: wedding.id)
 gift9.photo.attach(io: gift_file9, filename: "", content_type: "image/png")
 gift9.save!
-gift10 = Gift.new(title: "Viagem ao deserto", category: "Viagem", value: 10000, total_quota: 10, wedding_id: wedding.id)
+gift10 = Gift.new(title: "Hiking no Arizona", category: "Viagem", value: 5000, total_quota: 10, wedding_id: wedding.id)
 gift10.photo.attach(io: gift_file10, filename: "", content_type: "image/png")
 gift10.save!
-gift11 = Gift.new(title: "Safari", category: "viagem", value: 11000, total_quota: 10, wedding_id: wedding.id)
+gift11 = Gift.new(title: "Safari", category: "Viagem", value: 7999, total_quota: 10, wedding_id: wedding.id)
 gift11.photo.attach(io: gift_file11, filename: "", content_type: "image/png")
 gift11.save!
-gift12 = Gift.new(title: "Presente ao casal", category: "Outros", value: 12000, total_quota: 10, wedding_id: wedding.id)
+gift12 = Gift.new(title: "Presente ao casal", category: "Outros", value: 3500, total_quota: 10, wedding_id: wedding.id)
 gift12.photo.attach(io: gift_file12, filename: "", content_type: "image/png")
 gift12.save!
-gift13 = Gift.new(title: "Praia Paradisiaca", category: "Viagem", value: 13000, total_quota: 10, wedding_id: wedding.id)
+gift13 = Gift.new(title: "Passeio à Praia Paradisíaca", category: "Viagem", value: 1570, total_quota: 10, wedding_id: wedding.id)
 gift13.photo.attach(io: gift_file13, filename: "", content_type: "image/png")
 gift13.save!
 puts "Gifts created"
 # Create a list of guests with faker
 Faker::Config.locale = 'pt-BR'
 100.times do
+  emails = ["@gmail.com", "@hotmail.com", "@yahoo.com.br"]
+  special_caracters = ["í", "ã", "ç", "é", "õ", "ú", "ê", "á", "ó", "í", "ô"]
+  full_name = "#{Faker::Name.first_name} #{Faker::Name.unique.last_name}"
+  first_name = full_name.downcase.split(" ").first
+  last_name = full_name.downcase.split(" ").last
+  name = "#{first_name}_#{last_name}"
+
+  if special_caracters.any? { |char| name.include?(char) }
+    name = name.gsub("í", "i").gsub("ã", "a").gsub("ç", "c").gsub("é", "e").gsub("õ", "o").gsub("ú", "u").gsub("ê", "e").gsub("á", "a").gsub("ó", "o").gsub("í", "i").gsub("ô", "o")
+  end
   guest = Guest.new(
-    full_name: Faker::Name.unique.name_with_middle,
-    email: Faker::Internet.unique.email,
-    phone: Faker::PhoneNumber.unique.cell_phone,
-    # Faker::PhoneNumber.extension(length: 11),
+    full_name: full_name,
+    email: "#{name.downcase}#{emails.sample}",
+    # phone: Faker::PhoneNumber.unique.cell_phone,
+    phone: Faker::PhoneNumber.extension(length: 11),
     confirmed: [true, false, nil].sample,
     wedding_id: wedding.id
   )
@@ -210,8 +224,8 @@ end
 puts "Confirmation messages created"
 # Create personalized list of guests
 guest1 = Guest.new(
-  full_name: "Giorgian De Arrascaeta",
-  email: "arrasca@gmail.com",
+  full_name: "Josimar Machado",
+  email: "josimar1@gmail.com",
   phone: "21907858264",
   confirmed: nil,
   wedding_id: wedding.id
@@ -219,8 +233,8 @@ guest1 = Guest.new(
 guest1.save!
 
 guest2 = Guest.new(
-  full_name: "Bianca Torres",
-  email: "bianca09@gmail.com",
+  full_name: "Riccieri Bosa",
+  email: "riccieri1@gmail.com",
   phone: "21966394832",
   confirmed: nil,
   wedding_id: wedding.id

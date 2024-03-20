@@ -41,7 +41,7 @@
         </div>
       </div>
       <span>
-        <p class="m-0 mt-2 ps-1 userw-title-text"><%= gift.title.capitalize %></p>
+        <p class="m-0 mt-2 ps-1 userw-title-text"><%= gift.title %></p>
         <p class="m-0 ps-1 userw-title-text"><%= number_to_currency(gift.value, :unit => "R$ ", :separator => ",", :delimiter => ".") %></p>
         <p class="m-0 ps-1 userw-title-text">Quantidade de cotas: <%= gift.total_quota %></p>
       </span>
