@@ -87,7 +87,18 @@ wedding3.save!
 puts "User and Wedding created"
 
 # Create Weddings tips
-# tip1 = Tip.new(
+tip1 = Tip.new(
+  title: "Trajes",
+  content: "QUEREMOS QUE TODOS SE SINTAM CONFORTÁVEIS E ELEGANTES! COMO REFERÊNCIA OFICIAL, VOCÊS PODEM CONSIDERAR TRAJES DE PASSEIO COMPLETO.",
+  wedding_id: wedding.id
+)
+tip1.save!
+tip2 = Tip.new(
+  title: "Salão de Beleza",
+  content: "SELECIONAMOS ALGUNS SALÕES DE BELEZA QUE FORAM BEM RECOMENDADOS PARA AQUELAS QUE DESEJAREM AGENDAR CABELO E/OU MAQUIAGEM: WERNER IPANEMA (21) 2137-8958; STUDIO LEBLON: (21) 99652-7627; FIL HAIR & EXPERIENCE: (21) 2523-6688. DE QUALQUER FORMA, FIQUEM SUPER À VONTADE PARA BUSCAR OUTRAS ALTERNATIVAS CONSIDERANDO A REGIÃO QUE DECIDIREM SE HOSPEDAR.",
+  wedding_id: wedding.id
+)
+tip2.save!
 
 # Create Weddings reviews
 review1 = Review.new(
