@@ -9,7 +9,6 @@
       </span>
       <span>
         <p class="m-0 p-0 userw-title-text"><%= guest.full_name.capitalize.gsub(/(\s+\w)/) { |name| name.upcase } %></p>
-        <p class="m-0 userw-title-text"><%= guest.created_at.strftime("%d/%m/%Y") %></p>
       </span>
     </div>
   <% end %>

@@ -15,10 +15,14 @@
         </form>
     </div>
 
-    <div class="row ">
+    <div class="row">
       <% @gifts.each do |gift|  %>
         <div class="col-3">
-         <%= cl_image_tag(gift.photo.key, class: "card_order-img-top", alt: "Image", style: "width: 100%; height: 300px; border-top-left-radius: 8px; border-top-right-radius: 8px;") %>
+          <% if gift.photo.present? %>
+            <%= cl_image_tag(gift.photo.key, class: "card_order-img-top", alt: "Image", style: "width: 100%; height: 300px; border-top-left-radius: 8px; border-top-right-radius: 8px") %>
+          <% else %>
+            <%= image_tag('wedding/pexels-asad-photo-maldives-1024960.jpg', class: "card_order-img-top", style: "width: 100%; height: 300px; border-top-left-radius: 8px; border-top-right-radius: 8px") %>
+          <% end %>
           <div class="card_order">
             <div class="card_order-body d-flex flex-column justify-content-between">
               <div class="card-order-info d-flex flex-column justify-content-between">
