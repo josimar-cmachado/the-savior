@@ -32,7 +32,7 @@
           <textarea id="confirmationMessage" class="form-control mt-2" data-attendance-target="confirmationMessage"
                  placeholder="Deixe uma pequena mensagem para os noivos" aria-label="default input example" maxlength="131"></textarea>
           <div class="errorMessages" data-attendance-target="errorMessages"></div> <!-- Adiciona o elemento para exibir as mensagens de erro -->
-          <div class="mt-2">
+          <div class="mt-2 d-flex justify-content-center">
             <div class="form-check form-check-inline">
               <input class="form-check-input radio-wed" type="radio" name="attendance" id="confirmAttendanceRadio" value="confirm"
                      data-action="click->attendance#radioSelection">
@@ -44,9 +44,10 @@
               <label class="form-check-label" for="declineAttendanceRadio">Não Irei Comparecer</label>
             </div>
           </div>
-          <div class="d-flex mt-2">
-            <button id="submitAttendanceButton" class="btn btn-wed-conf flex-grow-1 me-2"
-                    data-action="click->attendance#submitAttendance">Enviar</button>
+          <div class="d-flex justify-content-center mt-2">
+            <button id="submitAttendanceButton" class="btn bnt-wed-conf w-50 me-2"
+                    data-action="click->attendance#submitAttendance"
+                    data-turbo-prefetch="false">Enviar</button>
           </div>
         </div>
       </div>
