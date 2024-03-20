@@ -26,9 +26,9 @@
           <div class="card_order">
             <div class="card_order-body d-flex flex-column justify-content-between">
               <div class="card-order-info d-flex flex-column justify-content-between">
-                <h5 class="card_order-title m-0"><%= gift.title.capitalize %></h5>
+                <h5 class="card_order-title m-0"><%= gift.title %></h5>
                 <div class="card_order-description">
-                  <p> <%=gift.category.capitalize%> </p>
+                  <p> <%=gift.category%> </p>
                   <p> <%=number_to_currency(gift.value, :unit => "R$ ", :separator => ",", :delimiter => ".")%> </p>
                 </div>
               </div>
