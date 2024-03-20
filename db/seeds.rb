@@ -224,8 +224,8 @@ end
 puts "Confirmation messages created"
 # Create personalized list of guests
 guest1 = Guest.new(
-  full_name: "Giorgian De Arrascaeta",
-  email: "arrasca@gmail.com",
+  full_name: "Josimar Machado",
+  email: "josimar1@gmail.com",
   phone: "21907858264",
   confirmed: nil,
   wedding_id: wedding.id
@@ -233,8 +233,8 @@ guest1 = Guest.new(
 guest1.save!
 
 guest2 = Guest.new(
-  full_name: "Bianca Torres",
-  email: "bianca09@gmail.com",
+  full_name: "Riccieri Bosa",
+  email: "riccieri1@gmail.com",
   phone: "21966394832",
   confirmed: nil,
   wedding_id: wedding.id
