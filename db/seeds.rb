@@ -11,10 +11,10 @@ Gift.destroy_all
 puts "All records destroyed"
 
 # Create a new user and wedding
-couple_photo = URI.open("https://res.cloudinary.com/dqswoqgtn/image/upload/Gifs_photos/imag_foto_casal_bvhsar.jpg")
+couple_photo = URI.open("https://res.cloudinary.com/dqswoqgtn/image/upload/Gifs_photos/foto_casal.jpg")
 couple_photo2 = URI.open("https://res.cloudinary.com/dqswoqgtn/image/upload/Gifs_photos/imag_foto_casal_bvhsar.jpg")
 couple_photo3 = URI.open("https://res.cloudinary.com/dqswoqgtn/image/upload/Gifs_photos/imag_foto_casal_bvhsar.jpg")
-user_photo = URI.open("https://res.cloudinary.com/dqswoqgtn/image/upload/Gifs_photos/img_user.jpg")
+user_photo = URI.open("https://res.cloudinary.com/dqswoqgtn/image/upload/Gifs_photos/foto_perfil.jpg")
 user = User.new(
   email: "luiz@yahoo.com.br",
   password: "123456",
