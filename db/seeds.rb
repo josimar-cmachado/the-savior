@@ -25,18 +25,18 @@ user = User.new(
 user.photo.attach(io: user_photo, filename: "", content_type: "image/png")
 user.save!
 user2 = User.new(
-  email: "riccieri@yahoo.com.br",
+  email: "ana_oliveira@yahoo.com.br",
   password: "123456",
-  first_name: "Riccieri",
-  last_name: "Bosa",
+  first_name: "Ana",
+  last_name: "Oliveira",
   phone: "21939939999"
 )
 user2.save!
 user3 = User.new(
-  email: "josimar@yahoo.com.br",
+  email: "alice@yahoo.com.br",
   password: "123456",
-  first_name: "Josimar",
-  last_name: "Machado",
+  first_name: "Alice",
+  last_name: "Braga",
   phone: "21935937999"
 )
 user3.save!
