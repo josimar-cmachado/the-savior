@@ -5,9 +5,11 @@
     <i class="fa-solid fa-chevron-right fa-xl btn" data-action="click->wedding-event#change"></i>
   </span>
   <div id="wed-date-message" class="d-flex flex-column align-items-center d-none mb-4" data-wedding-event-target="hideAddressElement">
-    <span class="me-2"><strong>Endereço: </strong><%= @wedding.address %></span>
-    <span class="me-2"><strong>Data: </strong><%= @wedding.date.strftime("%d/%m/%Y") %></span>
-    <span class="me-2"><strong>Horário: </strong><%= @wedding.time.strftime("%H:%M") %></span>
+    <span class="me-2 w-75"><strong>Endereço: </strong><%= @wedding.address %></span>
+    <div class="d-flex w-75 align-items-between justify-content-center">
+      <span class="me-2"><strong>Data: </strong><%= @wedding.date.strftime("%d/%m/%Y") %> |</span>
+      <span class="me-2"><strong>Horário: </strong><%= @wedding.time.strftime("%H:%M") %>h</span>
+    </div>
   </div>
   <div data-wedding-event-target="hideTitleElement">
     <p class="text-center wed-messages-sizing"><%= @wedding.wedding_info %></p>

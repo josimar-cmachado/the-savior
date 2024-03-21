@@ -1,4 +1,6 @@
 class GuestsController < ApplicationController
+  skip_before_action :authenticate_user!, only: %i[update]
+  
   def new
     @guest = Guest.new
     @wedding = Wedding.find(params[:wedding_id])
