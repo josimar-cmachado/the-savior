@@ -15,7 +15,8 @@
     <title><%= meta_title %></title>
     <meta name="description" content="<%= meta_description %>">
     <meta name="turbo-prefetch" content="false">
-    
+    <meta name="csrf-token" content="<%= form_authenticity_token %>">
+
     <!-- Facebook Open Graph data -->
     <meta property="og:title" content="<%= meta_title %>" />
     <meta property="og:type" content="website" />

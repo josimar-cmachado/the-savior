@@ -1,7 +1,9 @@
 class GiftsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index]
+
   def index
     @wedding = Wedding.find(params[:wedding_id])
-    @user_wedding = Wedding.where(user: current_user).to_a
+    @user_wedding = Wedding.where(user: @wedding.user_id).to_a
     @gifts = Gift.where(wedding: @user_wedding)
     case params[:sort_by]
     when "value_asc"
@@ -17,7 +19,7 @@ class GiftsController < ApplicationController
     else
       @gifts = Gift.where(wedding: @user_wedding)
     end
-    @couple = "#{current_user.first_name}&#{@wedding.partner_first_name}"
+    @couple = "#{@wedding.user.first_name}&#{@wedding.partner_first_name}"
     @wedding_guests_messages = Guest.where(wedding: @wedding).select { |guest| guest.confirmation_message.present? }
     @user_wedding_tips = Tip.where(wedding: @user_wedding)
   end
