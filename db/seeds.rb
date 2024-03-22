@@ -93,7 +93,7 @@ puts "User and Wedding created"
 # Create Weddings tips
 tip1 = Tip.new(
   title: "Trajes",
-  content: "QUEREMOS QUE TODOS SE SINTAM CONFORTÁVEIS E ELEGANTES! COMO REFERÊNCIA OFICIAL, VOCÊS PODEM CONSIDERAR TRAJES DE PASSEIO COMPLETO.",
+  content: "Para tornar este momento ainda mais memorável, gostaríamos de sugerir um código de vestimenta que complemente a elegância e a beleza deste evento único: o Traje Social Completo.",
   wedding_id: wedding.id
 )
 tip1.save!
