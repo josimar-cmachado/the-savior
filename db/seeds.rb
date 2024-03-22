@@ -106,7 +106,7 @@ tip2.save!
 
 # Create Weddings reviews
 review1 = Review.new(
-  content: "A Casa dos Noivos superou todas as minhas expectativas! Não só o site é incrivelmente fácil de usar, mas também possui um design elegante e moderno. Fiquei impressionado com a quantidade de recursos disponíveis, desde a criação de listas de presentes até o acompanhamento das confirmações de presença. Foi uma parte fundamental da minha jornada até o altar, e estou muito grato por isso!",
+  content: "A Casa dos Noivos superou todas as minhas expectativas! Não só o site é incrivelmente fácil de usar, mas também possui um design elegante e moderno. Fiquei impressionado com a quantidade de recursos disponíveis, desde a criação de listas de presentes até o acompanhamento das confirmações de presença.",
   rating: 5,
   user_id: user.id,
   wedding_id: wedding.id)
