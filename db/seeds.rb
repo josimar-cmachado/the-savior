@@ -64,10 +64,10 @@ wedding2 = Wedding.new(
   wedding_info: "A cerimônia será realizada na encantadora Igreja de São Francisco Xavier, em Niterói, às 16h. A recepção acontecerá no magnífico Hotel Belmond Copacabana Palace, às 20h.",
   user_id: user2.id,
   time: "Sat, 19 Oct 2024 19:00:00.000000000 UTC +00:00",
-  partner_email: "mia@gmail.com",
-  partner_profile: "Noiva",
-  partner_first_name: "Mia",
-  partner_last_name: "Rodrigues",
+  partner_email: "riccieri@gmail.com",
+  partner_profile: "Noivo",
+  partner_first_name: "Riccieri",
+  partner_last_name: "Bosa",
   partner_phone: "21999949988"
 )
 wedding2.couple_photo.attach(io: couple_photo2, filename: "", content_type: "image/png")
@@ -82,8 +82,8 @@ wedding3 = Wedding.new(
   time: "Sat, 25 May 2024 17:30:00.000000000 UTC +00:00",
   partner_email: "sofia_andre@yahoo.com",
   partner_profile: "Noiva",
-  partner_first_name: "Sofia",
-  partner_last_name: "Silva",
+  partner_first_name: "Josimar",
+  partner_last_name: "Machado",
   partner_phone: "11988887777"
 )
 wedding3.couple_photo.attach(io: couple_photo3, filename: "", content_type: "image/png")
@@ -243,25 +243,25 @@ guest2.save!
 puts "Personalized guests created"
 # Create a list of orders
 mensagens_para_noivos = [
-    "Queridos Pedro e Maria, Estou emocionado por compartilhar este momento especial com vocês! Escolhi este presente com todo o carinho para celebrar o início da jornada de vocês juntos. Que cada dia seja tão cheio de amor e felicidade quanto este. Parabéns pelo casamento!",
+    "Queridos Luiz e Cecília, Estou emocionado por compartilhar este momento especial com vocês! Escolhi este presente com todo o carinho para celebrar o início da jornada de vocês juntos. Que cada dia seja tão cheio de amor e felicidade quanto este. Parabéns pelo casamento!",
 
-    "Queridos amigos, Pedro e Maria, Que alegria poder celebrar o amor de vocês neste dia tão importante! Espero que este presente seja uma adição especial à vida que estão construindo juntos. Desejo-lhes uma vida repleta de risos, amor e cumplicidade. Felicidades!",
+    "Queridos amigos. Que alegria poder celebrar o amor de vocês neste dia tão importante! Espero que este presente seja uma adição especial à vida que estão construindo juntos. Desejo-lhes uma vida repleta de risos, amor e cumplicidade. Felicidades!",
 
-    "Caros Pedro e Maria, Estou encantado por testemunhar este capítulo incrível na vida de vocês! Este presente é apenas uma pequena lembrança do quanto desejo que a felicidade esteja sempre presente em suas vidas. Que o amor que compartilham só cresça com o tempo. Parabéns pelo casamento!",
+    "Caros Luiz e Cecília, Estou encantado por testemunhar este capítulo incrível na vida de vocês! Este presente é apenas uma pequena lembrança do quanto desejo que a felicidade esteja sempre presente em suas vidas. Que o amor que compartilham só cresça com o tempo. Parabéns pelo casamento!",
 
-    "Queridos noivos, Pedro e Maria, O dia do seu casamento é um momento tão especial e estou muito feliz por fazer parte dele. Espero que este presente traga ainda mais alegria e amor ao lar que estão construindo juntos. Que a jornada que estão começando seja repleta de memórias maravilhosas e momentos inesquecíveis. Felicidades!",
+    "Queridos noivos, o dia do seu casamento é um momento tão especial e estou muito feliz por fazer parte dele. Espero que este presente traga ainda mais alegria e amor ao lar que estão construindo juntos. Que a jornada que estão começando seja repleta de memórias maravilhosas e momentos inesquecíveis. Felicidades!",
 
-    "Meus queridos, Pedro e Maria, Que emocionante é poder celebrar o amor de vocês neste dia tão significativo! Este presente é um símbolo do quanto torço pela felicidade e prosperidade do casal. Que cada dia seja uma nova aventura cheia de amor e compreensão. Parabéns e felicidades!",
+    "Meus queridos, Luiz e Cecília, Que emocionante é poder celebrar o amor de vocês neste dia tão significativo! Este presente é um símbolo do quanto torço pela felicidade e prosperidade do casal. Que cada dia seja uma nova aventura cheia de amor e compreensão. Parabéns e felicidades!",
 
-    "Queridos casal, Pedro e Maria, É com grande alegria que escolhi este presente para vocês. Que ele seja um lembrete constante do amor e do compromisso que compartilham. Que o casamento de vocês seja cheio de momentos mágicos e de união. Estou ansioso para celebrar muitas ocasiões felizes juntos!",
+    "Queridos casal, É com grande alegria que escolhi este presente para vocês. Que ele seja um lembrete constante do amor e do compromisso que compartilham. Que o casamento de vocês seja cheio de momentos mágicos e de união. Estou ansioso para celebrar muitas ocasiões felizes juntos!",
 
-    "Meus amigos amados, Pedro e Maria, Estou tão feliz por ter a oportunidade de compartilhar este momento especial com vocês! Espero que este presente traga um sorriso aos seus rostos, assim como o amor de vocês traz ao meu. Que a vida a dois seja uma jornada incrível cheia de amor, compreensão e respeito mútuo. Parabéns pelo casamento!",
+    "Meus amigos amados, Luiz e Cecília, Estou tão feliz por ter a oportunidade de compartilhar este momento especial com vocês! Espero que este presente traga um sorriso aos seus rostos, assim como o amor de vocês traz ao meu. Que a vida a dois seja uma jornada incrível cheia de amor, compreensão e respeito mútuo. Parabéns pelo casamento!",
 
-    "Caros amigos, Pedro e Maria, Que privilégio é poder fazer parte deste momento único na vida de vocês! Espero que este presente os acompanhe em todas as etapas da sua jornada juntos, lembrando-os sempre do amor que os uniu. Que o casamento de vocês seja um conto de fadas cheio de amor e cumplicidade. Felicidades!",
+    "Caros amigos, que privilégio é poder fazer parte deste momento único na vida de vocês! Espero que este presente os acompanhe em todas as etapas da sua jornada juntos, lembrando-os sempre do amor que os uniu. Que o casamento de vocês seja um conto de fadas cheio de amor e cumplicidade. Felicidades!",
 
-    "Queridos amigos, Pedro e Maria, Estou emocionado por celebrar este momento tão especial com vocês! Que este presente seja apenas o começo de uma vida cheia de alegria, amor e realizações compartilhadas. Que o casamento de vocês seja uma fonte constante de felicidade e inspiração. Parabéns e votos de felicidades eternas!",
+    "Queridos amigos, Luiz e Cecília, Estou emocionado por celebrar este momento tão especial com vocês! Que este presente seja apenas o começo de uma vida cheia de alegria, amor e realizações compartilhadas. Que o casamento de vocês seja uma fonte constante de felicidade e inspiração. Parabéns e votos de felicidades eternas!",
 
-    "Meus queridos amigos, Pedro e Maria, Neste dia tão marcante, desejo a vocês todo o amor e felicidade do mundo! Que este presente seja um símbolo do carinho e dos bons votos que tenho para o casal. Que a vida a dois seja repleta de momentos inesquecíveis e que cada dia fortaleça ainda mais o amor que os une. Parabéns pelo casamento!"
+    "Meus queridos amigos. Neste dia tão marcante, desejo a vocês todo o amor e felicidade do mundo! Que este presente seja um símbolo do carinho e dos bons votos que tenho para o casal. Que a vida a dois seja repleta de momentos inesquecíveis e que cada dia fortaleça ainda mais o amor que os une. Parabéns pelo casamento!"
 ]
 contador = 0
 10.times do
