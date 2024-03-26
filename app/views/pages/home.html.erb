@@ -1,58 +1,31 @@
-<%= render 'shared/banner' %>
-<div class="container">
-  <section class="buffer-wed"></section>
-  <div id="products">
-    <div class="row">
-      <div class="col-md-10 mx-auto text-center pt-2">
-        <h3 class="userw-text-g mb-3">Nosso produto</h3>
-        <p class="userw-text-g userw-text-just userw-text-line-h m-0"> Nós entendemos que cada casamento é único, e é por isso que oferecemos uma plataforma que permite personalização total.
-        Do design do site à lista de presentes e ao gerenciamento de RSVP, nosso objetivo é proporcionar uma experiência que
-        atenda às necessidades específicas de cada casal. Com recursos intuitivos e suporte excepcional, estamos aqui para
-        ajudar a tornar o seu grande dia ainda mais especial.</p>
-      </div>
-    </div>
-    <section class="buffer-cds"></section>
-    <div id="carouselProduct" class="carousel slide mt-5" data-bs-ride="carousel">
-
-      <div class="carousel-inner">
-        <div class="carousel-item active" data-bs-interval="10000" >
-          <div class="row d-flex aling-items-center mb-5">
-            <%=render 'pages/cards/card1'  %>
-            <%=render 'pages/cards/card2'  %>
-            <%=render 'pages/cards/card3'  %>
-          </div>
-        </div>
-
-        <div class="carousel-item" data-bs-interval="20000" >
-          <div class="row d-flex aling-items-center mb-5">
-            <%=render 'pages/cards/card4'  %>
-            <%=render 'pages/cards/card5'  %>
-            <%=render 'pages/cards/card6'  %>
-          </div>
+<section class="testbwed-red">
+  <%= render 'weddings/navbar' %>
+  <%= render 'weddings/banner_wed' %>
+    <section class="buffer-wed"></section>
+    <section class="test-red-bg"></section>
+    <div class="container test-blur-wed">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="d-flex flex-column align-items-center" data-bs-spy="scroll" data-bs-target="#anchors-nav-wed" data-bs-smooth-scroll="true" class="scrollspy-example" tabindex="0">
+            <%= render 'weddings/welcome_message' %>
+            <section class="buffer-wed"></section>
+            <section class="parallax-wed"></section>
+            <section class="buffer-wed"></section>
+            <%= render "weddings/confirmation" %>
+            <section class="buffer-wed"></section>
+            <%= render "weddings/events" %>
+            <section class="buffer-wed"></section>
+            <%= render "weddings/tips" %>
+            <% if !@wedding_guests_messages.empty? %>
+              <%= render 'weddings/messages' %>
+              <section class="buffer-wed"></section>
+            <% end %>
+            <%= render 'weddings/final_message' %>
+            <section class="buffer-wed"></section>
+            </div>
         </div>
       </div>
-
-      <button class="carousel-control-prev" data-bs-target="#carouselProduct" type="button"  data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-
-      <button class="carousel-control-next" data-bs-target="#carouselProduct" type="button"  data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
     </div>
-  </div>
-  <section class="buffer-cds mt-4"></section>
-  <div>
-    <%= render 'shared/cardh' %>
-  </div>
+  <%= render 'weddings/footer' %>
   <section class="buffer-wed"></section>
-  <div>
-    <%= render 'weddings/reviews' %>
-  </div>
-  <section class="buffer-cds"></section>
-  <a href="#navbar" class="scroll-to-top d-flex justify-content-center align-items-center">
-    <i class="fa-solid fa-angle-up"></i>
-  </a>
-</div>
+</section>

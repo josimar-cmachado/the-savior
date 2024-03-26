@@ -17,5 +17,5 @@ Rails.application.routes.draw do
   get ":wedding_id/:couple", to: "weddings#show", as: :wedding_info
   get ":wedding_id/:couple/presentes", to: "gifts#index", as: :presentes
   get ":wedding_id/:couple/presentes/:gift_id/comprar", to: "orders#new", as: :buy_gift
-  get "users/:id/profile", to: "users#show", as: :user_profile
+  get "users/:id/dashboard", to: "users#show", as: :user_profile
 end
