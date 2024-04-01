@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   root to: "pages#home"
   get "up" => "rails/health#show", as: :rails_health_check
   resources :weddings, except: :show do
-    resources :reviews, only: %i[new create]
     resources :guests, only: %i[new create edit update destroy]
     member do
       delete "delete_all_guests", to: "guests#delete_all"
@@ -14,8 +13,7 @@ Rails.application.routes.draw do
     delete "delete_all_gifts", to: "gifts#delete_all"
     resources :tips, only: %i[new create edit update destroy]
   end
-  get ":wedding_id/:couple", to: "weddings#show", as: :wedding_info
-  get ":wedding_id/:couple/presentes", to: "gifts#index", as: :presentes
-  get ":wedding_id/:couple/presentes/:gift_id/comprar", to: "orders#new", as: :buy_gift
+  get "presentes", to: "gifts#index", as: :presentes
+  get "presentes/:gift_id/comprar", to: "orders#new", as: :buy_gift
   get "users/:id/dashboard", to: "users#show", as: :user_profile
 end

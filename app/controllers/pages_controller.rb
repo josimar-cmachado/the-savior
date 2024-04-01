@@ -4,8 +4,8 @@ class PagesController < ApplicationController
   def home
     @my = Wedding.last
     @wedding = Wedding.find(@my.id)
-    @gifts = @wedding.gifts
     @guests = Guest.where(wedding: @wedding)
+    @gifts = Gift.where(wedding: @wedding)
     @user_wedding = Wedding.where(user: @wedding.user_id).to_a
     @user_wedding_tips = Tip.where(wedding: @user_wedding)
     @wedding_guests_messages = Guest.where(wedding: @wedding).select { |guest| guest.confirmation_message.present? }

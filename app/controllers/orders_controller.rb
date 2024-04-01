@@ -11,11 +11,10 @@ class OrdersController < ApplicationController
     @order = Order.new(order_params)
     @gift = Gift.find(params[:gift_id])
     @order.gift = @gift
-    @user_wedding = Wedding.where(user: @wedding.user_id).to_a
-    @couple = "#{@wedding.user.first_name}&#{@user_wedding.first.partner_first_name}"
+    @couple = "#{@wedding.user.first_name}&#{@wedding.partner_first_name}"
     if @order.save
       flash[:notice] = "Obrigado(a) pela sua contribuição!"
-      redirect_to wedding_info_path(@user_wedding, @couple)
+      redirect_to root_path
     else
       flash[:alert] = "A compra não foi realizada! Tente novamente."
       render :new
@@ -25,7 +24,8 @@ class OrdersController < ApplicationController
   private
 
   def set_wedding
-    @wedding = Wedding.find(params[:wedding_id])
+    @my = Wedding.last
+    @wedding = Wedding.find(@my.id)
   end
 
   def order_params

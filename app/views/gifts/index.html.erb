@@ -3,7 +3,7 @@
   <section class="test-red-bg"></section>
   <div class="container">
     <div class="short-by mt-4" style= "width:17em">
-      <form action="<%= presentes_path(@wedding, @couple) %>" method="get">
+      <form action="<%= presentes_path %>" method="get">
           <select name="sort_by" aria-label="select" style= "width:8.5em">
             <option value="value_asc">Menor Preço</option>
             <option value="value_desc">Maior Preço</option>
@@ -19,9 +19,10 @@
       <% @gifts.each do |gift|  %>
         <div class="col-3">
           <% if gift.photo.present? %>
-            <%= cl_image_tag(gift.photo.key, class: "card_order-img-top", alt: "Image", style: "width: 100%; height: 300px; border-top-left-radius: 8px; border-top-right-radius: 8px") %>
+            <% cl_image_tag(gift.photo.key, class: "card_order-img-top", alt: "Image", style: "width: 100%; height: 300px; border-top-left-radius: 8px; border-top-right-radius: 8px") %>
           <% else %>
-            <%= image_tag('wedding/pexels-asad-photo-maldives-1024960.jpg', class: "card_order-img-top", style: "width: 100%; height: 300px; border-top-left-radius: 8px; border-top-right-radius: 8px") %>
+            <p>no photo</p>
+            <%# image_tag('wedding/pexels-asad-photo-maldives-1024960.jpg', class: "card_order-img-top", style: "width: 100%; height: 300px; border-top-left-radius: 8px; border-top-right-radius: 8px") %>
           <% end %>
           <div class="card_order">
             <div class="card_order-body d-flex flex-column justify-content-between">
@@ -32,7 +33,7 @@
                   <p> <%=number_to_currency(gift.value, :unit => "R$ ", :separator => ",", :delimiter => ".")%> </p>
                 </div>
               </div>
-              <%= link_to "Comprar", buy_gift_path(@wedding.id, @couple, gift.id), class: "btn bnt-wed-conf" %>
+              <%= link_to "Comprar", buy_gift_path(gift.id), class: "btn bnt-wed-conf" %>
             </div>
           </div>
         </div>

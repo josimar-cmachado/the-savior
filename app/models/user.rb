@@ -6,7 +6,6 @@ class User < ApplicationRecord
   validates :phone, uniqueness: true, length: { minimum: 10, maximum: 15 }
   has_one_attached :photo
   has_one :wedding, dependent: :destroy
-  has_one :review, dependent: :destroy
 
   def full_name
     "#{first_name} #{last_name}"

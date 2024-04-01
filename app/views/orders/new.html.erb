@@ -18,7 +18,8 @@
               <% if @gift.photo.present? %>
                 <%= cl_image_tag(@gift.photo.key, class: "card_order-img-top me-2 border border-3 border-info shadow-sm", alt: "Image", style: "width: 12vw; height: 100%; border-radius: 8px;") %>
               <% else %>
-                <%= image_tag('wedding/pexels-asad-photo-maldives-1024960.jpg', class: "card_order-img-top me-2 border border-3 border-info shadow-sm", style: "width: 12vw; height: 100%; border-radius: 8px") %>
+                <p>no photo</p>
+                <%# image_tag('wedding/pexels-asad-photo-maldives-1024960.jpg', class: "card_order-img-top me-2 border border-3 border-info shadow-sm", style: "width: 12vw; height: 100%; border-radius: 8px") %>
               <% end %>
               <div class="d-flex flex-column justify-content-between ms-2">
                 <div class= "mt-2">

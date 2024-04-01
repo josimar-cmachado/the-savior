@@ -1,9 +1,9 @@
 <ul id="anchors-nav-wed" class="nav justify-content-center align-items-center nav-wed-size gap-2 anchors-nav-wed-scrollspy">
   <li class="nav-item">
-    <%= link_to "Confirme sua presença", wedding_info_path(), class: "nav-link" %>
+    <%= link_to "Confirme sua presença", '/', class: "nav-link" %>
   </li>
   <li class="nav-item">
-    <%= link_to "Recepção", wedding_info_path(), class: "nav-link" %>
+    <%= link_to "Recepção", '/', class: "nav-link" %>
   </li>
   <% if !@gifts.empty? %>
     <li class="nav-item">
@@ -12,12 +12,12 @@
   <% end %>
   <% if !@wedding_guests_messages.empty? %>
     <li class="nav-item">
-      <%= link_to "Mensagens", wedding_info_path(), class: "nav-link" %>
+      <%= link_to "Mensagens", '/', class: "nav-link" %>
     </li>
   <% end %>
   <% if !@user_wedding_tips.empty? %>
     <li class="nav-item">
-      <%= link_to "Dicas", wedding_info_path(), class: "nav-link" %>
+      <%= link_to "Dicas", '/', class: "nav-link" %>
     </li>
   <% end %>
 </ul>

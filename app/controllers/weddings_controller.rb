@@ -3,8 +3,9 @@ class WeddingsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show]
 
   def show
-    @wedding = Wedding.find(params[:wedding_id])
-    @gifts = @wedding.gifts
+    @my = Wedding.last
+    @wedding = Wedding.find(@my.id)
+    @gifts = Gift.where(wedding: @wedding)
     @guests = Guest.where(wedding: @wedding)
     @user_wedding = Wedding.where(user: @wedding.user_id).to_a
     @user_wedding_tips = Tip.where(wedding: @user_wedding)
