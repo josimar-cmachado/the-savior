@@ -47,20 +47,12 @@
   <div class="scroll-card-wed w-100 h-100 bg-white rounded-bottom-4 p-4 d-none" data-toggle-target="togglableElement" data-toggle-element="amor">
     <% if @user_wedding %>
       <div class="border shadow-sm rounded-4 mx-1 mb-2 h-25 d-flex align-items-center">
-      <i class="fa-solid fa-person fa-lg m-0 p-0 mx-3" style="color: #6f6fab;"></i>
-      <p class="m-0 p-0 userw-title-text"><strong>Nome:</strong> <%= @user_wedding&.partner_first_name.capitalize %> </p>
+        <i class="fa-solid fa-person fa-lg m-0 p-0 mx-3" style="color: #6f6fab;"></i>
+        <p class="m-0 p-0 userw-title-text"><strong>Nome:</strong> <%= @user_wedding&.partner_first_name.capitalize %> </p>
       </div>
       <div class="border shadow-sm rounded-4 mx-1 mb-2 h-25 d-flex align-items-center">
-      <i class="fa-solid fa-person fa-lg m-0 p-0 mx-3" style="color: #6f6fab;"></i>
-      <p class="m-0 p-0 userw-title-text"><strong>Sobrenome: </strong> <%= @user_wedding&.partner_last_name.capitalize %> <p>
-      </div>
-      <div class="border shadow-sm rounded-4 mx-1 mb-2 h-25 d-flex align-items-center">
-      <i class="fa-solid fa-at m-0 p-0 mx-3" style="color: #6f6fab;"></i>
-      <p class="m-0 p-0 userw-title-text"><strong>E-mail: </strong> <%= @user_wedding&.partner_email %></p>
-      </div>
-      <div class="border shadow-sm rounded-4 mx-1 mb-2 h-25 d-flex align-items-center">
-      <i class="fa-solid fa-phone m-0 p-0 mx-3" style="color: #6f6fab;"></i>
-      <p class="m-0 p-0 userw-title-text"><strong>Telefone: </strong> <%= number_to_phone(@user_wedding&.partner_phone, pattern: /\A(\d{2})(\d{5})(\d{4})\z/, area_code: true) %> </p>
+        <i class="fa-solid fa-person fa-lg m-0 p-0 mx-3" style="color: #6f6fab;"></i>
+        <p class="m-0 p-0 userw-title-text"><strong>Sobrenome: </strong> <%= @user_wedding&.partner_last_name.capitalize %> <p>
       </div>
       <div class="mt-4 mx-1 w-50">
         <%= link_to "Editar", edit_wedding_path(@user_wedding), class: "btn btn-outline-warning rounded-3 shadow-sm w-25" %>

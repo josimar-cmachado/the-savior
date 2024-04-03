@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_16_174858) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_02_021120) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -47,15 +47,14 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_16_174858) do
     t.string "category"
     t.integer "value"
     t.integer "total_quota"
+    t.bigint "wedding_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "wedding_id", null: false
     t.index ["wedding_id"], name: "index_gifts_on_wedding_id"
   end
 
   create_table "guests", force: :cascade do |t|
     t.string "full_name"
-    t.string "email"
     t.boolean "confirmed"
     t.string "phone"
     t.bigint "wedding_id", null: false
@@ -72,17 +71,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_16_174858) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["gift_id"], name: "index_orders_on_gift_id"
-  end
-
-  create_table "reviews", force: :cascade do |t|
-    t.text "content"
-    t.integer "rating"
-    t.bigint "user_id", null: false
-    t.bigint "wedding_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_reviews_on_user_id"
-    t.index ["wedding_id"], name: "index_reviews_on_wedding_id"
   end
 
   create_table "tips", force: :cascade do |t|
@@ -118,9 +106,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_16_174858) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "partner_email"
-    t.string "partner_profile"
-    t.string "partner_phone"
     t.string "partner_first_name"
     t.string "partner_last_name"
     t.float "latitude"
@@ -135,8 +120,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_16_174858) do
   add_foreign_key "gifts", "weddings"
   add_foreign_key "guests", "weddings"
   add_foreign_key "orders", "gifts"
-  add_foreign_key "reviews", "users"
-  add_foreign_key "reviews", "weddings"
   add_foreign_key "tips", "weddings"
   add_foreign_key "weddings", "users"
 end

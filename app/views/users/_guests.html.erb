@@ -86,7 +86,6 @@
           <span>
             <p class="m-0 mt-2 ps-1 userw-title-text-s">Nome: <%= guest.full_name %></p>
             <p class="m-0 ps-1 userw-title-text-s">Telefone: <%= number_to_phone(guest.phone, pattern: /\A(\d{2})(\d{5})(\d{4})\z/, area_code: true) %> </p>
-            <p class="m-0 ps-1 userw-title-text-s">E-mail: <%= guest.email %></p>
             <% if guest.confirmed == true %>
               <p class="m-0 ps-1 userw-title-text-s">Status: Confirmado</p>
             <% elsif guest.confirmed == nil %>

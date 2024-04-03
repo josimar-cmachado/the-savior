@@ -4,7 +4,6 @@
     <% f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
     <%= f.input :full_name, :label => 'Nome completo' %>
-    <%= f.input :email, :label => 'E-mail' %>
     <%= f.input :phone, placeholder: "(XX) XXXXX-XXXX", input_html: { id: "phoneNumberGuest", maxlength: "11" } %>
   </div>
 

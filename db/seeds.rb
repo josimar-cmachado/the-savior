@@ -31,11 +31,8 @@ wedding = Wedding.new(
   wedding_info: "A cerimônia será realizada na Igreja Nossa Senhora da Paz, no Leblon, às 16h. Pedimos que todos cheguem no horário e os padrinhos e madrinhas, com uma hora de atecedência, por favor. Logo após a cerimônia, os convidados podem seguir para o local da festa, que será no Copacabana Palace, às 19h30.",
   user_id: user.id,
   time: "Sat, 16 Nov 2024 16:00:00.000000000 UTC +00:00",
-  partner_email: "cecilia@gmail.com",
-  partner_profile: "Noiva",
   partner_first_name: "Cecilia",
-  partner_last_name: "Moreira",
-  partner_phone: "21999999988"
+  partner_last_name: "Moreira"
 )
 wedding.couple_photo.attach(io: couple_photo, filename: "", content_type: "image/png")
 wedding.save!

@@ -18,9 +18,6 @@
                 :placeholder => 'Ex: Horário da cerimônia, vestimenta, etc' %>
     <%= f.input :partner_first_name, :label => 'Primeiro nome do parceiro(a)' %>
     <%= f.input :partner_last_name, :label => 'Último nome do parceiro(a)' %>
-    <%= f.input :partner_profile, :label => 'Noivo ou noiva?', collection: ['Noivo', 'Noiva'] %>
-    <%= f.input :partner_email, :label => 'Email do parceiro(a)' %>
-    <%= f.input :partner_phone, :label => 'Telefone do parceiro(a)', input_html: { maxlength: "11" } %>
     <%= f.input :couple_photo, as: :file, :label => 'Foto do casal' %>
     <%# f.input :partner_one_photo, as: :file, :label => 'Sua foto' %>
     <%# f.input :partner_two_photo, as: :file, :label => 'Foto do parceiro(a)' %>

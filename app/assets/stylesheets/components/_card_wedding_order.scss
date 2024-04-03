@@ -1,4 +1,4 @@
-.card_order {
+.card-wedding-order {
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -11,22 +11,22 @@
   margin-bottom: 1.5em;
 }
 
-.card_order img {
+.card-wedding-order img {
   background-image: url(img_balao.jpg);
   border-radius: 5px;
   background-size: cover;
   background-position: center;
 }
 
-.card-order-info {
+.card-wedding-order-info {
   min-height: 100px;
 }
 
-.card_order:hover {
+.card-wedding-order:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
-.card_order-title {
+.card-wedding-order-title {
   margin-top: 5px;
   color: #333;
   font-size: 20px;
@@ -34,7 +34,7 @@
   font-style: italic;
 }
 
-.card_order-description {
+.card-wedding-order-description {
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-between;

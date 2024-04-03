@@ -3,11 +3,3 @@ import "@hotwired/turbo-rails"
 import "controllers"
 import "@popperjs/core"
 import "bootstrap"
-
-
-document.addEventListener('DOMContentLoaded', function () {
-  var myCarousel = document.querySelector('#carouselExampleIndicators')
-  var carousel = new bootstrap.Carousel(myCarousel)
-});
-
-
