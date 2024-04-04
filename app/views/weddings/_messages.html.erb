@@ -3,7 +3,7 @@
 </span>
 <div class="messages-width d-flex flex-wrap justify-content-center border border-1 shadow p-5 h-50" style="gap= .8%">
   <% @wedding_guests_messages.each do |guest| %>
-    <div class="d-flex flex-column justify-content-between messages-height border-mes-wed p-2 text-center m-1" style="width: 32.8%">
+    <div class="d-flex flex-column justify-content-between messages-height border-mes-wed p-2 text-center m-1 wedding-user-card-size">
       <span>
         <p class="fst-italic m-0 userw-title-text-s"><%= guest.confirmation_message.capitalize %></p>
       </span>
