@@ -1,11 +1,12 @@
 <div class="h-100 d-flex flex-column align-items-center">
+  <!-- Wedding created and details -->
   <% if @user_wedding %>
     <div class="mt-2">
       <h4 class="userw-title-text">Parabéns, seu casamento foi criado com sucesso! <i class="fa-solid fa-heart" style="color: #ff0026;"></i></h4>
     </div>
     <div class="d-flex flex-column align-items-center w-75">
       <p class="userw-title-text">Compartilhe com seus convidados!</p>
-      <%= render 'copy_link' %>
+      <%= render 'users/wedding_data/copy_link' %>
     </div>
     <hr>
     <section class="d-flex w-75 justify-content-between">
@@ -52,7 +53,9 @@
         <p class="p-0 userw-title-text-s">Presentes Recebidos: <%= @orders.count %></p>
       </div>
     </section>
+    
   <% else %>
+    <!-- No wedding created yet -->
     <div class="d-flex flex-column justify-content-center align-items-center w-75 userw-text-margin">
       <h3 class="userw-text-just userw-title-text mb-5">Ops, parece que o seu casamento ainda não foi criado!</h3>
       <p class="userw-title-text-s userw-text-just-s mb-5 mt-1"> Não se preocupe, é muito fácil. Você só precisa <span class="text-white px-1 user-comp-info-progress">clicar no botão abaixo</span> e preencher as informações! Vamos lá?</p>

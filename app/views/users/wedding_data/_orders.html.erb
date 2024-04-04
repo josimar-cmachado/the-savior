@@ -1,3 +1,4 @@
+<!-- No wedding created yet -->
 <% if @user_wedding.nil? %>
   <section class="h-100 d-flex flex-column align-items-center">
     <div class="d-flex flex-column justify-content-center align-items-center userw-text-margin w-75">
@@ -6,6 +7,8 @@
       <h3 class="userw-text-just userw-title-text mb-4">Nos vemos em breve!</h3>
     </div>
   </section>
+
+<!-- No orders yet -->
 <% elsif @orders.empty? %>
   <section class="h-100 d-flex flex-column align-items-center">
     <div class="d-flex flex-column justify-content-center align-items-center w-75 userw-text-margin">
@@ -13,6 +16,8 @@
       <p class="userw-title-text-s userw-text-just-s mb-5">Já já vai aparecer um presente por aqui!</p>
     </div>
   </section>
+
+<!-- Orders received and summary -->
 <% else %>
   <div class="d-flex flex-column align-items-center ">
     <h4 class="m-0 pb-2 userw-title-text">Quantidade de presentes recebidos: <%= @orders&.count %></h4>

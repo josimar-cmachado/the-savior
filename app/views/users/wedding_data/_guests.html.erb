@@ -1,4 +1,5 @@
 <% if @wedding_guests.empty? && @user_wedding %>
+
   <!-- Call-to-action to create the guest list -->
   <section class="h-100 d-flex flex-column align-items-center">
     <div class="d-flex flex-column justify-content-center align-items-center w-75 userw-text-margin">
@@ -7,7 +8,9 @@
       <%= link_to "Adicionar lista de convidados", new_wedding_guest_path(@user_wedding), class: "btn btn-outline-dark shadow-sm" %>
     </div>
   </section>
+
 <% elsif @user_wedding.nil? %>
+
   <!-- No wedding created yet -->
   <section class="h-100 d-flex flex-column align-items-center">
     <div class="d-flex flex-column justify-content-center align-items-center userw-text-margin w-75">
@@ -16,11 +19,13 @@
       <h3 class="userw-text-just userw-title-text mb-4">Nos vemos em breve!</h3>
     </div>
   </section>
+
 <% else %>
+
   <!-- Wedding guests list already created -->
   <div class="d-flex justify-content-center">
-    <!-- Wedding guests summary-->
-    <h4 class="m-0 pb-4 userw-title-text">Quantidade de convidados cadastrados: <%= @wedding_guests&.count %><h4>
+  <!-- Wedding guests summary-->
+    <h4 class="m-0 pb-4 userw-title-text">Quantidade de convidados cadastrados: <%= @wedding_guests&.count %></h4>
     <span class="d-flex align-items-center ms-5">
       <%= link_to new_wedding_guest_path(@user_wedding) do %>
         <div><i class="fa-solid fa-plus me-2 text-success"></i></div>
@@ -30,14 +35,16 @@
       <% end %>
     </span>
   </div>
-    <div class="progress mb-4 border-card-wed-user">
-      <!-- Guests confirmation progress bar -->
-      <% if @grouped_wedding_guests.include?(true) && @grouped_wedding_guests[true]&.count > 0 %>
-        <div class="progress-bar user-comp-info-progress" role="progressbar" aria-label="Example with label" style="width: <%= @percentage %>%;" aria-valuenow="<%= @percentage %>" aria-valuemin="0" aria-valuemax="100"><%= @percentage %>%</div>
-      <% else %>
-          <div class="progress-bar user-comp-info-progress" role="progressbar" aria-label="Example with label" style="width: 100%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
-      <% end %>
-    </div>
+
+  <!-- Guests confirmation progress bar -->
+  <div class="progress mb-4 border-card-wed-user">
+    <% if @grouped_wedding_guests.include?(true) && @grouped_wedding_guests[true]&.count > 0 %>
+      <div class="progress-bar user-comp-info-progress" role="progressbar" aria-label="Example with label" style="width: <%= @percentage %>%;" aria-valuenow="<%= @percentage %>" aria-valuemin="0" aria-valuemax="100"><%= @percentage %>%</div>
+    <% else %>
+        <div class="progress-bar user-comp-info-progress" role="progressbar" aria-label="Example with label" style="width: 100%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+    <% end %>
+  </div>
+  
   <!-- Wedding guests -->
   <section class="d-flex flex-wrap justify-content-between">
     <!-- Confirmed guests -->
