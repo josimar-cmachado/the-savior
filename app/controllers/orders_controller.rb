@@ -13,6 +13,8 @@ class OrdersController < ApplicationController
     @order.gift = @gift
     @couple = "#{@wedding.user.first_name}&#{@wedding.partner_first_name}"
     if @order.save
+      @quotes = @gift.total_quota - 1
+      @gift.update!(total_quota: @quotes)
       flash[:notice] = "Obrigado(a) pela sua contribuição!"
       redirect_to root_path
     else

@@ -45,7 +45,7 @@
           <p class="userw-title-text-s">Insatisfeito? Remova o seu casamento e crie um novo!</p>
         </div>
       </div>
-      <span class="vertical-hr-wed"></span>
+      <span id="vertical-hr-wed"></span>
       <div class="ms-4">
         <h5 class="p-0 mb-3 userw-title-text">Panorama Geral:</h5>
         <p class="p-0 userw-title-text-s">Convidados: <%= @wedding_guests.count %></p>
@@ -53,7 +53,7 @@
         <p class="p-0 userw-title-text-s">Presentes Recebidos: <%= @orders.count %></p>
       </div>
     </section>
-    
+
   <% else %>
     <!-- No wedding created yet -->
     <div class="d-flex flex-column justify-content-center align-items-center w-75 userw-text-margin">

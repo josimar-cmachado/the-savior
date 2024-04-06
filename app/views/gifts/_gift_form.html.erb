@@ -5,7 +5,7 @@
     [:base].present? %>
 
     <%= f.input :title, :label => 'Titulo'%>
-    <%= f.input :category, :label => 'Categoria' %>
+    <%= f.input :category, :label => 'Categoria', collection: ['Casa', 'Jantar', 'Outros', 'Passeio', 'Viagem'] %>
     <%= f.input :value, :label => 'Valor' %>
     <%= f.input :total_quota, :label => 'Cotas' %>
     <%= f.input :photo, as: :file, :label => 'Foto do presente' %>

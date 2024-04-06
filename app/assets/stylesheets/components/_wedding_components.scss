@@ -1,5 +1,5 @@
 // Navbar
-.nav-wed-size {
+.nav-wed {
   position: sticky;
   top: 0;
   z-index: 100;
@@ -8,7 +8,7 @@
   transition: top 0.5s;
 }
 
-.nav-wed-size a {
+.nav-wed a {
   color: #393534;
   font-weight: bold;
   float: left;
@@ -17,7 +17,7 @@
   transition: 0.4s;
 }
 
-.nav-wed-size a:hover {
+.nav-wed a:hover {
   background-color: #efddc993;
   color: #393534;
   border-radius: 5px;
@@ -43,10 +43,6 @@
   height: 20vh;
   width: 22em;
   word-break: break-all;
-}
-
-#copy-button {
-  width: 100%;
 }
 
 .info-user-size {
@@ -133,7 +129,7 @@
   font-size: 1.15em;
 }
 
-.wed-welcome-message-sizing {
+#wed-welcome-message-sizing {
   text-align: justify !important;
   white-space: pre-line;
   padding: 2vh;
@@ -159,13 +155,13 @@
 }
 
 // Footer
-.wed-footer-message {
+#wed-footer-message {
   padding: 2vh;
   letter-spacing: 3px;
 }
 
 // Banner
-.wedding-section-banner {
+#wedding-section-banner {
   height: 100vh;
   width: 99vw;
   background-image: url('wedding/pexels-evie-shaffer-2395249');
@@ -235,7 +231,7 @@
   text-decoration: none !important;
 }
 
-.vertical-hr-wed {
+#vertical-hr-wed {
   border: none;
   border-left: 1px solid hsla(200, 10%, 50%, 100);
   height: 100%;
@@ -243,7 +239,7 @@
   border-color: #6f6fab;
 }
 
-.horizontal-hr-wed {
+#horizontal-hr-wed {
   border-bottom: 1px solid hsla(200, 10%, 50%, 100);
   width: 100%;
   height: 2px;

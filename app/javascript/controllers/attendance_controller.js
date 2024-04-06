@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
-  static targets = ["formGuestElement", "guestForm", "guestEmail", "guestPhone", "errorMessages", "guestEmailError", "guestPhoneError", "successMessages", "confirmationMessages", "confirmationMessage", "divSubmit", "input"];
+  static targets = ["formGuestElement", "guestForm", "guestPhone", "errorMessages", "guestPhoneError", "successMessages", "confirmationMessages", "confirmationMessage", "divSubmit", "input"];
   static values = { guests: String };
 
   connect() {
@@ -93,7 +93,6 @@ export default class extends Controller {
   }
 
   async submitAttendance() {
-    const email = this.guestEmailTarget.value;
     const phone = this.guestPhoneTarget.value;
     const selectedValue = this.element.querySelector('input[name="attendance"]:checked').value;
 
@@ -101,8 +100,8 @@ export default class extends Controller {
     const message = this.confirmationMessageTarget.value;
 
     // Verifica se o email e o telefone digitados correspondem aos do convidado encontrado
-    if (email !== this.foundGuest.email || phone !== this.foundGuest.phone) {
-      this.showError('Email ou telefone incorretos');
+    if ( phone !== this.foundGuest.phone) {
+      this.showError('Telefone incorreto');
       return;
     }
 
