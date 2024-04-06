@@ -5,17 +5,17 @@
   <li class="nav-item text-decoration-none">
     <a class="nav-link text-decoration-none" href="#recepcao">Recepção</a>
   </li>
-  <% if !@gifts.empty? %>
+  <% if !@gifts.empty? && !@gifts.nil?%>
     <li class="nav-item text-decoration-none">
       <%= link_to "Lista de presentes", presentes_path(), class: "nav-link text-decoration-none" %>
     </li>
   <% end %>
-  <% if !@wedding_guests_messages.empty? %>
+  <% if !@wedding_guests_messages.nil? && !@wedding_guests_messages.empty? %>
     <li class="nav-item text-decoration-none">
       <a class="nav-link text-decoration-none" href="#mensagens">Mensagens</a>
     </li>
   <% end %>
-  <% if !@user_wedding_tips.empty? %>
+  <% if !@user_wedding_tips.nil? && !@user_wedding_tips.empty? %>
     <li class="nav-item text-decoration-none">
       <a class="nav-link text-decoration-none" href="#dicas">Dicas</a>
     </li>

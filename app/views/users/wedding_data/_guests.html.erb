@@ -23,9 +23,9 @@
 <% else %>
 
   <!-- Wedding guests list already created -->
-  <div class="d-flex justify-content-center">
+  <div class="d-flex align-items-center justify-content-center pb-4 ">
   <!-- Wedding guests summary-->
-    <h4 class="m-0 pb-4 userw-title-text">Quantidade de convidados cadastrados: <%= @wedding_guests&.count %></h4>
+    <h4 class="m-0 userw-title-text">Quantidade de convidados cadastrados: <%= @wedding_guests&.count %></h4>
     <span class="d-flex align-items-center ms-5">
       <%= link_to new_wedding_guest_path(@user_wedding) do %>
         <div><i class="fa-solid fa-plus me-2 text-success"></i></div>
@@ -44,7 +44,7 @@
         <div class="progress-bar user-comp-info-progress" role="progressbar" aria-label="Example with label" style="width: 100%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
     <% end %>
   </div>
-  
+
   <!-- Wedding guests -->
   <section class="d-flex flex-wrap justify-content-between">
     <!-- Confirmed guests -->

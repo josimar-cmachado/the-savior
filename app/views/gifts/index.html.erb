@@ -2,6 +2,7 @@
   <%= render "navbar"%>
   <section class="test-red-bg"></section>
   <div class="container">
+    <!-- Gifts filter -->
     <div class="sort-by mt-4" style= "width:17em">
       <form action="<%= presentes_path %>" method="get">
           <select name="sort_by" aria-label="select" style= "width:8.5em">
@@ -14,30 +15,25 @@
           <input type="submit" value="Ordernar" class="bnt-gift" >
         </form>
     </div>
-
+    <!-- Gifts -->
     <div class="row">
       <% @gifts.each do |gift|  %>
         <div class="col-3">
-          <% if gift.photo.present? %>
-            <% cl_image_tag(gift.photo.key, class: "card-wedding-order-img-top", alt: "Image", style: "width: 100%; height: 300px; border-top-left-radius: 8px; border-top-right-radius: 8px") %>
-          <% else %>
-            <p>no photo</p>
-            <%# image_tag('wedding/pexels-asad-photo-maldives-1024960.jpg', class: "card-wedding-order-img-top", style: "width: 100%; height: 300px; border-top-left-radius: 8px; border-top-right-radius: 8px") %>
-          <% end %>
-          <div class="card-wedding-order">
-            <div class="card-wedding-order-body d-flex flex-column justify-content-between">
-              <div class="card-wedding-order-info d-flex flex-column justify-content-between">
-                <h5 class="card-wedding-order-title m-0"><%= gift.title %></h5>
-                <div class="card-wedding-order-description">
-                  <p> <%=gift.category%> </p>
-                  <p> <%=number_to_currency(gift.value, :unit => "R$ ", :separator => ",", :delimiter => ".")%> </p>
+          <div class="card-wedding-gift-body">
+            <%= cl_image_tag(gift.photo.key, alt: "Image", :gravity=>"center", :crop=>"fill") %>
+            <div class="card-wedding-gift-details">
+              <div class="card-wedding-gift-info">
+                <h5 class="card-wedding-gift-title"> <%= gift.title %> </h5>
+                <div class="card-wedding-gift-description">
+                  <p> <%= number_to_currency(gift.value, :unit => "R$", :separator => ",", :delimiter => ".") %> </p>
+                  <p> <%= gift.category %> </p>
                 </div>
               </div>
               <%= link_to "Comprar", buy_gift_path(gift.id), class: "btn bnt-wed-conf" %>
             </div>
           </div>
         </div>
-      <%end%>
+      <% end %>
     </div>
   </div>
   <%= render "footer"%>

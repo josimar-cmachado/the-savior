@@ -7,4 +7,5 @@ class Gift < ApplicationRecord
   validates :title, presence: true, uniqueness: true
   validates :category, presence: true
   validates :value, presence: true
+  validates :photo, presence: true
 end

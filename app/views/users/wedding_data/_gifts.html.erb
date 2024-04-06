@@ -23,9 +23,9 @@
 <% else %>
 
   <!-- Wedding gifts list already created -->
-  <div class="d-flex justify-content-center">
+  <div class="d-flex justify-content-center pb-4">
     <!-- Wedding gifts summary-->
-    <h4 class="m-0 pb-4 userw-title-text">Quantidade de presentes cadastrados: <%= @wedding_gifts.count %></h4>
+    <h4 class="m-0 userw-title-text">Quantidade de presentes cadastrados: <%= @wedding_gifts.count %></h4>
     <span class="d-flex align-items-center ms-5">
       <%= link_to new_wedding_gift_path(@user_wedding) do %>
         <div><i class="fa-solid fa-plus text-success me-2"></i></div>
@@ -59,5 +59,5 @@
     </div>
     <% end %>
   </section>
-  
+
 <% end %>
