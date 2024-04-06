@@ -2,16 +2,17 @@
   background-color: #FAFAFA;
 }
 
-.testbwed-red {
+.bwed-grey {
   margin: 0;
   padding: 0;
   flex: 1;
   z-index: 5;
   position: relative;
   color: #000;
+  height: 100%;
 }
 
-.testbwed-red .test-red-bg {
+.bwed-grey-img {
   position: absolute;
   z-index: -1;
   top: 0;
@@ -27,7 +28,7 @@
   height: 100%;
 }
 
-.test-blur-wed {
+.blur-wed {
   backdrop-filter: blur(1.5px);
 }
 

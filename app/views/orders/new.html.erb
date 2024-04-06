@@ -1,43 +1,32 @@
-<section class="testbwed-red">
-  <section class="test-red-bg"></section>
-  <div class="container-presente">
-    <div class="row">
-      <div class="d-flex justify-content-center align-items-center">
-        <div class="card-presente m-0">
-          <div class=" d-flex justify-content-between">
-            <div class="d-flex flex-column justify-content-end pt-3">
-              <h4 class="m-0 p-0 userw-title-text">Carrinho</h4>
-            </div>
-            <div class="d-flex flex-column justify-content-end pt-3">
-              <p class="m-0">Valor</p>
-            </div>
+<section class="bwed-grey">
+  <section class="bwed-grey-img"></section>
+    <div class="bg-order-size order-spacing">
+      <div class="card-order m-0">
+        <div class="d-flex justify-content-between">
+          <div class="d-flex flex-column justify-content-end pt-3">
+            <h4 class="order-spacing userw-title-text">Carrinho</h4>
           </div>
-          <div>
-            <hr class="my-3" style="box-shadow: 0px .5px .9px .1px black;">
-            <div class="d-flex">
-              <% if @gift.photo.present? %>
-                <%= cl_image_tag(@gift.photo.key, class: "card-wedding-order-img-top me-2 border border-3 border-info shadow-sm", alt: "Image", style: "width: 12vw; height: 100%; border-radius: 8px;") %>
-              <% else %>
-                <p>no photo</p>
-                <%# image_tag('wedding/pexels-asad-photo-maldives-1024960.jpg', class: "card-wedding-order-img-top me-2 border border-3 border-info shadow-sm", style: "width: 12vw; height: 100%; border-radius: 8px") %>
-              <% end %>
-              <div class="d-flex flex-column justify-content-between ms-2">
-                <div class= "mt-2">
-                  <h5 class="card_presente-title m-0 p-0 userw-title-text"><%= @gift.title %></h5>
-                  <p class="userw-title-text"><%= @gift.category %></p>
-                </div>
-                <%= link_to "Remover", presentes_path, class: "text-decoration-underline userw-title-text-s m-0 p-0", style: "color: #f7c89b" %>
-              </div>
-              <div class="d-flex flex-grow-1 justify-content-end align-items-center">
-                <p class="userw-title-text-s"> <%= number_to_currency(@gift.value, :unit => "R$ ", :separator => ",", :delimiter => ".") %></p>
-              </div>
-            </div>
-            <hr class="my-3"  style="box-shadow: 0px .5px .9px .1px black;">
-            <h5 class="m-0 mb-2 p-0 userw-title-text">Deixe sua mensagem</h5>
-            <%= render 'order_form'%>
+          <div class="d-flex flex-column justify-content-end pt-3">
+            <p class="m-0">Valor</p>
           </div>
         </div>
+        <hr class="order-hr">
+        <div class="d-flex">
+            <%= cl_image_tag(@gift.photo.key, class: "me-2 border border-3 border-info shadow-sm", :aspect_ratio=>"5:3", :gravity=>"auto", :crop=>"thumb", alt: "Image") %>
+          <div class="d-flex flex-column justify-content-between ms-2">
+            <span>
+              <h5 class="card_presente-title order-spacing userw-title-text"><%= @gift.title %></h5>
+              <p class="userw-title-text"><%= @gift.category %></p>
+            </span>
+            <%= link_to "Remover", presentes_path, class: "text-decoration-underline userw-title-text-s order-spacing", style: "color: #f7c89b" %>
+          </div>
+          <div class="d-flex flex-grow-1 justify-content-end align-items-center">
+            <p class="userw-title-text-s"> <%= number_to_currency(@gift.value, :unit => "R$ ", :separator => ",", :delimiter => ".") %></p>
+          </div>
+        </div>
+        <hr class="order-hr">
+        <h5 class="m-0 mb-2 p-0 userw-title-text">Deixe sua mensagem</h5>
+        <%= render 'order_form'%>
       </div>
     </div>
-  </div>
 </section>

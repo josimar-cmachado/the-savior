@@ -1,14 +1,31 @@
-.container-presente {
+.bg-order-size {
   height: 100vh;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
-.card-presente {
+.card-order {
   background-color: #ffffffd5;
   border-radius: 5px;
   padding: 30px;
   width: 700px;
   margin-top: 10px;
   align-items: center;
+}
+
+.card-order img {
+  width: 12vw;
+  border-radius: 8px;
+}
+
+.order-spacing {
+  padding: 0;
+  margin: 0;
+}
+
+.order-hr {
+  box-shadow: 0px .5px .9px .1px black;
+  margin-top: 16px;
+  margin-bottom: 16px;
 }
