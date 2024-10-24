@@ -11,15 +11,15 @@ Gift.destroy_all
 puts "All records destroyed"
 
 # Create a new user and wedding
-couple_photo = URI.open("https://res.cloudinary.com/dqswoqgtn/image/upload/Gifs_photos/foto_casal.jpg")
+couple_photo = URI.open("https://res.cloudinary.com/dqswoqgtn/image/upload/Gifs_photos/imag_foto_casal_bvhsar.jpg")
 couple_photo2 = URI.open("https://res.cloudinary.com/dqswoqgtn/image/upload/Gifs_photos/imag_foto_casal_bvhsar.jpg")
 couple_photo3 = URI.open("https://res.cloudinary.com/dqswoqgtn/image/upload/Gifs_photos/imag_foto_casal_bvhsar.jpg")
-user_photo = URI.open("https://res.cloudinary.com/dqswoqgtn/image/upload/Gifs_photos/foto_perfil.jpg")
+user_photo = URI.open("https://res.cloudinary.com/dqswoqgtn/image/upload/Gifs_photos/imag_foto_casal_bvhsar.jpg")
 user = User.new(
   email: "luiz@yahoo.com.br",
   password: "123456",
-  first_name: "Luiz",
-  last_name: "Andrade",
+  first_name: "Hilton",
+  last_name: "alves",
   phone: "21999999999"
 )
 user.photo.attach(io: user_photo, filename: "", content_type: "image/png")
@@ -44,14 +44,14 @@ user3.save!
 wedding = Wedding.new(
   welcome_message: "No site vocês encontrarão todas as informações sobre o nosso grande dia. Estamos muito felizes em compartilhar esse momento com vocês. Agradecemos por todo o carinho e apoio que temos recebido. Contamos com a presença de cada um de vocês para celebrar conosco. Beijos, Cecília e Luiz.",
   date: "Sat, 16 Nov 2024",
-  address: "Rua Visconde de Pirajá, 339 - Ipanema, Rio de Janeiro - RJ, 20030-002",
+  address: "Rua Visconde , 339 - Rio de Janeiro - RJ, 20030-002",
   wedding_info: "A cerimônia será realizada na Igreja Nossa Senhora da Paz, no Leblon, às 16h. Pedimos que todos cheguem no horário e os padrinhos e madrinhas, com uma hora de atecedência, por favor. Logo após a cerimônia, os convidados podem seguir para o local da festa, que será no Copacabana Palace, às 19h30.",
   user_id: user.id,
   time: "Sat, 16 Nov 2024 16:00:00.000000000 UTC +00:00",
   partner_email: "cecilia@gmail.com",
   partner_profile: "Noiva",
-  partner_first_name: "Cecilia",
-  partner_last_name: "Moreira",
+  partner_first_name: "Luiza",
+  partner_last_name: "Alves",
   partner_phone: "21999999988"
 )
 wedding.couple_photo.attach(io: couple_photo, filename: "", content_type: "image/png")
